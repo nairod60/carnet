@@ -288,13 +288,27 @@ function render() {
 // ============================================================ SÉANCE
 function seanceDuJour() { return DATA.seances.find(s => s.jourIdx === dow()) || null; }
 function derniere(id) { const h = S.seances[id] || []; return h.length ? h[h.length - 1] : null; }
+// Fourchette de répétitions d'un exercice : "8-10" -> {min 8, max 10}, "12" -> {12, 12}, "max" -> null
+function fourchette(e) { const m = /(\d+)(?:\s*-\s*(\d+))?/.exec(e.reps); return m ? { min: +m[1], max: +(m[2] || m[1]) } : null; }
+// Double progression : haut de la fourchette atteint sur toutes les séries la dernière fois -> +1 kg, reps en bas de la fourchette
+function objectif(e, last, i) {
+  if (!last || e.poidsCorps) return null;
+  const f = fourchette(e); if (!f) return null;
+  const done = (last.sets[i] || []).filter(x => x.done);
+  if (done.length < e.series || !done.every(x => +x.r >= f.max && parseFloat(x.w) > 0)) return null;
+  return { plus: 1, reps: f.min };
+}
 function courant(s) {
   if (!S.courant[s.id]) {
     const last = derniere(s.id);
-    S.courant[s.id] = { date: today(), sets: s.exos.map((e, i) => Array.from({ length: e.series }, (_, k) => {
-      const l = last && last.sets[i] && last.sets[i][k];
-      return { w: l ? l.w : "", r: l ? l.r : "", done: false };
-    })) };
+    S.courant[s.id] = { date: today(), sets: s.exos.map((e, i) => {
+      const o = objectif(e, last, i);
+      return Array.from({ length: e.series }, (_, k) => {
+        const l = last && last.sets[i] && last.sets[i][k];
+        if (o && l && parseFloat(l.w) > 0) return { w: String(Math.round((parseFloat(l.w) + o.plus) * 10) / 10), r: String(o.reps), done: false };
+        return { w: l ? l.w : "", r: l ? l.r : "", done: false };
+      });
+    }) };
   }
   // Le plan a pu changer depuis que la séance a été préparée (mise à jour de l'appli) :
   // on réaligne exercices et nombre de séries, sans toucher aux séries déjà cochées.
@@ -331,7 +345,9 @@ function renderSeance() {
   if (haut) h += `<details class="card"><summary class="card-h"><h3>Échauffement épaule · 5 min</h3></summary><div class="card-b">${DATA.echauffement.map(e => `<div class="rowline"><span>${esc(e.nom)}<br><span class="hist">${esc(e.note)}</span></span><span class="v mono" style="color:var(--blue)">${esc(e.dose)}</span></div>`).join("")}</div></details>`;
   s.exos.forEach((e, i) => {
     const last = derniere(s.id), ls = last && last.sets[i] ? last.sets[i].filter(x => x.done && x.r) : [];
-    const lastTxt = ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais";
+    const o = objectif(e, last, i);
+    const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
+      + (o ? ` · <b style="color:var(--green)">objectif : +${o.plus} kg, ${o.reps} reps</b>` : "");
     h += `<div class="card exo" data-exo="${i}">
       <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible">${e.series} × ${esc(e.reps)}<br>repos ${esc(e.repos)}</div></div>
       <div class="card-b">
