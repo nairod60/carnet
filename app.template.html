@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12150E" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Carnet</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    --ground: #F6F5F0; --surface: #FFFFFF; --surface-alt: #EDEEE6;
+    --ink: #1B2016; --ink-2: #4A5142; --muted: #767C6D;
+    --line: #DFDED3; --line-soft: #EAE9E0;
+    --green: #45682F; --green-tint: #E7EDDD;
+    --blue: #33526E; --blue-tint: #E5EBF1;
+    --clay: #A0512F; --clay-tint: #F3E5DC;
+    --ok: #45682F;
+    --tab-h: 64px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #12150E; --surface: #1A1E14; --surface-alt: #222719;
+      --ink: #EDEFE6; --ink-2: #C0C6B6; --muted: #8E9683;
+      --line: #2E3424; --line-soft: #262B1D;
+      --green: #96BE6C; --green-tint: #232D18;
+      --blue: #8FB0CF; --blue-tint: #1B2530;
+      --clay: #DA9068; --clay-tint: #2E2018;
+      --ok: #96BE6C;
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; background: var(--ground); color: var(--ink); }
+  body {
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px; line-height: 1.45;
+    padding-bottom: calc(var(--tab-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased; overscroll-behavior-y: contain;
+  }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", -apple-system, sans-serif; margin: 0; font-weight: 700; letter-spacing: -.015em; line-height: 1.1; text-wrap: balance; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  input { font: inherit; color: inherit; }
+  [hidden] { display: none !important; }
+
+  .wrap { max-width: 520px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- en-tête ---------- */
+  .top { position: sticky; top: 0; z-index: 5; background: var(--ground); padding: calc(14px + env(safe-area-inset-top)) 0 10px; border-bottom: 1px solid var(--line-soft); }
+  .top .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .top h1 { font-size: 26px; }
+  .top .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; border: 1px solid currentColor; border-radius: 3px; white-space: nowrap; }
+  .chip.green { color: var(--green); } .chip.blue { color: var(--blue); } .chip.clay { color: var(--clay); }
+
+  /* ---------- sélecteurs de jour ---------- */
+  .days { display: flex; gap: 6px; margin: 12px 0 4px; }
+  .days button { flex: 1; min-height: 44px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; }
+  .days button .l { font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600; }
+  .days button .d { font-size: 10px; color: var(--muted); }
+  .days button.on { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  .days button.on .d { color: var(--ground); opacity: .7; }
+  .days button.today:not(.on) { border-color: var(--ink); }
+  .days button.rest .l { color: var(--clay); } .days button.on.rest .l { color: var(--ground); }
+
+  /* ---------- cartes ---------- */
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; margin: 12px 0; overflow: hidden; }
+  .card-h { padding: 12px 14px; border-bottom: 1px solid var(--line-soft); display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .card-h h3 { font-size: 17px; }
+  .card-b { padding: 10px 14px 12px; }
+  .stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 12px 0; }
+  .stat > div { background: var(--surface); padding: 9px 10px; }
+  .stat .k { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .stat .v { font-family: "IBM Plex Mono", monospace; font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; margin-top: 2px; }
+  .stat .v small { font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 2px; }
+
+  /* ---------- exercice ---------- */
+  .exo .grp { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+  .exo .cible { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--muted); white-space: nowrap; margin-top: 2px; }
+  .exo .cue { font-size: 13px; color: var(--muted); line-height: 1.4; margin: 6px 0 2px; }
+  .exo .last { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted); margin: 6px 0 4px; }
+  .exo .last b { color: var(--ink); font-weight: 600; }
+  .set { display: grid; grid-template-columns: 26px 1fr 1fr 44px; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--line-soft); }
+  .set .n { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); text-align: center; }
+  .stepper { display: grid; grid-template-columns: 34px 1fr 34px; align-items: stretch; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--ground); min-height: 44px; }
+  .stepper button { font-family: "IBM Plex Mono", monospace; font-size: 18px; color: var(--ink-2); background: var(--surface-alt); }
+  .stepper button:active { background: var(--line); }
+  .stepper input { width: 100%; min-width: 0; border: 0; background: transparent; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; padding: 0; }
+  .stepper input::placeholder { color: var(--line); font-weight: 400; }
+  .stepper .u { position: relative; }
+  .stepper .u::after { content: attr(data-u); position: absolute; right: 4px; bottom: 3px; font-family: "IBM Plex Mono", monospace; font-size: 9px; color: var(--muted); pointer-events: none; }
+  .done { width: 44px; height: 44px; border-radius: 6px; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; }
+  .done.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .done svg { width: 20px; height: 20px; }
+
+  /* ---------- gros boutons ---------- */
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 8px; font-weight: 600; font-size: 16px; width: 100%; }
+  .btn.primary { background: var(--ink); color: var(--ground); }
+  .btn.primary:disabled { opacity: .35; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink-2); }
+  .btn.small { min-height: 40px; font-size: 14px; width: auto; padding: 0 14px; }
+  .btn.warn { border-color: var(--clay); color: var(--clay); }
+
+  /* ---------- repas ---------- */
+  .meal { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; padding: 11px 14px; border-top: 1px solid var(--line-soft); align-items: start; }
+  .meal:first-child { border-top: 0; }
+  .meal .name { font-weight: 600; font-size: 15px; }
+  .meal .plat { font-size: 12.5px; color: var(--muted); font-style: italic; }
+  .meal .k { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--green); font-weight: 500; white-space: nowrap; padding-top: 2px; }
+  .meal ul { margin: 6px 0 0; padding: 0; list-style: none; }
+  .meal li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 2px 0; border-bottom: 1px dotted var(--line-soft); }
+  .meal li:last-child { border-bottom: 0; }
+  .meal li .g { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink); white-space: nowrap; }
+  .meal li .g em { font-style: normal; color: var(--muted); font-size: 11px; margin-left: 4px; }
+  .meal.ok .name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
+  .meal.ok li, .meal.ok li .g, .meal.ok .plat { color: var(--muted); }
+  .cb { width: 26px; height: 26px; border-radius: 6px; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; margin-top: 1px; }
+  .cb.on { background: var(--green); border-color: var(--green); color: #fff; }
+  .cb svg { width: 16px; height: 16px; }
+  .batch { background: var(--green-tint); border-radius: 8px; padding: 12px 14px; margin: 12px 0; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+  .batch .eyebrow { color: var(--green); margin-bottom: 4px; }
+  .rest-day .batch { background: var(--clay-tint); } .rest-day .batch .eyebrow { color: var(--clay); }
+
+  /* ---------- courses ---------- */
+  .ray { padding: 6px 14px; }
+  .ray .eyebrow { padding: 8px 0 4px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+  .item { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; min-height: 44px; padding: 4px 0; border-bottom: 1px dotted var(--line-soft); }
+  .item:last-child { border-bottom: 0; }
+  .item .q { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; font-weight: 500; white-space: nowrap; }
+  .item.ok { color: var(--muted); } .item.ok span:first-of-type { text-decoration: line-through; text-decoration-color: var(--line); }
+  .progress { height: 4px; background: var(--line-soft); border-radius: 2px; overflow: hidden; margin: 10px 0; }
+  .progress i { display: block; height: 100%; background: var(--green); transition: width .2s; }
+
+  /* ---------- suivi ---------- */
+  .field { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 12px; }
+  .field label { font-size: 13px; color: var(--muted); }
+  .verdict { border-radius: 8px; padding: 12px 14px; margin: 10px 0; font-size: 14px; line-height: 1.45; border: 1px solid var(--line); }
+  .verdict .eyebrow { margin-bottom: 4px; }
+  .verdict.ok { background: var(--green-tint); } .verdict.ok .eyebrow { color: var(--green); }
+  .verdict.warn { background: var(--clay-tint); } .verdict.warn .eyebrow { color: var(--clay); }
+  .spark { width: 100%; height: 120px; display: block; }
+  .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px dotted var(--line-soft); font-size: 14px; }
+  .rowline:last-child { border-bottom: 0; }
+  .rowline .d { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
+  .rowline .v { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+  .bars { display: flex; flex-direction: column; gap: 5px; }
+  .bar { display: grid; grid-template-columns: 62px 1fr 74px; gap: 8px; align-items: center; font-size: 12.5px; }
+  .bar .d { font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+  .bar .t { height: 10px; background: var(--line-soft); border-radius: 2px; overflow: hidden; }
+  .bar .t i { display: block; height: 100%; background: var(--blue); }
+  .bar .v { font-family: "IBM Plex Mono", monospace; font-weight: 600; text-align: right; }
+
+  /* ---------- minuteur ---------- */
+  .timer { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 12px); z-index: 6; background: var(--ink); color: var(--ground); border-radius: 999px; padding: 10px 14px 10px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 24px -8px rgba(0,0,0,.5); }
+  .timer .t { font-family: "IBM Plex Mono", monospace; font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; min-width: 64px; }
+  .timer .l { font-size: 12px; opacity: .7; }
+  .timer button { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,.15); font-family: "IBM Plex Mono", monospace; font-size: 13px; }
+  .timer.over { background: var(--clay); }
+
+  /* ---------- onglets ---------- */
+  nav.tabs { position: fixed; bottom: 0; left: 0; right: 0; z-index: 7; height: calc(var(--tab-h) + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: var(--surface); border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); }
+  nav.tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--muted); font-size: 11px; font-weight: 500; }
+  nav.tabs button svg { width: 24px; height: 24px; }
+  nav.tabs button.on { color: var(--ink); }
+  nav.tabs button.on svg { stroke: var(--ink); }
+
+  details summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; min-height: 44px; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+  details[open] summary::after { content: "−"; }
+  .toast { position: fixed; top: calc(12px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 9; background: var(--ink); color: var(--ground); padding: 10px 16px; border-radius: 8px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  .empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
+  .hist { font-size: 13px; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div id="app" class="wrap"></div>
+
+<div id="timer" class="timer" hidden>
+  <span class="l">repos</span><span class="t" id="timer-t">0:00</span>
+  <button id="timer-add" aria-label="Ajouter 30 secondes">+30</button>
+  <button id="timer-x" aria-label="Arrêter le minuteur">✕</button>
+</div>
+<div id="toast" class="toast" role="status"></div>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="seance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12"/></svg>Séance</button>
+  <button data-tab="repas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 3v7a3 3 0 0 0 6 0V3M8 3v18M17 3c-2 1-3 4-3 8h3v10"/></svg>Repas</button>
+  <button data-tab="courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11l2-8H7M9 20a1 1 0 1 0 0 .1M18 20a1 1 0 1 0 0 .1"/></svg>Courses</button>
+  <button data-tab="suivi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M4 16l5-6 4 3 7-8"/></svg>Suivi</button>
+</nav>
+
+<script>
+const DATA = __DATA__;
+</script>
+<script>
+// ============================================================ état
+const KEY = "carnet.v1";
+const JOURS = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+const JC = ["L","M","M","J","V","S","D"];
+let S = load();
+function load() {
+  const base = { seances: {}, courant: {}, repas: {}, courses: {}, poids: {}, taille: {}, tab: "seance", jourRepas: null, seanceOuverte: null };
+  try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(base, JSON.parse(raw)); } catch (e) {}
+  return base;
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast("Impossible d'enregistrer : mémoire du navigateur bloquée"); } }
+function today() { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); }
+function dow(iso) { const d = iso ? new Date(iso + "T12:00:00") : new Date(); return (d.getDay() + 6) % 7; } // 0 = lundi
+function fmtDate(iso) { const d = new Date(iso + "T12:00:00"); return d.toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" }); }
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L19 7"/></svg>';
+let toastT; function toast(m) { const t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); }
+
+// ============================================================ minuteur de repos
+let timer = { end: 0, id: null, over: false };
+const tEl = document.getElementById("timer"), tT = document.getElementById("timer-t");
+function startTimer(sec) {
+  timer.end = Date.now() + sec * 1000; timer.over = false; tEl.hidden = false; tEl.classList.remove("over");
+  clearInterval(timer.id); timer.id = setInterval(tick, 250); tick();
+}
+function tick() {
+  const left = Math.ceil((timer.end - Date.now()) / 1000);
+  if (left <= 0) {
+    tT.textContent = "0:00";
+    if (!timer.over) { timer.over = true; tEl.classList.add("over"); try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {} }
+    if (left < -30) stopTimer();
+    return;
+  }
+  tT.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
+}
+function stopTimer() { clearInterval(timer.id); tEl.hidden = true; }
+document.getElementById("timer-x").onclick = stopTimer;
+document.getElementById("timer-add").onclick = () => { timer.end = Math.max(timer.end, Date.now()) + 30000; timer.over = false; tEl.classList.remove("over"); tick(); };
+function parseRepos(s) { const m = /(\d+)/.exec(s); return m ? +m[1] : 60; }
+
+// ============================================================ navigation
+const app = document.getElementById("app");
+document.getElementById("tabs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  S.tab = b.dataset.tab; save(); render();
+});
+function render() {
+  document.querySelectorAll("#tabs button").forEach(b => b.classList.toggle("on", b.dataset.tab === S.tab));
+  ({ seance: renderSeance, repas: renderRepas, courses: renderCourses, suivi: renderSuivi })[S.tab]();
+  window.scrollTo(0, 0);
+}
+
+// ============================================================ SÉANCE
+function seanceDuJour() { return DATA.seances.find(s => s.jourIdx === dow()) || null; }
+function derniere(id) { const h = S.seances[id] || []; return h.length ? h[h.length - 1] : null; }
+function courant(s) {
+  if (!S.courant[s.id]) {
+    const last = derniere(s.id);
+    S.courant[s.id] = { date: today(), sets: s.exos.map((e, i) => Array.from({ length: e.series }, (_, k) => {
+      const l = last && last.sets[i] && last.sets[i][k];
+      return { w: l ? l.w : "", r: l ? l.r : "", done: false };
+    })) };
+  }
+  return S.courant[s.id];
+}
+function renderSeance() {
+  const auto = seanceDuJour();
+  const s = DATA.seances.find(x => x.id === S.seanceOuverte) || auto;
+  const isRest = !auto;
+  let h = `<div class="top"><div class="row"><div>
+      <div class="eyebrow">${esc(JOURS[dow()])} · ${new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long"})}</div>
+      <h1>${s ? esc(s.jour === JOURS[dow()] ? s.titre : s.titre) : "Repos"}</h1>
+      <div class="sub">${s ? esc(s.focus) : "Pas de séance prévue aujourd'hui. Récupère — c'est là que ça se construit."}</div>
+    </div>${s ? `<span class="chip blue">${esc(s.titre.split("—")[1] || "").trim()}</span>` : `<span class="chip clay">Repos</span>`}</div>
+    <div class="days">${DATA.seances.map(x => `<button data-open="${x.id}" class="${s && x.id === s.id ? "on" : ""} ${x.jourIdx === dow() ? "today" : ""}"><span class="l">${x.id}</span><span class="d">${x.jour.slice(0,3)}</span></button>`).join("")}</div>
+  </div>`;
+  if (!s) { app.innerHTML = h + `<p class="empty" style="padding:16px 0">Ouvre une séance ci-dessus si tu t'entraînes quand même aujourd'hui.</p>`; bindSeance(); return; }
+  if (isRest) h += `<p class="hist" style="margin:10px 0 0">Séance ouverte hors planning — elle sera enregistrée à la date d'aujourd'hui.</p>`;
+  const c = courant(s);
+  const nDone = c.sets.flat().filter(x => x.done).length, nTot = c.sets.flat().length;
+  const haut = s.id === "J1" || s.id === "J3";
+  if (haut) h += `<details class="card"><summary class="card-h"><h3>Échauffement épaule · 5 min</h3></summary><div class="card-b">${DATA.echauffement.map(e => `<div class="rowline"><span>${esc(e.nom)}<br><span class="hist">${esc(e.note)}</span></span><span class="v mono" style="color:var(--blue)">${esc(e.dose)}</span></div>`).join("")}</div></details>`;
+  s.exos.forEach((e, i) => {
+    const last = derniere(s.id), ls = last && last.sets[i] ? last.sets[i].filter(x => x.done && x.r) : [];
+    const lastTxt = ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais";
+    h += `<div class="card exo" data-exo="${i}">
+      <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible">${e.series} × ${esc(e.reps)}<br>repos ${esc(e.repos)}</div></div>
+      <div class="card-b">
+        <details><summary style="min-height:32px;font-size:13px;color:var(--muted)">Consigne</summary><div class="cue">${esc(e.consigne)}</div></details>
+        ${c.sets[i].map((st, k) => `<div class="set" data-set="${k}">
+          <span class="n">${k + 1}</span>
+          <div class="stepper"><button data-d="w" data-v="-1">−</button><span class="u" data-u="${e.poidsCorps ? "lest" : "kg"}"><input inputmode="decimal" placeholder="${e.poidsCorps ? "0" : "·"}" data-f="w" value="${st.w}"></span><button data-d="w" data-v="1">+</button></div>
+          <div class="stepper"><button data-d="r" data-v="-1">−</button><span class="u" data-u="reps"><input inputmode="numeric" placeholder="·" data-f="r" value="${st.r}"></span><button data-d="r" data-v="1">+</button></div>
+          <button class="done ${st.done ? "on" : ""}" data-done aria-label="Série faite">${CHECK}</button>
+        </div>`).join("")}
+      </div></div>`;
+  });
+  h += `<div style="margin:16px 0 8px"><button class="btn primary" id="finish" ${nDone ? "" : "disabled"}>Terminer la séance · ${nDone}/${nTot} séries</button></div>
+    <div style="display:flex;gap:8px;margin-bottom:20px"><button class="btn ghost small" id="reset-seance">Vider les cases</button></div>`;
+  const hist = (S.seances[s.id] || []).slice(-5).reverse();
+  if (hist.length) h += `<div class="card"><div class="card-h"><h3>Historique</h3></div><div class="card-b">${hist.map(x => `<div class="rowline"><span class="d">${fmtDate(x.date)}</span><span class="v">${x.sets.flat().filter(q => q.done).length} séries · ${Math.round(x.sets.flat().filter(q => q.done).reduce((a, q) => a + (+q.w || 0) * (+q.r || 0), 0))} kg soulevés</span></div>`).join("")}</div></div>`;
+  app.innerHTML = h; bindSeance(s);
+}
+function bindSeance(s) {
+  app.querySelectorAll("[data-open]").forEach(b => b.onclick = () => { S.seanceOuverte = b.dataset.open; save(); renderSeance(); });
+  if (!s) return;
+  const c = courant(s);
+  app.querySelectorAll(".exo").forEach(card => {
+    const i = +card.dataset.exo, e = s.exos[i];
+    card.querySelectorAll(".set").forEach(row => {
+      const k = +row.dataset.set, st = c.sets[i][k];
+      row.querySelectorAll("input").forEach(inp => inp.oninput = () => { st[inp.dataset.f] = inp.value.replace(",", "."); save(); });
+      row.querySelectorAll("button[data-d]").forEach(b => b.onclick = () => {
+        const f = b.dataset.d, step = f === "w" ? (e.poidsCorps ? 2.5 : 1) : 1;
+        const cur = parseFloat(st[f]) || 0, nv = Math.max(0, Math.round((cur + step * +b.dataset.v) * 10) / 10);
+        st[f] = String(nv); row.querySelector(`input[data-f="${f}"]`).value = nv; save();
+      });
+      row.querySelector("[data-done]").onclick = b => {
+        st.done = !st.done;
+        if (st.done && !st.r) { st.r = String(e.reps.match(/\d+/)?.[0] || ""); row.querySelector('input[data-f="r"]').value = st.r; }
+        save();
+        if (st.done) { startTimer(parseRepos(e.repos)); if (k + 1 === e.series && i + 1 < s.exos.length) toast("Exercice suivant : " + s.exos[i + 1].nom); }
+        renderSeance();
+      };
+    });
+  });
+  const fin = document.getElementById("finish");
+  if (fin) fin.onclick = () => {
+    const c = S.courant[s.id]; c.date = today();
+    (S.seances[s.id] = S.seances[s.id] || []).push(c); delete S.courant[s.id]; S.seanceOuverte = s.id; stopTimer(); save();
+    toast("Séance enregistrée. Bien joué."); renderSeance();
+  };
+  const rs = document.getElementById("reset-seance");
+  if (rs) rs.onclick = () => { delete S.courant[s.id]; save(); renderSeance(); };
+}
+
+// ============================================================ REPAS
+function renderRepas() {
+  const idx = S.jourRepas == null ? dow() : S.jourRepas;
+  const j = DATA.jours[idx], iso = today();
+  const key = idx === dow() ? iso : "plan-" + idx;
+  const done = S.repas[key] || [];
+  let h = `<div class="top"><div class="row"><div><div class="eyebrow">Repas · ${j.kcal} kcal · ${j.prot} g de protéines</div><h1>${esc(j.nom)}</h1></div><span class="chip ${j.train ? "green" : "clay"}">${j.train ? "Entraînement" : "Repos"}</span></div>
+    <div class="days">${DATA.jours.map((x, i) => `<button data-j="${i}" class="${i === idx ? "on" : ""} ${i === dow() ? "today" : ""} ${x.train ? "" : "rest"}"><span class="l">${JC[i]}</span><span class="d">${x.kcal}</span></button>`).join("")}</div></div>
+    <div class="${j.train ? "" : "rest-day"}"><div class="card">${j.repas.map((m, i) => `<div class="meal ${done[i] ? "ok" : ""}" data-m="${i}">
+      <button class="cb ${done[i] ? "on" : ""}" aria-label="Repas pris">${CHECK}</button>
+      <div><div class="name">${esc(m.nom)}</div>${m.plat ? `<div class="plat">${esc(m.plat)}</div>` : ""}
+        <ul>${m.items.map(it => `<li><span>${esc(it.lab)}</span><span class="g">${esc(it.poids)}${it.note ? `<em>${esc(it.note)}</em>` : ""}</span></li>`).join("")}</ul></div>
+      <div class="k">${m.kcal} kcal<br><span style="color:var(--muted)">${m.prot} g P</span></div>
+    </div>`).join("")}</div>
+    <div class="batch"><div class="eyebrow">À préparer ce soir</div>${esc(j.batch)}</div></div>`;
+  app.innerHTML = h;
+  app.querySelectorAll("[data-j]").forEach(b => b.onclick = () => { S.jourRepas = +b.dataset.j; save(); renderRepas(); });
+  app.querySelectorAll(".meal .cb").forEach((b, i) => b.onclick = () => { const d = S.repas[key] = S.repas[key] || []; d[i] = !d[i]; save(); renderRepas(); });
+}
+
+// ============================================================ COURSES
+function renderCourses() {
+  const all = DATA.courses.flatMap(c => c.items), n = all.filter(i => S.courses[i.nom]).length;
+  let h = `<div class="top"><div class="row"><div><div class="eyebrow">Une fois par semaine</div><h1>Courses</h1><div class="sub">${n} / ${all.length} dans le panier</div></div><button class="btn ghost small" id="reset-courses">Nouvelle semaine</button></div>
+    <div class="progress"><i style="width:${Math.round(n / all.length * 100)}%"></i></div></div><div class="card">`;
+  DATA.courses.forEach(c => {
+    const items = [...c.items].sort((a, b) => (S.courses[a.nom] ? 1 : 0) - (S.courses[b.nom] ? 1 : 0));
+    h += `<div class="ray"><div class="eyebrow">${esc(c.rayon)}</div>${items.map(i => `<div class="item ${S.courses[i.nom] ? "ok" : ""}" data-i="${esc(i.nom)}"><button class="cb ${S.courses[i.nom] ? "on" : ""}" aria-label="Acheté">${CHECK}</button><span>${esc(i.nom)}</span><span class="q">${esc(i.qte)}</span></div>`).join("")}</div>`;
+  });
+  h += `</div><details class="card"><summary class="card-h"><h3>Cru vers cuit</h3></summary><div class="card-b">${DATA.conversion.map(c => `<div class="rowline"><span>${esc(c.aliment)} <span class="hist">${esc(c.cru)}</span></span><span class="v" style="color:var(--green)">${esc(c.cuit)}</span></div>`).join("")}</div></details>`;
+  app.innerHTML = h;
+  app.querySelectorAll(".item").forEach(el => el.querySelector(".cb").onclick = () => { S.courses[el.dataset.i] = !S.courses[el.dataset.i]; save(); renderCourses(); });
+  document.getElementById("reset-courses").onclick = () => { if (confirm("Décocher toute la liste ?")) { S.courses = {}; save(); renderCourses(); } };
+}
+
+// ============================================================ SUIVI
+function semaine(iso) { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() - dow(iso)); return d.toISOString().slice(0, 10); }
+function moyennes() {
+  const byW = {};
+  Object.entries(S.poids).forEach(([d, kg]) => { const w = semaine(d); (byW[w] = byW[w] || []).push(+kg); });
+  return Object.entries(byW).sort().map(([w, v]) => ({ w, n: v.length, avg: v.reduce((a, b) => a + b, 0) / v.length }));
+}
+function verdict(ms) {
+  if (ms.length < 2) return { cls: "", t: "Premier repère", m: `Il faut deux semaines de pesées pour comparer. Pèse-toi chaque matin, la moyenne fait le reste.` };
+  const a = ms[ms.length - 2], b = ms[ms.length - 1];
+  if (b.n < 3) return { cls: "", t: "Semaine en cours", m: `${b.n} pesée${b.n > 1 ? "s" : ""} cette semaine. Le verdict tombe à partir de 3.` };
+  const d = Math.round((b.avg - a.avg) * 1000);
+  const sign = d > 0 ? "+" : "";
+  if (d > 500) return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Trop vite : au-delà de +500 g, c'est du gras. Retire 150 kcal — 40 g de riz cru en moins au dîner." };
+  if (d >= 200) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Dans la cible. Ne touche à rien : c'est du muscle avec un peu de gras, la proportion normale." };
+  if (d >= 150) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Un peu en dessous de la cible, mais encore dans le bruit. Attends une semaine de plus avant d'ajuster." };
+  return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Sous +150 g. Si c'est la troisième semaine de suite, ajoute 150 kcal : 40 g de riz cru au dîner, ou 20 g d'avoine dans le shaker." };
+}
+function spark(pts) {
+  if (pts.length < 2) return "";
+  const W = 480, H = 120, P = 8;
+  const xs = pts.map((_, i) => P + i * (W - 2 * P) / (pts.length - 1));
+  const vs = pts.map(p => p.v), lo = Math.min(...vs) - 0.3, hi = Math.max(...vs) + 0.3;
+  const y = v => H - P - (v - lo) / (hi - lo) * (H - 2 * P);
+  const path = pts.map((p, i) => (i ? "L" : "M") + xs[i].toFixed(1) + " " + y(p.v).toFixed(1)).join(" ");
+  const area = path + ` L${xs[xs.length - 1].toFixed(1)} ${H - P} L${xs[0]} ${H - P} Z`;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><path d="${area}" fill="var(--blue-tint)"/><path d="${path}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round"/>${pts.map((p, i) => `<circle cx="${xs[i].toFixed(1)}" cy="${y(p.v).toFixed(1)}" r="${i === pts.length - 1 ? 4 : 2.5}" fill="var(--blue)"/>`).join("")}
+    <text x="${P}" y="${H - 1}" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${lo.toFixed(1)}</text><text x="${P}" y="11" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hi.toFixed(1)}</text></svg>`;
+}
+function renderSuivi() {
+  const iso = today(), ms = moyennes(), v = verdict(ms);
+  const last = Object.keys(S.poids).sort().pop();
+  const pts = Object.entries(S.poids).sort().slice(-42).map(([d, kg]) => ({ d, v: +kg }));
+  let h = `<div class="top"><div class="row"><div><div class="eyebrow">${esc(DATA.profil.objectif)} · cible ${esc(DATA.profil.cible)}</div><h1>Suivi</h1></div></div></div>
+  <div class="card"><div class="card-b">
+    <div class="field"><label for="poids">Poids ce matin, à jeun (kg)</label>
+      <div class="stepper" style="min-height:52px"><button data-p="-0.1">−</button><span class="u" data-u="kg"><input id="poids" inputmode="decimal" placeholder="${last ? S.poids[last] : "70,0"}" value="${S.poids[iso] || ""}"></span><button data-p="0.1">+</button></div></div>
+    <button class="btn primary" id="save-poids">Enregistrer</button>
+  </div></div>
+  <div class="verdict ${v.cls}"><div class="eyebrow">${esc(v.t)}</div>${esc(v.m)}</div>
+  ${pts.length > 1 ? `<div class="card"><div class="card-h"><h3>6 dernières semaines</h3><span class="hist">${pts.length} pesées</span></div><div class="card-b">${spark(pts)}
+    ${ms.slice(-6).reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.n} pesée${m.n > 1 ? "s" : ""}</span></span></div>`).join("")}</div></div>` : ""}
+  <div class="card"><div class="card-b">
+    <div class="field"><label for="taille">Tour de taille au nombril, le dimanche (cm)</label>
+      <div class="stepper" style="min-height:52px"><button data-t="-0.5">−</button><span class="u" data-u="cm"><input id="taille" inputmode="decimal" placeholder="${Object.keys(S.taille).sort().pop() ? S.taille[Object.keys(S.taille).sort().pop()] : "cm"}" value="${S.taille[iso] || ""}"></span><button data-t="0.5">+</button></div></div>
+    <button class="btn ghost" id="save-taille">Enregistrer le tour de taille</button>
+    ${Object.keys(S.taille).length ? `<div style="margin-top:10px">${Object.entries(S.taille).sort().slice(-6).reverse().map(([d, c]) => `<div class="rowline"><span class="d">${fmtDate(d)}</span><span class="v">${c} cm</span></div>`).join("")}</div>` : ""}
+  </div></div>`;
+  // progression des charges
+  const prog = [];
+  DATA.seances.forEach(s => (S.seances[s.id] || []).forEach(x => s.exos.forEach((e, i) => {
+    const best = (x.sets[i] || []).filter(q => q.done && +q.r).reduce((m, q) => Math.max(m, (+q.w || 0) * (+q.r || 0)), 0);
+    if (best) prog.push({ exo: e.nom, date: x.date, best, w: Math.max(...x.sets[i].filter(q => q.done).map(q => +q.w || 0)) });
+  })));
+  const byExo = {}; prog.forEach(p => (byExo[p.exo] = byExo[p.exo] || []).push(p));
+  const exos = Object.entries(byExo).filter(([, l]) => l.length >= 1);
+  if (exos.length) {
+    h += `<div class="card"><div class="card-h"><h3>Progression des charges</h3><span class="hist">meilleure série · kg × reps</span></div><div class="card-b">`;
+    exos.forEach(([nom, l]) => {
+      const last6 = l.slice(-6), mx = Math.max(...last6.map(p => p.best));
+      h += `<div style="margin:8px 0 12px"><div style="font-weight:600;font-size:14px;margin-bottom:5px">${esc(nom)}</div><div class="bars">${last6.map(p => `<div class="bar"><span class="d">${fmtDate(p.date).replace(/^\w+\.?\s/, "")}</span><span class="t"><i style="width:${Math.round(p.best / mx * 100)}%"></i></span><span class="v">${p.w} kg · ${p.best}</span></div>`).join("")}</div></div>`;
+    });
+    h += `</div></div>`;
+  } else h += `<p class="empty">La progression des charges apparaîtra ici après ta première séance enregistrée.</p>`;
+  h += `<details class="card"><summary class="card-h"><h3>Règles de pilotage</h3></summary><div class="card-b">${DATA.pilotage.map(p => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:${p.alerte ? "var(--clay)" : "var(--green)"};font-size:13px">${esc(p.cond)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(p.texte)}</span></div>`).join("")}</div></details>
+  <details class="card"><summary class="card-h"><h3>Échelle de douleur (épaule)</h3></summary><div class="card-b">${DATA.douleur.map(p => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:${p.consulter ? "var(--clay)" : "var(--green)"};font-size:13px">${esc(p.situation)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(p.texte)}</span></div>`).join("")}</div></details>
+  <div style="display:flex;gap:8px;margin:16px 0 24px"><button class="btn ghost small" id="export">Exporter mes données</button><button class="btn ghost small" id="import">Importer</button><input type="file" id="import-file" accept="application/json" hidden></div>
+  <p class="hist" style="margin-bottom:24px">Plan du ${esc(DATA.version)} · données stockées sur ce téléphone uniquement. Exporte-les de temps en temps.</p>`;
+  app.innerHTML = h;
+  const pi = document.getElementById("poids"), ti = document.getElementById("taille");
+  app.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { pi.value = (Math.round(((parseFloat(pi.value.replace(",", ".")) || parseFloat(pi.placeholder.replace(",", ".")) || 70) + +b.dataset.p) * 10) / 10).toFixed(1); });
+  app.querySelectorAll("[data-t]").forEach(b => b.onclick = () => { ti.value = (Math.round(((parseFloat(ti.value.replace(",", ".")) || parseFloat(ti.placeholder) || 80) + +b.dataset.t) * 10) / 10).toFixed(1); });
+  document.getElementById("save-poids").onclick = () => { const v = parseFloat(pi.value.replace(",", ".")); if (!v || v < 30 || v > 250) return toast("Poids invalide"); S.poids[iso] = v; save(); toast("Pesée enregistrée"); renderSuivi(); };
+  document.getElementById("save-taille").onclick = () => { const v = parseFloat(ti.value.replace(",", ".")); if (!v || v < 40 || v > 200) return toast("Mesure invalide"); S.taille[iso] = v; save(); toast("Tour de taille enregistré"); renderSuivi(); };
+  document.getElementById("export").onclick = () => {
+    const json = JSON.stringify(S, null, 1);
+    if (window.Android && Android.saveFile) { Android.saveFile("carnet-" + iso + ".json", json); return; }
+    const blob = new Blob([json], { type: "application/json" }), a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "carnet-" + iso + ".json"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+  const fi = document.getElementById("import-file");
+  document.getElementById("import").onclick = () => fi.click();
+  fi.onchange = () => { const f = fi.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => { try { const d = JSON.parse(r.result); if (!d.seances) throw 0; S = Object.assign(load(), d); save(); toast("Données importées"); render(); } catch (e) { toast("Fichier invalide"); } }; r.readAsText(f); };
+}
+
+// ============================================================ démarrage
+render();
+if ("serviceWorker" in navigator && location.protocol === "https:" && !window.Android) navigator.serviceWorker.register("sw.js").catch(() => {});
+// Bouton Retour Android : revient à l'onglet Séance, sinon laisse l'appli se fermer.
+window.androidBack = () => { if (S.tab !== "seance") { S.tab = "seance"; save(); render(); return true; } return false; };
+</script>
+</body>
+</html>

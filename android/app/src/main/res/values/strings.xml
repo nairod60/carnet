@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Carnet</string>
+    <string name="export_ok">Fichier enregistré</string>
+    <string name="export_err">Enregistrement impossible</string>
+    <string name="update_ready">Nouvelle version du plan téléchargée : appliquée au prochain lancement.</string>
+</resources>

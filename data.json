@@ -1,0 +1,1708 @@
+{
+ "version": "2026-09-05",
+ "profil": {
+  "poids": 70,
+  "taille": 184,
+  "objectif": "Prise de masse propre",
+  "cible": "+200 à +350 g / semaine"
+ },
+ "seances": [
+  {
+   "id": "J1",
+   "jour": "Lundi",
+   "jourIdx": 0,
+   "titre": "Haut A — Poussée",
+   "focus": "Pectoraux (la seule fois de la semaine), triceps, deltoïde latéral",
+   "exos": [
+    {
+     "groupe": "Pectoraux",
+     "nom": "Développé incliné haltères, PRISE NEUTRE",
+     "series": 4,
+     "reps": "8-10",
+     "repos": "90 s",
+     "consigne": "Banc à 30°, paumes face à face. Descends jusqu'à ce que le bras arrive au niveau du torse, PAS plus bas.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Pectoraux",
+     "nom": "Développé au sol, prise neutre",
+     "series": 3,
+     "reps": "10-12",
+     "repos": "90 s",
+     "consigne": "Allongé par terre : les coudes touchent le sol et bloquent la descente. L'amplitude dangereuse devient impossible.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Pectoraux",
+     "nom": "Pompes au sol, LESTÉES au-delà de 15 reps",
+     "series": 3,
+     "reps": "10-15",
+     "repos": "75 s",
+     "consigne": "Mains un peu plus larges que les épaules, coudes à 45°. Au-delà de 15 reps propres : sac à dos chargé de 5 puis 10 kg. Va à 1 rep de l'échec, c'est le seul exercice où tu peux.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Dos",
+     "nom": "Rowing buste appuyé sur banc incliné",
+     "series": 3,
+     "reps": "12",
+     "repos": "75 s",
+     "consigne": "Poitrine posée sur le banc à 30°. Équilibre la poussée du jour et ouvre l'espace sous l'acromion.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Deltoïde latéral",
+     "nom": "Élévations en scaption, pouces vers le haut",
+     "series": 3,
+     "reps": "12-15",
+     "repos": "60 s",
+     "consigne": "Monte à 30° vers l'avant, pas sur le côté, pouces au plafond. STOP à hauteur d'épaule. 3 à 5 kg.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Triceps",
+     "nom": "Extension couché sur le banc, prise neutre",
+     "series": 4,
+     "reps": "10-12",
+     "repos": "60 s",
+     "consigne": "Allongé, coudes vers le plafond. Remplace l'extension debout au-dessus de la tête.",
+     "poidsCorps": false
+    }
+   ]
+  },
+  {
+   "id": "J2",
+   "jour": "Mardi",
+   "jourIdx": 1,
+   "titre": "Bas A — Quadriceps",
+   "focus": "Quadriceps, mollets, sangle abdominale",
+   "exos": [
+    {
+     "groupe": "Quadriceps",
+     "nom": "Squat goblet",
+     "series": 3,
+     "reps": "10-12",
+     "repos": "90 s",
+     "consigne": "Haltère vertical contre la poitrine. Descends bas, dos droit.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Quadriceps",
+     "nom": "Squat bulgare (pied arrière sur le banc)",
+     "series": 3,
+     "reps": "8-10 / jambe",
+     "repos": "90 s",
+     "consigne": "Le meilleur exercice de jambes disponible sans barre. Un haltère dans chaque main.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Quadriceps",
+     "nom": "Fentes avant haltères",
+     "series": 3,
+     "reps": "10 / jambe",
+     "repos": "75 s",
+     "consigne": "Buste droit, genou arrière proche du sol.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Mollets",
+     "nom": "Mollets debout haltères",
+     "series": 3,
+     "reps": "15-20",
+     "repos": "45 s",
+     "consigne": "Amplitude complète, une seconde de pause en haut.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Abdos",
+     "nom": "Crunch haltère sur la poitrine",
+     "series": 3,
+     "reps": "15",
+     "repos": "45 s",
+     "consigne": "Mouvement court, on enroule le buste.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Abdos",
+     "nom": "Gainage planche",
+     "series": 3,
+     "reps": "30-45 s",
+     "repos": "45 s",
+     "consigne": "Bassin en rétroversion, fessiers serrés.",
+     "poidsCorps": true
+    }
+   ]
+  },
+  {
+   "id": "J3",
+   "jour": "Jeudi",
+   "jourIdx": 3,
+   "titre": "Haut B — Tirage",
+   "focus": "Dos, deltoïde postérieur, biceps — la séance qui protège ton épaule",
+   "exos": [
+    {
+     "groupe": "Dos",
+     "nom": "Tractions, prise supination ou neutre",
+     "series": 4,
+     "reps": "max",
+     "repos": "120 s",
+     "consigne": "LARGEUR D'ÉPAULES, jamais large : la prise large bloque l'omoplate. Si tu ne fais pas 5 reps, fais des négatives de 5 s.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Dos",
+     "nom": "Rowing haltères buste penché",
+     "series": 4,
+     "reps": "8-10",
+     "repos": "90 s",
+     "consigne": "Buste à 45°, tire vers le nombril, coudes près du corps.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Dos",
+     "nom": "Rowing unilatéral, appui sur le banc",
+     "series": 3,
+     "reps": "10-12 / bras",
+     "repos": "75 s",
+     "consigne": "Genou et main sur le banc, amplitude complète.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Deltoïde postérieur",
+     "nom": "Oiseau sur banc incliné",
+     "series": 3,
+     "reps": "15",
+     "repos": "60 s",
+     "consigne": "Poitrine sur le banc à 30°. Léger : 3 à 5 kg.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Trapèzes / stabilisateurs",
+     "nom": "Élévations en Y sur banc incliné",
+     "series": 3,
+     "reps": "12",
+     "repos": "60 s",
+     "consigne": "Bras tendus en Y, pouces vers le haut, 2 à 4 kg. C'est ce qui fait tourner l'omoplate et libère l'épaule.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Biceps",
+     "nom": "Curl marteau",
+     "series": 3,
+     "reps": "10-12",
+     "repos": "60 s",
+     "consigne": "Prise neutre. Les tractions en supination ont déjà chargé lourdement le biceps.",
+     "poidsCorps": false
+    }
+   ]
+  },
+  {
+   "id": "J4",
+   "jour": "Vendredi",
+   "jourIdx": 4,
+   "titre": "Bas B — Chaîne postérieure",
+   "focus": "Ischios, fessiers, mollets, gainage",
+   "exos": [
+    {
+     "groupe": "Ischios / fessiers",
+     "nom": "Soulevé de terre roumain haltères",
+     "series": 3,
+     "reps": "10-12",
+     "repos": "90 s",
+     "consigne": "Jambes quasi tendues, bassin qui recule, dos plat. Tu dois sentir l'arrière des cuisses.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Ischios / fessiers",
+     "nom": "Hip thrust haltère sur le banc",
+     "series": 3,
+     "reps": "12-15",
+     "repos": "75 s",
+     "consigne": "Omoplates sur le banc, haltère sur le bassin, monte jusqu'à l'alignement.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Ischios / fessiers",
+     "nom": "Soulevé de terre unilatéral",
+     "series": 3,
+     "reps": "10 / jambe",
+     "repos": "75 s",
+     "consigne": "Travail d'équilibre en prime. Charge modérée.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Mollets",
+     "nom": "Mollets assis haltère sur le genou",
+     "series": 3,
+     "reps": "15-20",
+     "repos": "45 s",
+     "consigne": "Cible le soléaire, complémentaire du travail debout.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Abdos",
+     "nom": "Gainage latéral",
+     "series": 3,
+     "reps": "20-30 s / côté",
+     "repos": "45 s",
+     "consigne": "Corps aligné, bassin haut.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Abdos",
+     "nom": "Relevé de jambes suspendu à la barre",
+     "series": 3,
+     "reps": "10-15",
+     "repos": "45 s",
+     "consigne": "Genoux ou jambes tendues selon le niveau. Ne te balance pas.",
+     "poidsCorps": true
+    }
+   ]
+  }
+ ],
+ "jours": [
+  {
+   "nom": "Lundi",
+   "idx": 0,
+   "train": true,
+   "kcal": 2889,
+   "prot": 192,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 544,
+     "prot": 28,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "90 g",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de riz au thon",
+     "kcal": 690,
+     "prot": 49,
+     "items": [
+      {
+       "lab": "Thon au naturel égoutté",
+       "poids": "130 g",
+       "note": ""
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "90 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "12 g",
+       "note": ""
+      },
+      {
+       "lab": "Vinaigre, moutarde",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Avant la séance",
+     "plat": "≈ 90 min avant",
+     "kcal": 107,
+     "prot": 1,
+     "items": [
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Après la séance",
+     "plat": "dans l'heure",
+     "kcal": 337,
+     "prot": 31,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Poulet aux poivrons, riz",
+     "kcal": 715,
+     "prot": 44,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Poivrons",
+       "poids": "250 g",
+       "note": ""
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "100 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      },
+      {
+       "lab": "Ail, paprika, cumin",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 116,
+     "prot": 4,
+     "items": [
+      {
+       "lab": "Amandes",
+       "poids": "20 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Cuis 300 g de poulet et 190 g de riz crus (100 pour ce soir, 90 pour la salade). La moitié se mange chaude ce soir, l'autre moitié refroidit pour la salade de riz de mardi midi."
+  },
+  {
+   "nom": "Mardi",
+   "idx": 1,
+   "train": true,
+   "kcal": 2774,
+   "prot": 186,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 515,
+     "prot": 27,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "90 g",
+       "note": ""
+      },
+      {
+       "lab": "Pomme",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de riz au poulet",
+     "kcal": 633,
+     "prot": 44,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "90 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "12 g",
+       "note": ""
+      },
+      {
+       "lab": "Vinaigre, herbes",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Avant la séance",
+     "plat": "≈ 90 min avant",
+     "kcal": 107,
+     "prot": 1,
+     "items": [
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Après la séance",
+     "plat": "dans l'heure",
+     "kcal": 337,
+     "prot": 31,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Steak, pommes de terre, haricots",
+     "kcal": 686,
+     "prot": 44,
+     "items": [
+      {
+       "lab": "Steak haché 5 %",
+       "poids": "160 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Pommes de terre",
+       "poids": "350 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Haricots verts",
+       "poids": "200 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 116,
+     "prot": 4,
+     "items": [
+      {
+       "lab": "Amandes",
+       "poids": "20 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Le steak reste une portion unique : il ne passe jamais au déjeuner. Fais juste cuire 90 g de riz cru en plus ce soir pour la salade au thon de demain."
+  },
+  {
+   "nom": "Mercredi",
+   "idx": 2,
+   "train": false,
+   "kcal": 2617,
+   "prot": 204,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 504,
+     "prot": 28,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "80 g",
+       "note": ""
+      },
+      {
+       "lab": "Kiwis",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de riz au thon",
+     "kcal": 717,
+     "prot": 49,
+     "items": [
+      {
+       "lab": "Thon au naturel égoutté",
+       "poids": "130 g",
+       "note": ""
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "90 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      },
+      {
+       "lab": "Vinaigre, moutarde",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Collation",
+     "plat": "milieu d'après-midi",
+     "kcal": 230,
+     "prot": 30,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Poulet, pâtes complètes, tomates, poivrons",
+     "kcal": 716,
+     "prot": 50,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Pâtes complètes",
+       "poids": "100 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Poivrons",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 70,
+     "prot": 12,
+     "items": [
+      {
+       "lab": "Fromage blanc 0 %",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Jour de repos. Cuis 300 g de poulet et 190 g de pâtes crues (100 pour ce soir, 90 pour la salade) : la moitié chaude ce soir, l'autre moitié refroidit pour la salade de pâtes de jeudi midi."
+  },
+  {
+   "nom": "Jeudi",
+   "idx": 3,
+   "train": true,
+   "kcal": 2916,
+   "prot": 194,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 507,
+     "prot": 28,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "90 g",
+       "note": ""
+      },
+      {
+       "lab": "Orange",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de pâtes au poulet",
+     "kcal": 652,
+     "prot": 49,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Pâtes complètes",
+       "poids": "90 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Poivrons",
+       "poids": "100 g",
+       "note": ""
+      },
+      {
+       "lab": "Olives",
+       "poids": "20 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "10 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant la séance",
+     "plat": "≈ 90 min avant",
+     "kcal": 107,
+     "prot": 1,
+     "items": [
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Après la séance",
+     "plat": "dans l'heure",
+     "kcal": 337,
+     "prot": 31,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Steak, riz, haricots",
+     "kcal": 817,
+     "prot": 46,
+     "items": [
+      {
+       "lab": "Steak haché 5 %",
+       "poids": "160 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "110 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Haricots verts",
+       "poids": "250 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 116,
+     "prot": 4,
+     "items": [
+      {
+       "lab": "Amandes",
+       "poids": "20 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Steak en portion unique. Cuis 90 g de riz cru en plus pour la salade au saumon de demain midi."
+  },
+  {
+   "nom": "Vendredi",
+   "idx": 4,
+   "train": true,
+   "kcal": 2776,
+   "prot": 185,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 544,
+     "prot": 28,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "90 g",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de riz au saumon",
+     "kcal": 660,
+     "prot": 41,
+     "items": [
+      {
+       "lab": "Saumon en boîte égoutté",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "90 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "10 g",
+       "note": ""
+      },
+      {
+       "lab": "Citron, aneth",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Avant la séance",
+     "plat": "≈ 90 min avant",
+     "kcal": 107,
+     "prot": 1,
+     "items": [
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Après la séance",
+     "plat": "dans l'heure",
+     "kcal": 337,
+     "prot": 31,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Banane",
+       "poids": "120 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Poulet, pommes de terre, haricots",
+     "kcal": 632,
+     "prot": 45,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Pommes de terre",
+       "poids": "350 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Haricots verts",
+       "poids": "200 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 116,
+     "prot": 4,
+     "items": [
+      {
+       "lab": "Amandes",
+       "poids": "20 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Poulet en portion unique ce soir. Cuis 650 g de pommes de terre crues : 350 chaudes ce soir, 300 refroidissent pour la salade au thon de samedi midi. Le saumon en boîte du midi remplace le poisson gras : c'est lui qui apporte tes oméga-3."
+  },
+  {
+   "nom": "Samedi",
+   "idx": 5,
+   "train": false,
+   "kcal": 2519,
+   "prot": 205,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 490,
+     "prot": 27,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "80 g",
+       "note": ""
+      },
+      {
+       "lab": "Pomme",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de pommes de terre au thon",
+     "kcal": 641,
+     "prot": 51,
+     "items": [
+      {
+       "lab": "Thon au naturel égoutté",
+       "poids": "130 g",
+       "note": ""
+      },
+      {
+       "lab": "Pommes de terre",
+       "poids": "300 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Haricots verts",
+       "poids": "200 g",
+       "note": ""
+      },
+      {
+       "lab": "Tomates",
+       "poids": "100 g",
+       "note": ""
+      },
+      {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "12 g",
+       "note": ""
+      },
+      {
+       "lab": "Moutarde, vinaigre",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Collation",
+     "plat": "milieu d'après-midi",
+     "kcal": 346,
+     "prot": 34,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Amandes",
+       "poids": "20 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Cabillaud, pommes de terre, haricots",
+     "kcal": 592,
+     "prot": 46,
+     "items": [
+      {
+       "lab": "Cabillaud ou colin",
+       "poids": "200 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Pommes de terre",
+       "poids": "300 g",
+       "note": "crues"
+      },
+      {
+       "lab": "Haricots verts",
+       "poids": "200 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "15 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 70,
+     "prot": 12,
+     "items": [
+      {
+       "lab": "Fromage blanc 0 %",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Pendant que le poisson cuit, fais aussi cuire 150 g de poulet et 90 g de riz cru : ils refroidissent pour la salade de dimanche midi."
+  },
+  {
+   "nom": "Dimanche",
+   "idx": 6,
+   "train": false,
+   "kcal": 2487,
+   "prot": 183,
+   "repas": [
+    {
+     "nom": "Petit-déjeuner",
+     "plat": "",
+     "kcal": 483,
+     "prot": 27,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "3",
+       "note": "150 g"
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "80 g",
+       "note": ""
+      },
+      {
+       "lab": "Orange",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Collation 10 h",
+     "plat": "whey + avoine, au shaker",
+     "kcal": 380,
+     "prot": 35,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Flocons d'avoine",
+       "poids": "40 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Déjeuner",
+     "plat": "Salade de riz au poulet",
+     "kcal": 633,
+     "prot": 44,
+     "items": [
+      {
+       "lab": "Blanc de poulet",
+       "poids": "150 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Riz basmati",
+       "poids": "90 g",
+       "note": "cru"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "12 g",
+       "note": ""
+      },
+      {
+       "lab": "Vinaigre, herbes",
+       "poids": "",
+       "note": "libre"
+      }
+     ]
+    },
+    {
+     "nom": "Collation",
+     "plat": "milieu d'après-midi",
+     "kcal": 320,
+     "prot": 31,
+     "items": [
+      {
+       "lab": "Whey Isostar",
+       "poids": "30 g",
+       "note": ""
+      },
+      {
+       "lab": "Lait demi-écrémé",
+       "poids": "250 ml",
+       "note": ""
+      },
+      {
+       "lab": "Fruit au choix",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Dîner",
+     "plat": "Omelette aux tomates",
+     "kcal": 601,
+     "prot": 34,
+     "items": [
+      {
+       "lab": "Œufs entiers",
+       "poids": "4",
+       "note": "200 g"
+      },
+      {
+       "lab": "Tomates",
+       "poids": "150 g",
+       "note": ""
+      },
+      {
+       "lab": "Pain complet",
+       "poids": "80 g",
+       "note": ""
+      },
+      {
+       "lab": "Huile d'olive",
+       "poids": "10 g",
+       "note": ""
+      }
+     ]
+    },
+    {
+     "nom": "Avant de dormir",
+     "plat": "",
+     "kcal": 70,
+     "prot": 12,
+     "items": [
+      {
+       "lab": "Fromage blanc 0 %",
+       "poids": "150 g",
+       "note": ""
+      }
+     ]
+    }
+   ],
+   "batch": "Fais juste cuire 90 g de riz cru pour la salade au thon de lundi midi. C'est aussi le moment des courses."
+  }
+ ],
+ "courses": [
+  {
+   "rayon": "Protéines",
+   "items": [
+    {
+     "nom": "Œufs entiers",
+     "qte": "28"
+    },
+    {
+     "nom": "Whey Isostar",
+     "qte": "420 g"
+    },
+    {
+     "nom": "Lait demi-écrémé",
+     "qte": "3,5 L"
+    },
+    {
+     "nom": "Thon au naturel égoutté",
+     "qte": "4 boîtes"
+    },
+    {
+     "nom": "Blanc de poulet",
+     "qte": "900 g"
+    },
+    {
+     "nom": "Steak haché 5 %",
+     "qte": "320 g"
+    },
+    {
+     "nom": "Fromage blanc 0 %",
+     "qte": "450 g"
+    },
+    {
+     "nom": "Saumon en boîte égoutté",
+     "qte": "150 g"
+    },
+    {
+     "nom": "Cabillaud ou colin",
+     "qte": "200 g"
+    }
+   ]
+  },
+  {
+   "rayon": "Féculents et gras",
+   "items": [
+    {
+     "nom": "Pain complet",
+     "qte": "680 g"
+    },
+    {
+     "nom": "Flocons d'avoine",
+     "qte": "280 g"
+    },
+    {
+     "nom": "Riz basmati",
+     "qte": "660 g"
+    },
+    {
+     "nom": "Huile d'olive",
+     "qte": "183 ml"
+    },
+    {
+     "nom": "Amandes",
+     "qte": "100 g"
+    },
+    {
+     "nom": "Pommes de terre",
+     "qte": "1,3 kg"
+    },
+    {
+     "nom": "Pâtes complètes",
+     "qte": "190 g"
+    },
+    {
+     "nom": "Olives",
+     "qte": "20 g"
+    }
+   ]
+  },
+  {
+   "rayon": "Légumes et fruits",
+   "items": [
+    {
+     "nom": "Banane",
+     "qte": "10"
+    },
+    {
+     "nom": "Tomates",
+     "qte": "1,3 kg"
+    },
+    {
+     "nom": "Concombre",
+     "qte": "750 g"
+    },
+    {
+     "nom": "Poivrons",
+     "qte": "500 g"
+    },
+    {
+     "nom": "Pomme",
+     "qte": "2"
+    },
+    {
+     "nom": "Haricots verts",
+     "qte": "1,1 kg"
+    },
+    {
+     "nom": "Kiwis",
+     "qte": "2"
+    },
+    {
+     "nom": "Orange",
+     "qte": "2"
+    },
+    {
+     "nom": "Fruit au choix",
+     "qte": "1"
+    },
+    {
+     "nom": "Ail, citron, épices",
+     "qte": "—"
+    }
+   ]
+  }
+ ],
+ "pilotage": [
+  {
+   "cond": "+200 à +350 g / semaine",
+   "texte": "Tu es dans la cible. Ne touche à rien : c'est du muscle avec un peu de gras, la proportion normale.",
+   "alerte": false
+  },
+  {
+   "cond": "Moins de +150 g pendant 3 semaines",
+   "texte": "Le surplus est trop petit pour ton métabolisme. Ajoute 150 kcal : 40 g de riz cru au dîner, ou 20 g d'avoine dans le shaker.",
+   "alerte": false
+  },
+  {
+   "cond": "Plus de +500 g / semaine",
+   "texte": "Trop vite, c'est du gras. Retire 150 kcal : 40 g de riz cru en moins au dîner.",
+   "alerte": true
+  },
+  {
+   "cond": "Tour de taille +2 cm en un mois",
+   "texte": "Tu stockes plus que tu ne construis. Retire 150 kcal et vérifie que les charges montent vraiment.",
+   "alerte": true
+  },
+  {
+   "cond": "Balance à 17-18 % ou fin janvier",
+   "texte": "Fin de la prise de masse. On passe à la sèche : −450 kcal, protéines à 2,3 g/kg, dix semaines.",
+   "alerte": false
+  }
+ ],
+ "echauffement": [
+  {
+   "nom": "Cercles de bras",
+   "dose": "1 min",
+   "note": "10 en avant, 10 en arrière, amplitude progressive, sans charge."
+  },
+  {
+   "nom": "Passages de bras (bâton ou serviette)",
+   "dose": "1 min",
+   "note": "Mains larges, on passe devant/derrière. On s'arrête AVANT la gêne."
+  },
+  {
+   "nom": "Rotation externe légère",
+   "dose": "2 x 15",
+   "note": "1 à 2 kg. Réveille les rotateurs avant de charger."
+  },
+  {
+   "nom": "Élévations en Y sur banc incliné",
+   "dose": "2 x 12",
+   "note": "Sans charge ou 1 kg. Active l'omoplate."
+  },
+  {
+   "nom": "Séries d'approche",
+   "dose": "2 séries",
+   "note": "50 % puis 75 % du poids de travail, sur le 1er exercice seulement."
+  }
+ ],
+ "douleur": [
+  {
+   "situation": "0 à 3 / 10",
+   "consulter": false,
+   "texte": "Gêne sourde qui ne change pas ton mouvement : tu peux continuer la série."
+  },
+  {
+   "situation": "Au-dessus de 3 / 10",
+   "consulter": true,
+   "texte": "Arrête la série. Réduis l'amplitude, puis la charge de 20 %. Si ça persiste, passe à l'exercice suivant."
+  },
+  {
+   "situation": "Douleur vive, en éclair",
+   "consulter": true,
+   "texte": "Stop immédiat sur cet exercice. Ne le refais pas cette semaine."
+  },
+  {
+   "situation": "Encore douloureux le lendemain",
+   "consulter": true,
+   "texte": "Retire 20 % de charge sur les poussées à la prochaine séance."
+  },
+  {
+   "situation": "Douleur la nuit, ou qui réveille",
+   "consulter": true,
+   "texte": "Consulte. Ce n'est pas un signal d'entraînement."
+  },
+  {
+   "situation": "Perte de force inexpliquée",
+   "consulter": true,
+   "texte": "Consulte. Ce n'est pas de la fatigue."
+  },
+  {
+   "situation": "Douleur qui descend dans le bras",
+   "consulter": true,
+   "texte": "Consulte."
+  },
+  {
+   "situation": "Rien n'a changé après 2-3 semaines",
+   "consulter": true,
+   "texte": "Consulte un kiné du sport : ce plan ménage l'épaule, il ne la soigne pas."
+  }
+ ],
+ "conversion": [
+  {
+   "aliment": "Riz basmati",
+   "cru": "90 g",
+   "cuit": "≈ 260 g",
+   "facteur": "× 2,9"
+  },
+  {
+   "aliment": "Pâtes complètes",
+   "cru": "100 g",
+   "cuit": "≈ 230 g",
+   "facteur": "× 2,3"
+  },
+  {
+   "aliment": "Pommes de terre (eau/vapeur)",
+   "cru": "400 g",
+   "cuit": "≈ 380 g",
+   "facteur": "× 0,95"
+  },
+  {
+   "aliment": "Blanc de poulet",
+   "cru": "180 g",
+   "cuit": "≈ 135 g",
+   "facteur": "× 0,75"
+  },
+  {
+   "aliment": "Steak haché 5 %",
+   "cru": "180 g",
+   "cuit": "≈ 135 g",
+   "facteur": "× 0,75"
+  },
+  {
+   "aliment": "Poisson blanc",
+   "cru": "200 g",
+   "cuit": "≈ 160 g",
+   "facteur": "× 0,80"
+  },
+  {
+   "aliment": "Maquereau",
+   "cru": "150 g",
+   "cuit": "≈ 120 g",
+   "facteur": "× 0,80"
+  }
+ ]
+}

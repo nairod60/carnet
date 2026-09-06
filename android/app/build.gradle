@@ -1,0 +1,61 @@
+plugins { id "com.android.application" }
+
+// Clé de signature : android/keystore.properties + carnet-release.jks. À conserver précieusement :
+// sans elle, impossible de mettre à jour l'appli déjà installée sur le téléphone.
+def ks = new Properties()
+def ksFile = rootProject.file("keystore.properties")
+if (ksFile.exists()) ksFile.withInputStream { ks.load(it) }
+
+android {
+    namespace "fr.majado.carnet"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "fr.majado.carnet"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            if (ksFile.exists()) {
+                storeFile rootProject.file(ks["storeFile"])
+                storePassword ks["storePassword"]
+                keyAlias ks["keyAlias"]
+                keyPassword ks["keyPassword"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (ksFile.exists()) signingConfig signingConfigs.release
+        }
+    }
+
+    // L'appli web (dist/) est embarquée telle quelle dans l'APK : une seule source de vérité.
+    sourceSets { main { assets.srcDirs += ["../../dist"] } }
+    androidResources { ignoreAssetsPattern = "!carnet.apk:!sw.js" } // l'APK publié dans dist/ ne doit pas être embarqué dans lui-même
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    lint { abortOnError false }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "androidx.webkit:webkit:1.11.0"
+    implementation "androidx.core:core-splashscreen:1.0.1"
+}
+
+// Les bibliothèques AndroidX tirent des versions Kotlin incompatibles entre elles : on aligne.
+configurations.configureEach {
+    resolutionStrategy.eachDependency { d ->
+        if (d.requested.group == "org.jetbrains.kotlin" && d.requested.name.startsWith("kotlin-stdlib")) d.useVersion("1.9.24")
+    }
+}

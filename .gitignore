@@ -1,0 +1,12 @@
+# Jamais publier la clé de signature ni les fichiers locaux
+android/carnet-release.jks
+android/keystore.properties
+android/local.properties
+android/.gradle/
+android/build/
+android/app/build/
+android/.idea/
+*.iml
+__pycache__/
+plan/fiches/
+/carnet.apk
