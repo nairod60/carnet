@@ -32,6 +32,9 @@ Appli web mobile (PWA) en un seul fichier, sans framework ni dépendance. Franç
   `app/build.gradle` : ne rien copier à la main.
 - Pont JS : `window.Android.saveFile(nom, contenu)` (export via `ACTION_CREATE_DOCUMENT`). Le template teste `window.Android`
   pour choisir entre ce pont et le téléchargement blob ; le service worker n'est pas enregistré dans l'appli Android.
+- Pont mise à jour : `Android.checkUpdate()` (bouton « Vérifier les mises à jour » dans Suivi), `Android.reload()` (bannière
+  `#update` « Mettre à jour »), `Android.build()`. Android appelle `window.carnetUpdateReady / carnetUpdateNone / carnetUpdateError`.
+  Application automatique si l'appli vient d'être ouverte ou de revenir au premier plan (< 5 s), sinon bannière.
 - `window.androidBack()` dans le template : appelé par le bouton Retour ; renvoie `true` s'il a géré (retour à Séance), sinon l'appli se ferme.
 - Mise à jour automatique : `Updater.java` lit `version.json` à l'adresse `url` (déduite du dépôt GitHub par `build.py`),
   télécharge `index.html` dans `filesDir/web/` si le build distant est plus récent, et `MainActivity` sert ce fichier à la place
