@@ -270,7 +270,21 @@ function courant(s) {
       return { w: l ? l.w : "", r: l ? l.r : "", done: false };
     })) };
   }
-  return S.courant[s.id];
+  // Le plan a pu changer depuis que la séance a été préparée (mise à jour de l'appli) :
+  // on réaligne exercices et nombre de séries, sans toucher aux séries déjà cochées.
+  const c = S.courant[s.id], last = derniere(s.id);
+  c.exos = c.exos || [];
+  let changed = false;
+  s.exos.forEach((e, i) => {
+    let sets = c.sets[i] || (c.sets[i] = []);
+    if (c.exos[i] !== undefined && c.exos[i] !== e.nom && !sets.some(x => x.done)) { sets = c.sets[i] = []; changed = true; }
+    if (c.exos[i] !== e.nom) { c.exos[i] = e.nom; changed = true; }
+    while (sets.length > e.series && !sets[sets.length - 1].done) { sets.pop(); changed = true; }
+    while (sets.length < e.series) { const l = last && last.sets[i] && last.sets[i][sets.length]; sets.push({ w: l ? l.w : "", r: l ? l.r : "", done: false }); changed = true; }
+  });
+  if (c.sets.length > s.exos.length) { c.sets.length = s.exos.length; c.exos.length = s.exos.length; changed = true; }
+  if (changed) save();
+  return c;
 }
 function renderSeance() {
   const auto = seanceDuJour();
