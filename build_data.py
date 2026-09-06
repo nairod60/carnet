@@ -46,7 +46,7 @@ courses = [{"rayon": r, "items": [{"nom": n, "qte": q} for n, q in items]} for r
 
 # --- pilotage + échauffement + douleur ---
 data = {
-    "version": "2026-09-05",
+    "version": "2026-09-06",
     "profil": {"poids": 70, "taille": 184, "objectif": "Prise de masse propre", "cible": "+200 à +350 g / semaine"},
     "seances": seances, "jours": jours, "courses": courses,
     "pilotage": [{"cond": c, "texte": t, "alerte": w} for c, t, w in gen.PILOTAGE],
