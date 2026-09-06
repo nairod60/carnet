@@ -55,10 +55,16 @@ try {
     git push -u origin main
     if ($LASTEXITCODE -ne 0) { throw "git push a échoué" }
 
-    # 5. GitHub Pages (dossier dist/, branche main) : activé la première fois
+    # 5. Branche gh-pages = contenu de dist/ uniquement (GitHub Pages ne sert que la racine ou docs/)
+    $sha = (git subtree split --prefix dist main)
+    if ($LASTEXITCODE -ne 0 -or -not $sha) { throw "git subtree split a échoué" }
+    git push -f origin "${sha}:refs/heads/gh-pages"
+    if ($LASTEXITCODE -ne 0) { throw "push gh-pages a échoué" }
+
+    # 6. GitHub Pages sur la branche gh-pages : activé la première fois
     & $gh api "repos/$owner/carnet/pages" *> $null
     if ($LASTEXITCODE -ne 0) {
-        & $gh api -X POST "repos/$owner/carnet/pages" -f "source[branch]=main" -f "source[path]=/dist" | Out-Null
+        & $gh api -X POST "repos/$owner/carnet/pages" -f "source[branch]=gh-pages" -f "source[path]=/" | Out-Null
         Write-Host "GitHub Pages activé. Première publication : compte 1 à 2 minutes avant que l'adresse réponde."
     }
     Write-Host ""
