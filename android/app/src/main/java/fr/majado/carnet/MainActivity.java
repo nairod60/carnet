@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView web;
     private Updater updater;
-    private long launchedAt;
+    private long launchedAt, resumedAt;
+    private long servedBuild;                 // build de la version actuellement affichée
     private ValueCallback<Uri[]> fileChooser; // import : <input type="file">
     private String pendingExport;             // export : JSON en attente d'un emplacement
 
@@ -141,8 +142,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) web.restoreState(savedInstanceState);
         if (web.getUrl() == null) web.loadUrl(HOME);
+        servedBuild = updater.currentBuild();
         launchedAt = SystemClock.elapsedRealtime();
-        updater.checkInBackground(0, this::onUpdated);
+        updater.checkInBackground(0, autoListener);
 
         // Bouton Retour : l'appli web décide (retour à l'onglet Séance), sinon on quitte.
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -158,17 +160,44 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // Retour dans l'appli : nouvelle vérification au plus toutes les 30 minutes.
-        updater.checkInBackground(30 * 60 * 1000L, this::onUpdated);
+        // Retour dans l'appli : nouvelle vérification (au plus une par minute).
+        resumedAt = SystemClock.elapsedRealtime();
+        updater.checkInBackground(60 * 1000L, autoListener);
     }
 
-    /** Nouvelle version téléchargée : rechargement immédiat si on vient d'ouvrir l'appli, sinon au prochain lancement. */
-    private void onUpdated(long build) {
+    /** Vérification automatique : on applique tout de suite si l'utilisateur vient d'ouvrir ou de revenir dans l'appli,
+     *  sinon l'appli web affiche une bannière « Mettre à jour ». */
+    private final Updater.Listener autoListener = new Updater.Listener() {
+        @Override public void onUpdated(long build) { onUpdateReady(build, true); }
+        @Override public void onUpToDate() { if (updater.currentBuild() > servedBuild) onUpdateReady(updater.currentBuild(), true); }
+    };
+
+    /** Vérification demandée par le bouton de l'appli web : on rend compte dans tous les cas. */
+    private final Updater.Listener manualListener = new Updater.Listener() {
+        @Override public void onUpdated(long build) { onUpdateReady(build, false); }
+        @Override public void onUpToDate() {
+            if (updater.currentBuild() > servedBuild) onUpdateReady(updater.currentBuild(), false);
+            else js("window.carnetUpdateNone && window.carnetUpdateNone()");
+        }
+        @Override public void onError() { js("window.carnetUpdateError && window.carnetUpdateError()"); }
+    };
+
+    private void onUpdateReady(long build, boolean auto) {
         runOnUiThread(() -> {
             if (isFinishing() || isDestroyed()) return;
-            if (SystemClock.elapsedRealtime() - launchedAt < 5000) web.reload();
-            else Toast.makeText(this, R.string.update_ready, Toast.LENGTH_LONG).show();
+            long now = SystemClock.elapsedRealtime();
+            if (auto && (now - launchedAt < 5000 || now - resumedAt < 5000)) reloadWeb();
+            else js("window.carnetUpdateReady ? window.carnetUpdateReady(" + build + ") : Android.reload()");
         });
+    }
+
+    private void reloadWeb() {
+        servedBuild = updater.currentBuild();
+        web.reload();
+    }
+
+    private void js(String code) {
+        runOnUiThread(() -> { if (!isFinishing() && !isDestroyed()) web.evaluateJavascript(code, null); });
     }
 
     @Override
@@ -194,5 +223,17 @@ public class MainActivity extends AppCompatActivity {
                 .putExtra(Intent.EXTRA_TITLE, name);
             runOnUiThread(() -> createFile.launch(i));
         }
+
+        /** Applique la version téléchargée (bouton « Mettre à jour » de la bannière). */
+        @JavascriptInterface
+        public void reload() { runOnUiThread(MainActivity.this::reloadWeb); }
+
+        /** Vérifie tout de suite s'il y a une nouvelle version (bouton dans l'onglet Suivi). */
+        @JavascriptInterface
+        public void checkUpdate() { updater.checkInBackground(0, manualListener); }
+
+        /** Numéro de build de la version affichée. */
+        @JavascriptInterface
+        public String build() { return String.valueOf(servedBuild); }
     }
 }

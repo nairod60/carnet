@@ -23,7 +23,11 @@ import java.nio.charset.StandardCharsets;
  * Si un APK plus récent est réinstallé, le fichier téléchargé devenu obsolète est supprimé.
  */
 final class Updater {
-    interface Listener { void onUpdated(long build); }
+    interface Listener {
+        void onUpdated(long build);
+        default void onUpToDate() {}
+        default void onError() {}
+    }
 
     private static final String PREFS = "carnet.updater";
     private static final String KEY_BUILD = "downloadedBuild", KEY_URL = "url", KEY_LAST = "lastCheck";
@@ -56,18 +60,18 @@ final class Updater {
 
     long currentBuild() { return useDownloaded() ? downloadedBuild() : embeddedBuild(); }
 
-    /** Vérifie en arrière-plan, au plus une fois par intervalle donné (ms). */
+    /** Vérifie en arrière-plan, au plus une fois par intervalle donné (ms, 0 = toujours). */
     void checkInBackground(long minIntervalMs, Listener l) {
         String base = baseUrl();
-        if (base.isEmpty()) return;
+        if (base.isEmpty()) { if (l != null) l.onError(); return; }
         long now = System.currentTimeMillis();
-        if (now - prefs().getLong(KEY_LAST, 0) < minIntervalMs) return;
+        if (minIntervalMs > 0 && now - prefs().getLong(KEY_LAST, 0) < minIntervalMs) return;
         prefs().edit().putLong(KEY_LAST, now).apply();
         new Thread(() -> {
             try {
                 long b = check(base);
-                if (b > 0 && l != null) l.onUpdated(b);
-            } catch (Exception ignored) { /* hors ligne, serveur absent : on réessaiera */ }
+                if (l != null) { if (b > 0) l.onUpdated(b); else l.onUpToDate(); }
+            } catch (Exception e) { if (l != null) l.onError(); /* hors ligne, serveur absent : on réessaiera */ }
         }, "carnet-updater").start();
     }
 
