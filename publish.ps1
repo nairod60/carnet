@@ -65,6 +65,7 @@ try {
     & $gh api "repos/$owner/carnet/pages" *> $null
     if ($LASTEXITCODE -ne 0) {
         & $gh api -X POST "repos/$owner/carnet/pages" -f "source[branch]=gh-pages" -f "source[path]=/" | Out-Null
+        & $gh api -X POST "repos/$owner/carnet/pages/builds" *> $null  # première construction du site
         Write-Host "GitHub Pages activé. Première publication : compte 1 à 2 minutes avant que l'adresse réponde."
     }
     Write-Host ""

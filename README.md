@@ -21,13 +21,11 @@ Alternative à l'APK ci-dessous, sans rien installer : la même adresse GitHub P
 L'appli doit être servie en **https** pour s'installer comme une vraie appli (icône, plein écran,
 hors connexion). Le plus simple : GitHub Pages, gratuit.
 
-```bash
-# depuis ce dossier, avec Claude Code ou à la main
-gh repo create carnet --public --source=. --push
-gh api -X POST repos/{owner}/carnet/pages -f "source[branch]=main" -f "source[path]=/dist"
+```powershell
+.\publish.ps1
 ```
 
-Puis sur le téléphone, ouvrir `https://<ton-compte>.github.io/carnet/` dans Chrome
+Puis sur le téléphone, ouvrir `https://nairod60.github.io/carnet/` dans Chrome
 → menu ⋮ → **Ajouter à l'écran d'accueil**. Une fois ouverte une première fois, elle fonctionne sans réseau.
 
 Sans hébergement, `dist/index.html` s'ouvre aussi directement dans Chrome sur le téléphone
@@ -45,7 +43,7 @@ export via « Enregistrer sous » et import via le sélecteur de fichiers du té
 .\publish.ps1
 ```
 
-Ce script reconstruit `dist/`, l'envoie sur GitHub et GitHub Pages le publie. À l'ouverture suivante,
+Ce script reconstruit `dist/`, l'envoie sur GitHub (branche `main` pour le projet, branche `gh-pages` pour `dist/` seul) et GitHub Pages le publie à `https://nairod60.github.io/carnet/`. À l'ouverture suivante,
 l'appli sur le téléphone compare `version.json` en ligne avec sa version, télécharge la nouvelle
 `index.html` si besoin et l'applique (tout de suite si l'appli vient de s'ouvrir, sinon au lancement d'après).
 Aucune réinstallation, données conservées. Sans réseau, l'appli continue avec la version qu'elle a.
@@ -61,7 +59,7 @@ sont visibles, jamais tes pesées ni ton historique, qui restent sur le téléph
 ```
 
 Produit `carnet.apk` (release, signé) et le copie dans `dist/`, donc après `publish.ps1` il est téléchargeable
-depuis le téléphone à `https://<compte>.github.io/carnet/carnet.apk`. Sinon : câble, Drive ou mail, puis ouvrir
+depuis le téléphone à `https://nairod60.github.io/carnet/carnet.apk`. Sinon : câble, Drive ou mail, puis ouvrir
 le fichier sur le téléphone (autoriser l'installation depuis cette source). Avec le débogage USB : `adb install -r carnet.apk`.
 
 - La chaîne de build (JDK 17, Gradle 8.9, SDK Android, Python portable, gh) vit dans `%LOCALAPPDATA%\android-toolchain`,
