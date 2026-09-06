@@ -232,6 +232,15 @@ public class MainActivity extends AppCompatActivity {
         @JavascriptInterface
         public void checkUpdate() { updater.checkInBackground(0, manualListener); }
 
+        /** Écran maintenu allumé pendant le minuteur de repos. */
+        @JavascriptInterface
+        public void keepAwake(boolean on) {
+            runOnUiThread(() -> {
+                if (on) getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                else getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            });
+        }
+
         /** Numéro de build de la version affichée. */
         @JavascriptInterface
         public String build() { return String.valueOf(servedBuild); }

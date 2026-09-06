@@ -233,22 +233,45 @@ let timer = { end: 0, id: null, over: false };
 const tEl = document.getElementById("timer"), tT = document.getElementById("timer-t");
 function startTimer(sec) {
   timer.end = Date.now() + sec * 1000; timer.over = false; tEl.hidden = false; tEl.classList.remove("over");
+  audioReady(); // le clic sur « faite » autorise le son : le bip pourra jouer à la fin
+  keepAwake(true);
   clearInterval(timer.id); timer.id = setInterval(tick, 250); tick();
 }
+// Écran maintenu allumé pendant le repos (appli Android), pour que le bip et la vibration arrivent
+function keepAwake(on) { try { window.Android && Android.keepAwake && Android.keepAwake(!!on); } catch (e) {} }
 function tick() {
   const left = Math.ceil((timer.end - Date.now()) / 1000);
   if (left <= 0) {
     tT.textContent = "0:00";
-    if (!timer.over) { timer.over = true; tEl.classList.add("over"); try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {} }
+    if (!timer.over) { timer.over = true; tEl.classList.add("over"); beep(); try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {} }
     if (left < -30) stopTimer();
     return;
   }
   tT.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
 }
-function stopTimer() { clearInterval(timer.id); tEl.hidden = true; }
+function stopTimer() { clearInterval(timer.id); tEl.hidden = true; keepAwake(false); }
 document.getElementById("timer-x").onclick = stopTimer;
 document.getElementById("timer-add").onclick = () => { timer.end = Math.max(timer.end, Date.now()) + 30000; timer.over = false; tEl.classList.remove("over"); tick(); };
-function parseRepos(s) { const m = /(\d+)/.exec(s); return m ? +m[1] : 60; }
+// "3 min" -> 180, "1 min 30" -> 90, "75 s" -> 75
+function parseRepos(s) {
+  const m = /(\d+)\s*min(?:\s*(\d+))?/.exec(s); if (m) return +m[1] * 60 + (+m[2] || 0);
+  const n = /(\d+)/.exec(s); return n ? +n[1] : 60;
+}
+// Bip de fin de repos (Web Audio, débloqué par le clic qui lance le minuteur)
+let audio = null;
+function audioReady() { try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); if (audio.state === "suspended") audio.resume(); } catch (e) {} }
+function beep() {
+  try {
+    audioReady(); if (!audio) return;
+    const t0 = audio.currentTime;
+    [0, 0.3, 0.6].forEach(d => {
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.type = "square"; o.frequency.value = 1000;
+      g.gain.setValueAtTime(0.0001, t0 + d); g.gain.exponentialRampToValueAtTime(0.4, t0 + d + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d + 0.2);
+      o.connect(g).connect(audio.destination); o.start(t0 + d); o.stop(t0 + d + 0.22);
+    });
+  } catch (e) {}
+}
 
 // ============================================================ navigation
 const app = document.getElementById("app");
