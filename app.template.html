@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#12150E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F5EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14171D" media="(prefers-color-scheme: dark)">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -14,176 +14,190 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@500;600;700&display=swap">
 <style>
   :root {
-    --ground: #F6F5F0; --surface: #FFFFFF; --surface-alt: #EDEEE6;
-    --ink: #1B2016; --ink-2: #4A5142; --muted: #767C6D;
-    --line: #DFDED3; --line-soft: #EAE9E0;
-    --green: #45682F; --green-tint: #E7EDDD;
-    --blue: #33526E; --blue-tint: #E5EBF1;
-    --clay: #A0512F; --clay-tint: #F3E5DC;
-    --ok: #45682F;
-    --tab-h: 64px;
+    --ground: #F7F5EF; --surface: #FFFFFF; --surface-alt: #EEF1EA;
+    --ink: #1E2430; --ink-2: #4E5666; --muted: #8A92A0;
+    --line: #E6E4DC; --line-soft: #EFEDE6;
+    --green: #3E9B5E; --green-tint: #E4F0E1;
+    --blue: #3B6FD4; --blue-tint: #E3ECF7;
+    --clay: #D9773F; --clay-tint: #FBE9DC;
+    --ok: #3E9B5E;
+    --rc: 22px; --rb: 14px;
+    --shadow: 0 10px 28px -14px rgba(30,36,48,.18);
+    --shadow-up: 0 -8px 24px -16px rgba(30,36,48,.18);
+    --tab-h: 66px;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --ground: #12150E; --surface: #1A1E14; --surface-alt: #222719;
-      --ink: #EDEFE6; --ink-2: #C0C6B6; --muted: #8E9683;
-      --line: #2E3424; --line-soft: #262B1D;
-      --green: #96BE6C; --green-tint: #232D18;
-      --blue: #8FB0CF; --blue-tint: #1B2530;
-      --clay: #DA9068; --clay-tint: #2E2018;
-      --ok: #96BE6C;
+      --ground: #14171D; --surface: #1D2128; --surface-alt: #262B34;
+      --ink: #EEF0F3; --ink-2: #B9BFC9; --muted: #7D8593;
+      --line: #2F3540; --line-soft: #272C35;
+      --green: #6FC28B; --green-tint: #1C2E22;
+      --blue: #7FA6F0; --blue-tint: #1E2A3F;
+      --clay: #F0A070; --clay-tint: #34261C;
+      --ok: #6FC28B;
+      --shadow: none; --shadow-up: none;
     }
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; background: var(--ground); color: var(--ink); }
   body {
-    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 16px; line-height: 1.45;
+    font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px; line-height: 1.45;
     padding-bottom: calc(var(--tab-h) + env(safe-area-inset-bottom));
     -webkit-font-smoothing: antialiased; overscroll-behavior-y: contain;
   }
-  h1, h2, h3 { font-family: "Bricolage Grotesque", -apple-system, sans-serif; margin: 0; font-weight: 700; letter-spacing: -.015em; line-height: 1.1; text-wrap: balance; }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
-  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+  h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.025em; line-height: 1.08; text-wrap: balance; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .eyebrow { font-size: 12.5px; font-weight: 500; color: var(--muted); }
   button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
   button:focus-visible, input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
   input { font: inherit; color: inherit; }
   [hidden] { display: none !important; }
 
-  .wrap { max-width: 520px; margin: 0 auto; padding: 0 16px; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 0 18px; }
 
   /* ---------- en-tête ---------- */
-  .top { position: sticky; top: 0; z-index: 5; background: var(--ground); padding: calc(14px + env(safe-area-inset-top)) 0 10px; border-bottom: 1px solid var(--line-soft); }
+  .top { position: sticky; top: 0; z-index: 5; background: var(--ground); padding: calc(14px + env(safe-area-inset-top)) 0 8px; }
   .top .row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
-  .top h1 { font-size: 26px; }
-  .top .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
-  .chip { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; border: 1px solid currentColor; border-radius: 3px; white-space: nowrap; }
-  .chip.green { color: var(--green); } .chip.blue { color: var(--blue); } .chip.clay { color: var(--clay); }
+  .top h1 { font-size: 30px; }
+  .top .sub { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 500; }
+  .chip { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; white-space: nowrap; background: var(--surface-alt); color: var(--ink-2); }
+  .chip.green { background: var(--green-tint); color: var(--green); }
+  .chip.blue { background: var(--blue-tint); color: var(--blue); }
+  .chip.clay { background: var(--clay-tint); color: var(--clay); }
+  .pill-kg { background: var(--surface); box-shadow: var(--shadow); border-radius: 999px; padding: 8px 16px; font-family: "JetBrains Mono", monospace; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .pill-kg small { font-size: 12px; font-weight: 500; color: var(--muted); }
 
   /* ---------- sélecteurs de jour ---------- */
-  .days { display: flex; gap: 6px; margin: 12px 0 4px; }
-  .days button { flex: 1; min-height: 44px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; }
-  .days button .l { font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600; }
-  .days button .d { font-size: 10px; color: var(--muted); }
-  .days button.on { background: var(--ink); color: var(--ground); border-color: var(--ink); }
-  .days button.on .d { color: var(--ground); opacity: .7; }
-  .days button.today:not(.on) { border-color: var(--ink); }
-  .days button.rest .l { color: var(--clay); } .days button.on.rest .l { color: var(--ground); }
+  .days { display: flex; gap: 8px; margin: 14px 0 4px; }
+  .days button { flex: 1; min-height: 46px; border-radius: 999px; background: var(--surface); box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; color: var(--ink-2); }
+  .days button .l { font-size: 13px; font-weight: 700; }
+  .days button .d { font-size: 10px; color: var(--muted); font-weight: 500; }
+  .days button.on { background: var(--ink); color: #fff; }
+  .days button.on .d { color: #fff; opacity: .65; }
+  .days button.today:not(.on) { box-shadow: var(--shadow), inset 0 0 0 1.5px var(--ink); }
+  .days button.rest .l { color: var(--clay); } .days button.on.rest .l { color: #fff; }
+  @media (prefers-color-scheme: dark) { .days button.on { background: var(--ink); color: var(--ground); } .days button.on .d { color: var(--ground); } .days button.on.rest .l { color: var(--ground); } }
 
   /* ---------- cartes ---------- */
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; margin: 12px 0; overflow: hidden; }
-  .card-h { padding: 12px 14px; border-bottom: 1px solid var(--line-soft); display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .card { background: var(--surface); border-radius: var(--rc); box-shadow: var(--shadow); margin: 12px 0; overflow: hidden; }
+  @media (prefers-color-scheme: dark) { .card { border: 1px solid var(--line-soft); } }
+  .card-h { padding: 14px 18px 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
   .card-h h3 { font-size: 17px; }
-  .card-b { padding: 10px 14px 12px; }
-  .stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 12px 0; }
-  .stat > div { background: var(--surface); padding: 9px 10px; }
-  .stat .k { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-  .stat .v { font-family: "IBM Plex Mono", monospace; font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; margin-top: 2px; }
-  .stat .v small { font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 2px; }
+  .card-b { padding: 4px 18px 14px; }
+  .card-h + .card-b { padding-top: 0; }
 
   /* ---------- exercice ---------- */
-  .exo .grp { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
-  .exo .cible { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--muted); white-space: nowrap; margin-top: 2px; }
-  .exo .cue { font-size: 13px; color: var(--muted); line-height: 1.4; margin: 6px 0 2px; }
-  .exo .last { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted); margin: 6px 0 4px; }
+  .exo .grp { font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+  .exo .cible { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); white-space: nowrap; margin-top: 2px; text-align: right; line-height: 1.4; }
+  .exo .cible b { color: var(--ink); font-weight: 700; }
+  .exo .cue { font-size: 13px; color: var(--muted); line-height: 1.45; margin: 4px 0 6px; }
+  .exo .last { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: var(--muted); margin: 6px 0 2px; }
   .exo .last b { color: var(--ink); font-weight: 600; }
-  .set { display: grid; grid-template-columns: 26px 1fr 1fr 44px; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--line-soft); }
-  .set .n { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); text-align: center; }
-  .stepper { display: grid; grid-template-columns: 34px 1fr 34px; align-items: stretch; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--ground); min-height: 44px; }
-  .stepper button { font-family: "IBM Plex Mono", monospace; font-size: 18px; color: var(--ink-2); background: var(--surface-alt); }
+  .set { display: grid; grid-template-columns: 22px 1fr 1fr 46px; gap: 8px; align-items: center; padding: 6px 0; }
+  .set + .set { border-top: 1px solid var(--line-soft); }
+  .set .n { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); text-align: center; }
+  .stepper { display: grid; grid-template-columns: 34px 1fr 34px; align-items: stretch; border-radius: var(--rb); overflow: hidden; background: var(--surface-alt); min-height: 46px; }
+  .stepper button { font-family: "JetBrains Mono", monospace; font-size: 19px; color: var(--ink-2); }
   .stepper button:active { background: var(--line); }
-  .stepper input { width: 100%; min-width: 0; border: 0; background: transparent; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; padding: 0; }
-  .stepper input::placeholder { color: var(--line); font-weight: 400; }
+  .stepper input { width: 100%; min-width: 0; border: 0; background: transparent; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; padding: 0; }
+  .stepper input::placeholder { color: var(--line); font-weight: 500; }
   .stepper .u { position: relative; }
-  .stepper .u::after { content: attr(data-u); position: absolute; right: 4px; bottom: 3px; font-family: "IBM Plex Mono", monospace; font-size: 9px; color: var(--muted); pointer-events: none; }
-  .done { width: 44px; height: 44px; border-radius: 6px; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; }
-  .done.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .stepper .u::after { content: attr(data-u); position: absolute; right: 5px; bottom: 4px; font-family: "JetBrains Mono", monospace; font-size: 9px; font-weight: 500; color: var(--muted); pointer-events: none; }
+  .done { width: 46px; height: 46px; border-radius: var(--rb); background: var(--surface-alt); display: flex; align-items: center; justify-content: center; color: transparent; }
+  .done.on { background: var(--ok); color: #fff; }
   .done svg { width: 20px; height: 20px; }
 
   /* ---------- gros boutons ---------- */
-  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 8px; font-weight: 600; font-size: 16px; width: 100%; }
-  .btn.primary { background: var(--ink); color: var(--ground); }
-  .btn.primary:disabled { opacity: .35; }
-  .btn.ghost { border: 1px solid var(--line); color: var(--ink-2); }
-  .btn.small { min-height: 40px; font-size: 14px; width: auto; padding: 0 14px; }
-  .btn.warn { border-color: var(--clay); color: var(--clay); }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; border-radius: 999px; font-weight: 700; font-size: 16px; width: 100%; }
+  .btn.primary { background: var(--ink); color: #fff; box-shadow: var(--shadow); }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: var(--ground); } }
+  .btn.primary:disabled { opacity: .35; box-shadow: none; }
+  .btn.ghost { background: var(--surface); color: var(--ink-2); box-shadow: var(--shadow); }
+  @media (prefers-color-scheme: dark) { .btn.ghost { border: 1px solid var(--line); } }
+  .btn.small { min-height: 42px; font-size: 14px; width: auto; padding: 0 16px; }
+  .btn.warn { color: var(--clay); }
 
   /* ---------- repas ---------- */
-  .meal { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; padding: 11px 14px; border-top: 1px solid var(--line-soft); align-items: start; }
-  .meal:first-child { border-top: 0; }
-  .meal .name { font-weight: 600; font-size: 15px; }
-  .meal .plat { font-size: 12.5px; color: var(--muted); font-style: italic; }
-  .meal .k { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--green); font-weight: 500; white-space: nowrap; padding-top: 2px; }
+  .meal { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; padding: 13px 18px; align-items: start; }
+  .meal + .meal { border-top: 1px solid var(--line-soft); }
+  .meal .name { font-weight: 700; font-size: 15.5px; }
+  .meal .plat { font-size: 12.5px; color: var(--muted); font-weight: 500; }
+  .meal .k { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--green); font-weight: 600; white-space: nowrap; padding-top: 2px; text-align: right; }
   .meal ul { margin: 6px 0 0; padding: 0; list-style: none; }
-  .meal li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 2px 0; border-bottom: 1px dotted var(--line-soft); }
-  .meal li:last-child { border-bottom: 0; }
-  .meal li .g { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink); white-space: nowrap; }
-  .meal li .g em { font-style: normal; color: var(--muted); font-size: 11px; margin-left: 4px; }
+  .meal li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 3px 0; }
+  .meal li + li { border-top: 1px solid var(--line-soft); }
+  .meal li .g { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .meal li .g em { font-style: normal; font-weight: 500; color: var(--muted); font-size: 11px; margin-left: 4px; }
   .meal.ok .name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
   .meal.ok li, .meal.ok li .g, .meal.ok .plat { color: var(--muted); }
-  .cb { width: 26px; height: 26px; border-radius: 6px; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; color: transparent; margin-top: 1px; }
-  .cb.on { background: var(--green); border-color: var(--green); color: #fff; }
+  .cb { width: 28px; height: 28px; border-radius: 9px; background: var(--surface-alt); display: flex; align-items: center; justify-content: center; color: transparent; margin-top: 1px; }
+  .cb.on { background: var(--green); color: #fff; }
   .cb svg { width: 16px; height: 16px; }
-  .batch { background: var(--green-tint); border-radius: 8px; padding: 12px 14px; margin: 12px 0; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
-  .batch .eyebrow { color: var(--green); margin-bottom: 4px; }
+  .batch { background: var(--green-tint); border-radius: var(--rc); padding: 14px 18px; margin: 12px 0; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .batch .eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
   .rest-day .batch { background: var(--clay-tint); } .rest-day .batch .eyebrow { color: var(--clay); }
 
   /* ---------- courses ---------- */
-  .ray { padding: 6px 14px; }
-  .ray .eyebrow { padding: 8px 0 4px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
-  .item { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; min-height: 44px; padding: 4px 0; border-bottom: 1px dotted var(--line-soft); }
-  .item:last-child { border-bottom: 0; }
-  .item .q { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; font-weight: 500; white-space: nowrap; }
+  .ray { padding: 8px 18px; }
+  .ray .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0 6px; }
+  .item { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; min-height: 46px; padding: 3px 0; }
+  .item + .item { border-top: 1px solid var(--line-soft); }
+  .item .q { font-family: "JetBrains Mono", monospace; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
   .item.ok { color: var(--muted); } .item.ok span:first-of-type { text-decoration: line-through; text-decoration-color: var(--line); }
-  .progress { height: 4px; background: var(--line-soft); border-radius: 2px; overflow: hidden; margin: 10px 0; }
-  .progress i { display: block; height: 100%; background: var(--green); transition: width .2s; }
+  .progress { height: 6px; background: var(--surface-alt); border-radius: 3px; overflow: hidden; margin: 12px 0 4px; }
+  .progress i { display: block; height: 100%; background: var(--green); border-radius: 3px; transition: width .2s; }
 
   /* ---------- suivi ---------- */
-  .field { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 12px; }
-  .field label { font-size: 13px; color: var(--muted); }
-  .verdict { border-radius: 8px; padding: 12px 14px; margin: 10px 0; font-size: 14px; line-height: 1.45; border: 1px solid var(--line); }
-  .verdict .eyebrow { margin-bottom: 4px; }
-  .verdict.ok { background: var(--green-tint); } .verdict.ok .eyebrow { color: var(--green); }
-  .verdict.warn { background: var(--clay-tint); } .verdict.warn .eyebrow { color: var(--clay); }
-  .spark { width: 100%; height: 120px; display: block; }
-  .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px dotted var(--line-soft); font-size: 14px; }
-  .rowline:last-child { border-bottom: 0; }
-  .rowline .d { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: 12.5px; }
-  .rowline .v { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
-  .bars { display: flex; flex-direction: column; gap: 5px; }
-  .bar { display: grid; grid-template-columns: 62px 1fr 74px; gap: 8px; align-items: center; font-size: 12.5px; }
-  .bar .d { font-family: "IBM Plex Mono", monospace; color: var(--muted); }
-  .bar .t { height: 10px; background: var(--line-soft); border-radius: 2px; overflow: hidden; }
-  .bar .t i { display: block; height: 100%; background: var(--blue); }
-  .bar .v { font-family: "IBM Plex Mono", monospace; font-weight: 600; text-align: right; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin: 10px 0 12px; }
+  .field label { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .verdict { border-radius: var(--rc); padding: 16px 18px; margin: 12px 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); background: var(--surface); box-shadow: var(--shadow); }
+  .verdict .eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .verdict .big { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); margin-bottom: 4px; }
+  .verdict.ok { background: var(--green-tint); box-shadow: none; } .verdict.ok .eyebrow { color: var(--green); }
+  .verdict.warn { background: var(--clay-tint); box-shadow: none; } .verdict.warn .eyebrow { color: var(--clay); }
+  .spark { width: 100%; height: 110px; display: block; }
+  .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 8px 0; font-size: 14px; }
+  .rowline + .rowline { border-top: 1px solid var(--line-soft); }
+  .rowline .d { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 12px; }
+  .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .bars { display: flex; flex-direction: column; gap: 7px; }
+  .bar { display: grid; grid-template-columns: 56px 1fr 92px; gap: 8px; align-items: center; font-size: 12.5px; }
+  .bar .d { font-family: "JetBrains Mono", monospace; color: var(--muted); }
+  .bar .t { height: 10px; background: var(--surface-alt); border-radius: 5px; overflow: hidden; }
+  .bar .t i { display: block; height: 100%; background: var(--blue); border-radius: 5px; }
+  .bar .v { font-family: "JetBrains Mono", monospace; font-weight: 700; text-align: right; }
 
   /* ---------- minuteur ---------- */
-  .timer { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 12px); z-index: 6; background: var(--ink); color: var(--ground); border-radius: 999px; padding: 10px 14px 10px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 24px -8px rgba(0,0,0,.5); }
-  .timer .t { font-family: "IBM Plex Mono", monospace; font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; min-width: 64px; }
-  .timer .l { font-size: 12px; opacity: .7; }
-  .timer button { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,.15); font-family: "IBM Plex Mono", monospace; font-size: 13px; }
-  .timer.over { background: var(--clay); }
+  .timer { position: fixed; left: 18px; right: 18px; max-width: 484px; margin: 0 auto; bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 12px); z-index: 6; background: var(--ink); color: #fff; border-radius: 999px; padding: 10px 12px 10px 22px; display: flex; align-items: center; gap: 14px; box-shadow: 0 16px 32px -10px rgba(30,36,48,.45); }
+  @media (prefers-color-scheme: dark) { .timer { color: var(--ground); box-shadow: 0 16px 32px -10px rgba(0,0,0,.6); } }
+  .timer .l { font-size: 12px; opacity: .65; font-weight: 500; }
+  .timer .t { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; flex: 1; }
+  .timer button { width: 40px; height: 40px; border-radius: 999px; background: rgba(255,255,255,.14); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { .timer button { background: rgba(0,0,0,.18); } }
+  .timer.over { background: var(--clay); color: #fff; }
 
   /* ---------- onglets ---------- */
-  nav.tabs { position: fixed; bottom: 0; left: 0; right: 0; z-index: 7; height: calc(var(--tab-h) + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: var(--surface); border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); }
-  nav.tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--muted); font-size: 11px; font-weight: 500; }
+  nav.tabs { position: fixed; bottom: 0; left: 0; right: 0; z-index: 7; height: calc(var(--tab-h) + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: var(--surface); box-shadow: var(--shadow-up); display: grid; grid-template-columns: repeat(4, 1fr); }
+  @media (prefers-color-scheme: dark) { nav.tabs { border-top: 1px solid var(--line-soft); } }
+  nav.tabs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--muted); font-size: 11px; font-weight: 600; }
   nav.tabs button svg { width: 24px; height: 24px; }
   nav.tabs button.on { color: var(--ink); }
-  nav.tabs button.on svg { stroke: var(--ink); }
 
   details summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; min-height: 44px; }
   details summary::-webkit-details-marker { display: none; }
-  details summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+  details summary::after { content: "+"; font-family: "JetBrains Mono", monospace; font-size: 16px; color: var(--muted); }
   details[open] summary::after { content: "−"; }
-  .toast { position: fixed; top: calc(12px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 9; background: var(--ink); color: var(--ground); padding: 10px 16px; border-radius: 8px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast { position: fixed; top: calc(12px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 9; background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; opacity: 0; transition: opacity .2s; pointer-events: none; box-shadow: var(--shadow); }
+  @media (prefers-color-scheme: dark) { .toast { color: var(--ground); } }
   .toast.show { opacity: 1; }
-  .update { position: fixed; top: calc(12px + env(safe-area-inset-top)); left: 12px; right: 12px; z-index: 8; background: var(--green); color: #fff; padding: 10px 10px 10px 16px; border-radius: 10px; font-size: 14.5px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 8px 24px -8px rgba(0,0,0,.5); }
-  .update button { background: #fff; color: var(--green); font-weight: 600; border-radius: 8px; min-height: 40px; padding: 0 14px; white-space: nowrap; }
+  .update { position: fixed; top: calc(12px + env(safe-area-inset-top)); left: 18px; right: 18px; max-width: 484px; margin: 0 auto; z-index: 8; background: var(--green); color: #fff; padding: 10px 10px 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow); }
+  .update button { background: #fff; color: var(--green); font-weight: 700; border-radius: 999px; min-height: 40px; padding: 0 16px; white-space: nowrap; }
   .empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
-  .hist { font-size: 13px; color: var(--muted); }
+  .hist { font-size: 13px; color: var(--muted); font-weight: 500; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -332,15 +346,16 @@ function renderSeance() {
   const isRest = !auto;
   let h = `<div class="top"><div class="row"><div>
       <div class="eyebrow">${esc(JOURS[dow()])} · ${new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long"})}</div>
-      <h1>${s ? esc(s.jour === JOURS[dow()] ? s.titre : s.titre) : "Repos"}</h1>
+      <h1>${s ? esc(s.titre.split("—")[0].trim()) + "<br>" + esc((s.titre.split("—")[1] || "").trim()) : "Repos"}</h1>
       <div class="sub">${s ? esc(s.focus) : "Pas de séance prévue aujourd'hui. Récupère — c'est là que ça se construit."}</div>
-    </div>${s ? `<span class="chip blue">${esc(s.titre.split("—")[1] || "").trim()}</span>` : `<span class="chip clay">Repos</span>`}</div>
+    </div>${s ? `<span class="chip blue" id="chip-series"></span>` : `<span class="chip clay">Repos</span>`}</div>
     <div class="days">${DATA.seances.map(x => `<button data-open="${x.id}" class="${s && x.id === s.id ? "on" : ""} ${x.jourIdx === dow() ? "today" : ""}"><span class="l">${x.id}</span><span class="d">${x.jour.slice(0,3)}</span></button>`).join("")}</div>
   </div>`;
   if (!s) { app.innerHTML = h + `<p class="empty" style="padding:16px 0">Ouvre une séance ci-dessus si tu t'entraînes quand même aujourd'hui.</p>`; bindSeance(); return; }
   if (isRest) h += `<p class="hist" style="margin:10px 0 0">Séance ouverte hors planning — elle sera enregistrée à la date d'aujourd'hui.</p>`;
   const c = courant(s);
   const nDone = c.sets.flat().filter(x => x.done).length, nTot = c.sets.flat().length;
+  h = h.replace('<span class="chip blue" id="chip-series"></span>', `<span class="chip blue">${nDone} / ${nTot} séries</span>`);
   const haut = s.id === "J1" || s.id === "J3";
   if (haut) h += `<details class="card"><summary class="card-h"><h3>Échauffement épaule · 5 min</h3></summary><div class="card-b">${DATA.echauffement.map(e => `<div class="rowline"><span>${esc(e.nom)}<br><span class="hist">${esc(e.note)}</span></span><span class="v mono" style="color:var(--blue)">${esc(e.dose)}</span></div>`).join("")}</div></details>`;
   s.exos.forEach((e, i) => {
@@ -349,7 +364,7 @@ function renderSeance() {
     const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
       + (o ? ` · <b style="color:var(--green)">objectif : +${o.plus} kg, ${o.reps} reps</b>` : "");
     h += `<div class="card exo" data-exo="${i}">
-      <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible">${e.series} × ${esc(e.reps)}<br>repos ${esc(e.repos)}</div></div>
+      <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible"><b>${e.series} × ${esc(e.reps)}</b><br>repos ${esc(e.repos)}</div></div>
       <div class="card-b">
         <details><summary style="min-height:32px;font-size:13px;color:var(--muted)">Consigne</summary><div class="cue">${esc(e.consigne)}</div></details>
         ${c.sets[i].map((st, k) => `<div class="set" data-set="${k}">
@@ -405,7 +420,7 @@ function renderRepas() {
   const j = DATA.jours[idx], iso = today();
   const key = idx === dow() ? iso : "plan-" + idx;
   const done = S.repas[key] || [];
-  let h = `<div class="top"><div class="row"><div><div class="eyebrow">Repas · ${j.kcal} kcal · ${j.prot} g de protéines</div><h1>${esc(j.nom)}</h1></div><span class="chip ${j.train ? "green" : "clay"}">${j.train ? "Entraînement" : "Repos"}</span></div>
+  let h = `<div class="top"><div class="row"><div><div class="eyebrow">${j.kcal} kcal · ${j.prot} g de protéines</div><h1>${esc(j.nom)}</h1></div><span class="chip ${j.train ? "green" : "clay"}">${j.train ? "Entraînement" : "Repos"}</span></div>
     <div class="days">${DATA.jours.map((x, i) => `<button data-j="${i}" class="${i === idx ? "on" : ""} ${i === dow() ? "today" : ""} ${x.train ? "" : "rest"}"><span class="l">${JC[i]}</span><span class="d">${x.kcal}</span></button>`).join("")}</div></div>
     <div class="${j.train ? "" : "rest-day"}"><div class="card">${j.repas.map((m, i) => `<div class="meal ${done[i] ? "ok" : ""}" data-m="${i}">
       <button class="cb ${done[i] ? "on" : ""}" aria-label="Repas pris">${CHECK}</button>
@@ -461,19 +476,19 @@ function spark(pts) {
   const path = pts.map((p, i) => (i ? "L" : "M") + xs[i].toFixed(1) + " " + y(p.v).toFixed(1)).join(" ");
   const area = path + ` L${xs[xs.length - 1].toFixed(1)} ${H - P} L${xs[0]} ${H - P} Z`;
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><path d="${area}" fill="var(--blue-tint)"/><path d="${path}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round"/>${pts.map((p, i) => `<circle cx="${xs[i].toFixed(1)}" cy="${y(p.v).toFixed(1)}" r="${i === pts.length - 1 ? 4 : 2.5}" fill="var(--blue)"/>`).join("")}
-    <text x="${P}" y="${H - 1}" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${lo.toFixed(1)}</text><text x="${P}" y="11" font-size="10" fill="var(--muted)" font-family="IBM Plex Mono,monospace">${hi.toFixed(1)}</text></svg>`;
+    <text x="${P}" y="${H - 1}" font-size="10" fill="var(--muted)" font-family="JetBrains Mono,monospace">${lo.toFixed(1)}</text><text x="${P}" y="11" font-size="10" fill="var(--muted)" font-family="JetBrains Mono,monospace">${hi.toFixed(1)}</text></svg>`;
 }
 function renderSuivi() {
   const iso = today(), ms = moyennes(), v = verdict(ms);
   const last = Object.keys(S.poids).sort().pop();
   const pts = Object.entries(S.poids).sort().slice(-42).map(([d, kg]) => ({ d, v: +kg }));
-  let h = `<div class="top"><div class="row"><div><div class="eyebrow">${esc(DATA.profil.objectif)} · cible ${esc(DATA.profil.cible)}</div><h1>Suivi</h1></div></div></div>
+  let h = `<div class="top"><div class="row"><div><div class="eyebrow">${esc(DATA.profil.objectif)} · cible ${esc(DATA.profil.cible)}</div><h1>Suivi</h1></div>${last ? `<span class="pill-kg">${String(S.poids[last]).replace(".", ",")} <small>kg</small></span>` : ""}</div></div>
   <div class="card"><div class="card-b">
     <div class="field"><label for="poids">Poids ce matin, à jeun (kg)</label>
       <div class="stepper" style="min-height:52px"><button data-p="-0.1">−</button><span class="u" data-u="kg"><input id="poids" inputmode="decimal" placeholder="${last ? S.poids[last] : "70,0"}" value="${S.poids[iso] || ""}"></span><button data-p="0.1">+</button></div></div>
     <button class="btn primary" id="save-poids">Enregistrer</button>
   </div></div>
-  <div class="verdict ${v.cls}"><div class="eyebrow">${esc(v.t)}</div>${esc(v.m)}</div>
+  <div class="verdict ${v.cls}"><span class="eyebrow">Verdict de la semaine</span><span class="big">${esc(v.t)}</span>${esc(v.m)}</div>
   ${pts.length > 1 ? `<div class="card"><div class="card-h"><h3>6 dernières semaines</h3><span class="hist">${pts.length} pesées</span></div><div class="card-b">${spark(pts)}
     ${ms.slice(-6).reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.n} pesée${m.n > 1 ? "s" : ""}</span></span></div>`).join("")}</div></div>` : ""}
   <div class="card"><div class="card-b">
@@ -500,8 +515,10 @@ function renderSuivi() {
   } else h += `<p class="empty">La progression des charges apparaîtra ici après ta première séance enregistrée.</p>`;
   h += `<details class="card"><summary class="card-h"><h3>Règles de pilotage</h3></summary><div class="card-b">${DATA.pilotage.map(p => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:${p.alerte ? "var(--clay)" : "var(--green)"};font-size:13px">${esc(p.cond)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(p.texte)}</span></div>`).join("")}</div></details>
   <details class="card"><summary class="card-h"><h3>Échelle de douleur (épaule)</h3></summary><div class="card-b">${DATA.douleur.map(p => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:${p.consulter ? "var(--clay)" : "var(--green)"};font-size:13px">${esc(p.situation)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(p.texte)}</span></div>`).join("")}</div></details>
-  <div style="display:flex;gap:8px;margin:16px 0 24px;flex-wrap:wrap"><button class="btn ghost small" id="export">Exporter mes données</button><button class="btn ghost small" id="import">Importer</button><input type="file" id="import-file" accept="application/json" hidden>${window.Android && Android.checkUpdate ? `<button class="btn ghost small" id="check-update">Vérifier les mises à jour</button>` : ""}</div>
-  <p class="hist" style="margin-bottom:24px">Plan du ${esc(DATA.version)}${window.Android && Android.build ? ` · version ${esc(Android.build())}` : ""} · données stockées sur ce téléphone uniquement. Exporte-les de temps en temps.</p>`;
+  <div style="display:flex;gap:8px;margin:16px 0 12px;flex-wrap:wrap"><button class="btn ghost small" id="export">Exporter mes données</button><button class="btn ghost small" id="import">Importer</button><input type="file" id="import-file" accept="application/json" hidden></div>
+  <div class="card" style="margin-bottom:24px"><div class="card-h"><h3>Carnet</h3><span class="hist">plan du ${esc(DATA.version)}${window.Android && Android.build ? ` · version ${esc(Android.build())}` : ""}</span></div>
+    <div class="card-b"><p class="hist" style="margin:0 0 12px">Données stockées sur ce téléphone uniquement — exporte-les de temps en temps.${window.Android && Android.checkUpdate ? " Les mises à jour s'installent toutes seules à l'ouverture ; ce bouton force la vérification." : ""}</p>
+    ${window.Android && Android.checkUpdate ? `<button class="btn ghost small" id="check-update">Vérifier les mises à jour</button>` : ""}</div></div>`;
   app.innerHTML = h;
   const pi = document.getElementById("poids"), ti = document.getElementById("taille");
   app.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { pi.value = (Math.round(((parseFloat(pi.value.replace(",", ".")) || parseFloat(pi.placeholder.replace(",", ".")) || 70) + +b.dataset.p) * 10) / 10).toFixed(1); });

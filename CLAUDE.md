@@ -16,7 +16,7 @@ Appli web mobile (PWA) en un seul fichier, sans framework ni dépendance. Franç
 - Dates au format ISO `AAAA-MM-JJ`, `dow()` renvoie 0 pour lundi.
 - Cibles tactiles ≥ 44 px, pas de dépendance réseau (Google Fonts a des fallbacks système).
 - Mode sombre via `prefers-color-scheme`, jamais de couleur définie dans un seul thème.
-- Palette : vert `--green` (repas, validation), bleu ardoise `--blue` (séance), terre `--clay` (repos, alertes).
+- Design « Papier » : fond `--ground` chaud, cartes blanches `--surface` à grand rayon (22 px) et ombre douce, contrôles 14 px, pastilles 999 px. Titres et texte en Plus Jakarta Sans, chiffres en JetBrains Mono (`font-variant-numeric: tabular-nums`). Vert `--green` (repas, validation), bleu `--blue` (séance), terre `--clay` (repos, alertes), chacun avec sa teinte `--*-tint` pour les fonds de pastille. Toutes les couleurs sont des variables définies dans `:root` puis redéfinies dans `@media (prefers-color-scheme: dark)`.
 
 ## Tester
 `.\serve.ps1` (ou `python3 -m http.server 8765 --directory dist`) puis ouvrir `http://localhost:8765` dans un navigateur en mode mobile (412 × 915). Il existe un script Playwright de référence dans `../test_app.mjs`.

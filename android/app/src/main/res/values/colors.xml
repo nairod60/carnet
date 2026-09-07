@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Mêmes valeurs que les variables CSS ground, surface et green de app.template.html -->
-    <color name="ground">#F6F5F0</color>
+    <color name="ground">#F7F5EF</color>
     <color name="surface">#FFFFFF</color>
-    <color name="green">#45682F</color>
+    <color name="green">#3E9B5E</color>
 </resources>
