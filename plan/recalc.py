@@ -12,7 +12,16 @@ F = {"oeuf":(143,12.6,0.7,9.5),"pain_complet":(247,9.0,41.0,3.4),"banane":(89,1.
  "huile_olive":(900,0,0,100),"fromage_blanc0":(47,8.0,4.0,0.2),"amandes":(579,21.2,9.0,49.9),
  "whey":(385,72.0,7.0,6.6), "lait_ecreme":(33,3.3,4.9,0.1), "zero":(0,0,0,0),
  "concombre":(12,0.65,1.8,0.1), "olives":(145,1.0,1.0,14.0), "saumon_boite":(140,21.0,0.0,6.0),
- "lait_demi":(46,3.2,4.8,1.5), "avoine":(375,13.5,60.0,7.0)}
+ "lait_demi":(46,3.2,4.8,1.5), "avoine":(375,13.5,60.0,7.0),
+ # Ajouts du 11/09/2026 : CIQUAL en ligne (ciqual.anses.fr, consulté le 11/09/2026 ; code entre parenthèses)
+ "mais":(105,2.7,18.3,1.7),            # Maïs doux, appertisé, égoutté (20066)
+ "lait_entier":(65,3.3,4.8,3.6),       # Lait entier, UHT (19023)
+ "dattes":(287,1.8,64.7,0.25),         # Datte, chair et peau, sèche (13011)
+ "saumon_cru":(193,20.5,0.0,12.4),     # Saumon, élevage, cru (26036)
+ "beurre_cacahuete":(644,26.9,14.4,51.9),  # 100 % cacahuètes : Cacahuète, grillée, sans sel (15053)
+ "noix":(709,15.7,6.9,67.3),           # Noix, cerneau, séchée (15005)
+ "raisins_secs":(322,3.0,73.2,0.9),    # Raisin sec (13046)
+ "cuisse_poulet":(114,19.3,0.0,4.05)}  # Poulet, cuisse, viande crue, sans peau (36024)
 
 MAP = {"Œufs entiers":"oeuf","Pain complet":"pain_complet","Banane":"banane","Pomme":"pomme",
  "Kiwis":"kiwi","Orange":"orange","Fruit au choix":"fruit","Café ou thé sans sucre":"zero",
@@ -24,7 +33,10 @@ MAP = {"Œufs entiers":"oeuf","Pain complet":"pain_complet","Banane":"banane","P
  "Ail, paprika, cumin":"zero","Citron, persil":"zero","Concombre":"concombre","Olives":"olives",
  "Saumon en boîte égoutté":"saumon_boite","Œuf dur":"oeuf","Moutarde, vinaigre":"zero",
  "Vinaigre, herbes":"zero","Vinaigre, moutarde":"zero","Citron, aneth":"zero",
- "Lait demi-écrémé":"lait_demi","Flocons d'avoine":"avoine"}
+ "Lait demi-écrémé":"lait_demi","Flocons d'avoine":"avoine",
+ "Maïs doux égoutté":"mais","Lait entier":"lait_entier","Dattes":"dattes","Pavé de saumon":"saumon_cru",
+ "Beurre de cacahuète":"beurre_cacahuete","Noix":"noix","Raisins secs":"raisins_secs",
+ "Cuisse de poulet sans peau":"cuisse_poulet","Épices, herbes":"zero","Sel, poivre, paprika":"zero"}
 SPLIT = {"Tomates et courgettes": [("tomate",0.5),("courgette",0.5)]}
 
 def grams(poids, note):
@@ -67,7 +79,7 @@ for d in gen.DAYS:
 m = [t/7 for t in tot]
 print(f"{'MOYENNE':10} {m[0]:6.0f} {m[1]:5.0f} {m[2]:5.0f} {m[3]:5.0f}   "
       f"({m[1]/70:.2f} g/kg prot, {m[3]/70:.2f} g/kg lip)")
-open("gen.py","w",encoding="utf-8").write(src)
+open("gen.py","w",encoding="utf-8",newline="\n").write(src)
 print("\ngen.py : kcal par repas et totaux du jour recalculés")
 
 E = [d for d in gen.DAYS if d["train"]]; R = [d for d in gen.DAYS if not d["train"]]

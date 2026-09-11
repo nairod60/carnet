@@ -32,12 +32,13 @@ for s in prog.SEANCES:
 # --- repas ---
 jours = []
 for d in gen.DAYS:
-    meals = []
+    meals = []; jour = [0.0] * 4
     for nom, dish, kcal, items in d["meals"]:
         v = rec.macros(items)
-        meals.append({"nom": nom, "plat": dish, "kcal": round(v[0]), "prot": round(v[1]),
+        for i in range(4): jour[i] += v[i]
+        meals.append({"nom": nom, "plat": dish, "kcal": int(round(v[0] / 5) * 5), "prot": round(v[1]),  # mêmes arrondis que recalc.py
                       "items": [{"lab": l, "poids": p, "note": n} for l, p, n in items]})
-    tot = [sum(m[k] for m in meals) for k in ("kcal", "prot")]
+    tot = [round(jour[0]), round(jour[1])]  # total exact du jour, comme gen.py / CONTEXTE.md
     jours.append({"nom": d["nom"], "idx": JOURS.index(d["nom"]), "train": d["train"],
                   "kcal": tot[0], "prot": tot[1], "repas": meals, "batch": d["batch"]})
 
@@ -46,7 +47,7 @@ courses = [{"rayon": r, "items": [{"nom": n, "qte": q} for n, q in items]} for r
 
 # --- pilotage + échauffement + douleur ---
 data = {
-    "version": "2026-09-06",
+    "version": "2026-09-14",
     "profil": {"poids": 70, "taille": 184, "objectif": "Prise de masse propre", "cible": "+200 à +350 g / semaine"},
     "seances": seances, "jours": jours, "courses": courses,
     "pilotage": [{"cond": c, "texte": t, "alerte": w} for c, t, w in gen.PILOTAGE],

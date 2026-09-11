@@ -128,10 +128,11 @@
   .meal .plat { font-size: 12.5px; color: var(--muted); font-weight: 500; }
   .meal .k { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--green); font-weight: 600; white-space: nowrap; padding-top: 2px; text-align: right; }
   .meal ul { margin: 6px 0 0; padding: 0; list-style: none; }
-  .meal li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 3px 0; }
+  .meal li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 10px; font-size: 14px; color: var(--ink-2); padding: 3px 0; }
   .meal li + li { border-top: 1px solid var(--line-soft); }
-  .meal li .g { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .meal li .g { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
   .meal li .g em { font-style: normal; font-weight: 500; color: var(--muted); font-size: 11px; margin-left: 4px; }
+  .meal li .n { flex-basis: 100%; font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 11px; color: var(--muted); text-align: right; line-height: 1.3; }
   .meal.ok .name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
   .meal.ok li, .meal.ok li .g, .meal.ok .plat { color: var(--muted); }
   .cb { width: 28px; height: 28px; border-radius: 9px; background: var(--surface-alt); display: flex; align-items: center; justify-content: center; color: transparent; margin-top: 1px; }
@@ -163,7 +164,7 @@
   .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 8px 0; font-size: 14px; }
   .rowline + .rowline { border-top: 1px solid var(--line-soft); }
   .rowline .d { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 12px; }
-  .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
   .bars { display: flex; flex-direction: column; gap: 7px; }
   .bar { display: grid; grid-template-columns: 56px 1fr 92px; gap: 8px; align-items: center; font-size: 12.5px; }
   .bar .d { font-family: "JetBrains Mono", monospace; color: var(--muted); }
@@ -425,7 +426,7 @@ function renderRepas() {
     <div class="${j.train ? "" : "rest-day"}"><div class="card">${j.repas.map((m, i) => `<div class="meal ${done[i] ? "ok" : ""}" data-m="${i}">
       <button class="cb ${done[i] ? "on" : ""}" aria-label="Repas pris">${CHECK}</button>
       <div><div class="name">${esc(m.nom)}</div>${m.plat ? `<div class="plat">${esc(m.plat)}</div>` : ""}
-        <ul>${m.items.map(it => `<li><span>${esc(it.lab)}</span><span class="g">${esc(it.poids)}${it.note ? `<em>${esc(it.note)}</em>` : ""}</span></li>`).join("")}</ul></div>
+        <ul>${m.items.map(it => `<li><span>${esc(it.lab)}</span><span class="g">${esc(it.poids)}${it.note && it.note.length <= 8 ? `<em>${esc(it.note)}</em>` : ""}</span>${it.note && it.note.length > 8 ? `<em class="n">${esc(it.note)}</em>` : ""}</li>`).join("")}</ul></div>
       <div class="k">${m.kcal} kcal<br><span style="color:var(--muted)">${m.prot} g P</span></div>
     </div>`).join("")}</div>
     <div class="batch"><div class="eyebrow">À préparer ce soir</div>${esc(j.batch)}</div></div>`;
@@ -465,7 +466,7 @@ function verdict(ms) {
   if (d > 500) return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Trop vite : au-delà de +500 g, c'est du gras. Retire 150 kcal — 40 g de riz cru en moins au dîner." };
   if (d >= 200) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Dans la cible. Ne touche à rien : c'est du muscle avec un peu de gras, la proportion normale." };
   if (d >= 150) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Un peu en dessous de la cible, mais encore dans le bruit. Attends une semaine de plus avant d'ajuster." };
-  return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Sous +150 g. Si c'est la troisième semaine de suite, ajoute 150 kcal : 40 g de riz cru au dîner, ou 20 g d'avoine dans le shaker." };
+  return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Sous +150 g. Si c'est la troisième semaine de suite, ajoute 150 kcal : 40 g de riz cru au dîner, ou 50 g de dattes avec le shake de 10 h." };
 }
 function spark(pts) {
   if (pts.length < 2) return "";
