@@ -128,10 +128,11 @@
   .meal .plat { font-size: 12.5px; color: var(--muted); font-weight: 500; }
   .meal .k { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--green); font-weight: 600; white-space: nowrap; padding-top: 2px; text-align: right; }
   .meal ul { margin: 6px 0 0; padding: 0; list-style: none; }
-  .meal li { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 3px 0; }
+  .meal li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 10px; font-size: 14px; color: var(--ink-2); padding: 3px 0; }
   .meal li + li { border-top: 1px solid var(--line-soft); }
-  .meal li .g { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .meal li .g { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
   .meal li .g em { font-style: normal; font-weight: 500; color: var(--muted); font-size: 11px; margin-left: 4px; }
+  .meal li .n { flex-basis: 100%; font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 11px; color: var(--muted); text-align: right; line-height: 1.3; }
   .meal.ok .name { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
   .meal.ok li, .meal.ok li .g, .meal.ok .plat { color: var(--muted); }
   .cb { width: 28px; height: 28px; border-radius: 9px; background: var(--surface-alt); display: flex; align-items: center; justify-content: center; color: transparent; margin-top: 1px; }
@@ -163,7 +164,7 @@
   .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 8px 0; font-size: 14px; }
   .rowline + .rowline { border-top: 1px solid var(--line-soft); }
   .rowline .d { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 12px; }
-  .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
   .bars { display: flex; flex-direction: column; gap: 7px; }
   .bar { display: grid; grid-template-columns: 56px 1fr 92px; gap: 8px; align-items: center; font-size: 12.5px; }
   .bar .d { font-family: "JetBrains Mono", monospace; color: var(--muted); }
@@ -222,7 +223,7 @@
 
 <script>
 const DATA = {
- "version": "2026-09-06",
+ "version": "2026-09-14",
  "profil": {
   "poids": 70,
   "taille": 184,
@@ -489,13 +490,13 @@ const DATA = {
    "idx": 0,
    "train": true,
    "kcal": 2889,
-   "prot": 192,
+   "prot": 186,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 544,
-     "prot": 28,
+     "kcal": 470,
+     "prot": 26,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -504,7 +505,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "90 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -516,9 +517,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -526,20 +527,20 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de riz au thon",
+     "plat": "Salade de riz au thon et maïs",
      "kcal": 690,
      "prot": 49,
      "items": [
@@ -550,17 +551,22 @@ const DATA = {
       },
       {
        "lab": "Riz basmati",
-       "poids": "90 g",
-       "note": "cru"
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
+      },
+      {
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
+       "note": ""
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Concombre",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
@@ -583,7 +589,7 @@ const DATA = {
     {
      "nom": "Avant la séance",
      "plat": "≈ 90 min avant",
-     "kcal": 107,
+     "kcal": 105,
      "prot": 1,
      "items": [
       {
@@ -595,9 +601,9 @@ const DATA = {
     },
     {
      "nom": "Après la séance",
-     "plat": "dans l'heure",
-     "kcal": 337,
-     "prot": 31,
+     "plat": "dans l'heure, dattes à croquer",
+     "kcal": 470,
+     "prot": 32,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -605,7 +611,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
@@ -613,23 +619,28 @@ const DATA = {
        "lab": "Banane",
        "poids": "120 g",
        "note": ""
+      },
+      {
+       "lab": "Dattes",
+       "poids": "30 g",
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Dîner",
-     "plat": "Poulet aux poivrons, riz",
-     "kcal": 715,
+     "plat": "Poulet et poivrons à l'air fryer, riz",
+     "kcal": 645,
      "prot": 44,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, air fryer"
       },
       {
        "lab": "Poivrons",
-       "poids": "250 g",
+       "poids": "150 g",
        "note": ""
       },
       {
@@ -639,8 +650,8 @@ const DATA = {
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
-       "note": ""
+       "poids": "10 g",
+       "note": "5 poulet, 5 poivrons"
       },
       {
        "lab": "Ail, paprika, cumin",
@@ -652,7 +663,7 @@ const DATA = {
     {
      "nom": "Avant de dormir",
      "plat": "",
-     "kcal": 116,
+     "kcal": 115,
      "prot": 4,
      "items": [
       {
@@ -663,20 +674,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Cuis 300 g de poulet et 190 g de riz crus (100 pour ce soir, 90 pour la salade). La moitié se mange chaude ce soir, l'autre moitié refroidit pour la salade de riz de mardi midi."
+   "batch": "Air fryer : 300 g de poulet d'un coup (150 chauds ce soir, 150 refroidissent pour la salade de mardi midi). Casserole : 170 g de riz cru (100 ce soir, 70 pour la salade de mardi)."
   },
   {
    "nom": "Mardi",
    "idx": 1,
    "train": true,
-   "kcal": 2774,
+   "kcal": 2811,
    "prot": 186,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 515,
-     "prot": 27,
+     "kcal": 440,
+     "prot": 25,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -685,7 +696,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "90 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -697,9 +708,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -707,42 +718,52 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de riz au poulet",
-     "kcal": 633,
-     "prot": 44,
+     "plat": "Salade de riz au poulet et maïs",
+     "kcal": 705,
+     "prot": 50,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, cuit la veille"
       },
       {
        "lab": "Riz basmati",
-       "poids": "90 g",
-       "note": "cru"
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
+      },
+      {
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
+       "note": ""
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Concombre",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
+      },
+      {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
       },
       {
        "lab": "Huile d'olive",
@@ -759,7 +780,7 @@ const DATA = {
     {
      "nom": "Avant la séance",
      "plat": "≈ 90 min avant",
-     "kcal": 107,
+     "kcal": 105,
      "prot": 1,
      "items": [
       {
@@ -771,9 +792,9 @@ const DATA = {
     },
     {
      "nom": "Après la séance",
-     "plat": "dans l'heure",
-     "kcal": 337,
-     "prot": 31,
+     "plat": "dans l'heure, dattes à croquer",
+     "kcal": 470,
+     "prot": 32,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -781,7 +802,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
@@ -789,14 +810,19 @@ const DATA = {
        "lab": "Banane",
        "poids": "120 g",
        "note": ""
+      },
+      {
+       "lab": "Dattes",
+       "poids": "30 g",
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Dîner",
-     "plat": "Steak, pommes de terre, haricots",
-     "kcal": 686,
-     "prot": 44,
+     "plat": "Steak, pommes de terre à l'air fryer, haricots",
+     "kcal": 580,
+     "prot": 43,
      "items": [
       {
        "lab": "Steak haché 5 %",
@@ -806,24 +832,29 @@ const DATA = {
       {
        "lab": "Pommes de terre",
        "poids": "350 g",
-       "note": "crues"
+       "note": "crues, air fryer 200 °C 20 min"
       },
       {
        "lab": "Haricots verts",
-       "poids": "200 g",
+       "poids": "150 g",
        "note": ""
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
-       "note": ""
+       "poids": "5 g",
+       "note": "sur les pommes de terre"
+      },
+      {
+       "lab": "Sel, poivre, paprika",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
     {
      "nom": "Avant de dormir",
      "plat": "",
-     "kcal": 116,
+     "kcal": 115,
      "prot": 4,
      "items": [
       {
@@ -834,20 +865,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Le steak reste une portion unique : il ne passe jamais au déjeuner. Fais juste cuire 90 g de riz cru en plus ce soir pour la salade au thon de demain."
+   "batch": "Le steak reste une portion unique : il ne passe jamais au déjeuner, à la poêle sans matière grasse. Casserole : 70 g de riz cru pour la salade au thon de mercredi midi."
   },
   {
    "nom": "Mercredi",
    "idx": 2,
    "train": false,
-   "kcal": 2617,
-   "prot": 204,
+   "kcal": 2534,
+   "prot": 197,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 504,
-     "prot": 28,
+     "kcal": 455,
+     "prot": 26,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -856,7 +887,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "80 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -868,9 +899,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -878,21 +909,21 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de riz au thon",
-     "kcal": 717,
+     "plat": "Salade de riz au thon et maïs",
+     "kcal": 690,
      "prot": 49,
      "items": [
       {
@@ -902,17 +933,22 @@ const DATA = {
       },
       {
        "lab": "Riz basmati",
-       "poids": "90 g",
-       "note": "cru"
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
+      },
+      {
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
+       "note": ""
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Concombre",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
@@ -922,7 +958,7 @@ const DATA = {
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
+       "poids": "12 g",
        "note": ""
       },
       {
@@ -935,7 +971,7 @@ const DATA = {
     {
      "nom": "Collation",
      "plat": "milieu d'après-midi",
-     "kcal": 230,
+     "kcal": 280,
      "prot": 30,
      "items": [
       {
@@ -944,7 +980,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       }
@@ -952,14 +988,14 @@ const DATA = {
     },
     {
      "nom": "Dîner",
-     "plat": "Poulet, pâtes complètes, tomates, poivrons",
-     "kcal": 716,
-     "prot": 50,
+     "plat": "Poulet à l'air fryer, pâtes complètes, tomates, poivrons",
+     "kcal": 650,
+     "prot": 49,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, air fryer"
       },
       {
        "lab": "Pâtes complètes",
@@ -968,18 +1004,23 @@ const DATA = {
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Poivrons",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
+       "poids": "10 g",
        "note": ""
+      },
+      {
+       "lab": "Ail, paprika, cumin",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
@@ -997,20 +1038,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Jour de repos. Cuis 300 g de poulet et 190 g de pâtes crues (100 pour ce soir, 90 pour la salade) : la moitié chaude ce soir, l'autre moitié refroidit pour la salade de pâtes de jeudi midi."
+   "batch": "Jour de repos. Air fryer : 300 g de poulet (150 ce soir, 150 pour la salade de jeudi midi). Casserole : 170 g de pâtes crues (100 ce soir, 70 refroidissent pour jeudi midi)."
   },
   {
    "nom": "Jeudi",
    "idx": 3,
    "train": true,
-   "kcal": 2916,
-   "prot": 194,
+   "kcal": 2930,
+   "prot": 192,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 507,
-     "prot": 28,
+     "kcal": 435,
+     "prot": 26,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -1019,7 +1060,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "90 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -1031,9 +1072,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1041,40 +1082,45 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de pâtes au poulet",
-     "kcal": 652,
-     "prot": 49,
+     "plat": "Salade de pâtes au poulet, maïs et olives",
+     "kcal": 715,
+     "prot": 54,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, cuit la veille"
       },
       {
        "lab": "Pâtes complètes",
-       "poids": "90 g",
-       "note": "crues"
+       "poids": "70 g",
+       "note": "crues, cuites la veille"
       },
       {
-       "lab": "Tomates",
-       "poids": "150 g",
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
        "note": ""
       },
       {
-       "lab": "Poivrons",
+       "lab": "Tomates",
+       "poids": "100 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
        "poids": "100 g",
        "note": ""
       },
@@ -1084,16 +1130,26 @@ const DATA = {
        "note": ""
       },
       {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
+      },
+      {
        "lab": "Huile d'olive",
        "poids": "10 g",
        "note": ""
+      },
+      {
+       "lab": "Vinaigre, herbes",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
     {
      "nom": "Avant la séance",
      "plat": "≈ 90 min avant",
-     "kcal": 107,
+     "kcal": 105,
      "prot": 1,
      "items": [
       {
@@ -1105,9 +1161,9 @@ const DATA = {
     },
     {
      "nom": "Après la séance",
-     "plat": "dans l'heure",
-     "kcal": 337,
-     "prot": 31,
+     "plat": "dans l'heure, dattes à croquer",
+     "kcal": 470,
+     "prot": 32,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1115,7 +1171,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
@@ -1123,14 +1179,19 @@ const DATA = {
        "lab": "Banane",
        "poids": "120 g",
        "note": ""
+      },
+      {
+       "lab": "Dattes",
+       "poids": "30 g",
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Dîner",
      "plat": "Steak, riz, haricots",
-     "kcal": 817,
-     "prot": 46,
+     "kcal": 695,
+     "prot": 45,
      "items": [
       {
        "lab": "Steak haché 5 %",
@@ -1144,20 +1205,25 @@ const DATA = {
       },
       {
        "lab": "Haricots verts",
-       "poids": "250 g",
+       "poids": "150 g",
        "note": ""
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
-       "note": ""
+       "poids": "5 g",
+       "note": "sur les haricots"
+      },
+      {
+       "lab": "Sel, poivre, paprika",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
     {
      "nom": "Avant de dormir",
      "plat": "",
-     "kcal": 116,
+     "kcal": 115,
      "prot": 4,
      "items": [
       {
@@ -1168,20 +1234,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Steak en portion unique. Cuis 90 g de riz cru en plus pour la salade au saumon de demain midi."
+   "batch": "Steak en portion unique. Casserole : 180 g de riz cru (110 ce soir, 70 refroidissent pour la salade au saumon de vendredi midi)."
   },
   {
    "nom": "Vendredi",
    "idx": 4,
    "train": true,
-   "kcal": 2776,
-   "prot": 185,
+   "kcal": 2839,
+   "prot": 184,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 544,
-     "prot": 28,
+     "kcal": 470,
+     "prot": 26,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -1190,7 +1256,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "90 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -1202,9 +1268,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1212,22 +1278,22 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de riz au saumon",
-     "kcal": 660,
-     "prot": 41,
+     "plat": "Salade de riz au saumon et maïs",
+     "kcal": 710,
+     "prot": 47,
      "items": [
       {
        "lab": "Saumon en boîte égoutté",
@@ -1236,22 +1302,32 @@ const DATA = {
       },
       {
        "lab": "Riz basmati",
-       "poids": "90 g",
-       "note": "cru"
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
+      },
+      {
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
+       "note": ""
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Concombre",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
+      },
+      {
        "lab": "Huile d'olive",
-       "poids": "10 g",
+       "poids": "8 g",
        "note": ""
       },
       {
@@ -1264,7 +1340,7 @@ const DATA = {
     {
      "nom": "Avant la séance",
      "plat": "≈ 90 min avant",
-     "kcal": 107,
+     "kcal": 105,
      "prot": 1,
      "items": [
       {
@@ -1276,9 +1352,9 @@ const DATA = {
     },
     {
      "nom": "Après la séance",
-     "plat": "dans l'heure",
-     "kcal": 337,
-     "prot": 31,
+     "plat": "dans l'heure, dattes à croquer",
+     "kcal": 470,
+     "prot": 32,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1286,7 +1362,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
@@ -1294,41 +1370,51 @@ const DATA = {
        "lab": "Banane",
        "poids": "120 g",
        "note": ""
+      },
+      {
+       "lab": "Dattes",
+       "poids": "30 g",
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Dîner",
-     "plat": "Poulet, pommes de terre, haricots",
-     "kcal": 632,
-     "prot": 45,
+     "plat": "Poulet et pommes de terre à l'air fryer, haricots",
+     "kcal": 570,
+     "prot": 44,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, air fryer"
       },
       {
        "lab": "Pommes de terre",
        "poids": "350 g",
-       "note": "crues"
+       "note": "crues, air fryer 200 °C 20 min"
       },
       {
        "lab": "Haricots verts",
-       "poids": "200 g",
+       "poids": "150 g",
        "note": ""
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
-       "note": ""
+       "poids": "10 g",
+       "note": "5 poulet, 5 pommes de terre"
+      },
+      {
+       "lab": "Sel, poivre, paprika",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
     {
      "nom": "Avant de dormir",
      "plat": "",
-     "kcal": 116,
+     "kcal": 115,
      "prot": 4,
      "items": [
       {
@@ -1339,20 +1425,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Poulet en portion unique ce soir. Cuis 650 g de pommes de terre crues : 350 chaudes ce soir, 300 refroidissent pour la salade au thon de samedi midi. Le saumon en boîte du midi remplace le poisson gras : c'est lui qui apporte tes oméga-3."
+   "batch": "Poulet en portion unique ce soir. Casserole : 70 g de riz cru pour la salade au thon de samedi midi. Le saumon en boîte du midi et le pavé de dimanche apportent tes oméga-3."
   },
   {
    "nom": "Samedi",
    "idx": 5,
    "train": false,
    "kcal": 2519,
-   "prot": 205,
+   "prot": 195,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 490,
-     "prot": 27,
+     "kcal": 440,
+     "prot": 25,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -1361,7 +1447,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "80 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -1373,9 +1459,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1383,22 +1469,22 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de pommes de terre au thon",
-     "kcal": 641,
-     "prot": 51,
+     "plat": "Salade de riz au thon et maïs",
+     "kcal": 690,
+     "prot": 49,
      "items": [
       {
        "lab": "Thon au naturel égoutté",
@@ -1406,17 +1492,22 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Pommes de terre",
-       "poids": "300 g",
-       "note": "crues"
+       "lab": "Riz basmati",
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
       },
       {
-       "lab": "Haricots verts",
-       "poids": "200 g",
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
        "note": ""
       },
       {
        "lab": "Tomates",
+       "poids": "100 g",
+       "note": ""
+      },
+      {
+       "lab": "Concombre",
        "poids": "100 g",
        "note": ""
       },
@@ -1431,7 +1522,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Moutarde, vinaigre",
+       "lab": "Vinaigre, moutarde",
        "poids": "",
        "note": "libre"
       }
@@ -1440,7 +1531,7 @@ const DATA = {
     {
      "nom": "Collation",
      "plat": "milieu d'après-midi",
-     "kcal": 346,
+     "kcal": 395,
      "prot": 34,
      "items": [
       {
@@ -1449,7 +1540,7 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
@@ -1462,29 +1553,34 @@ const DATA = {
     },
     {
      "nom": "Dîner",
-     "plat": "Cabillaud, pommes de terre, haricots",
-     "kcal": 592,
-     "prot": 46,
+     "plat": "Cabillaud et pommes de terre à l'air fryer, haricots",
+     "kcal": 530,
+     "prot": 45,
      "items": [
       {
        "lab": "Cabillaud ou colin",
        "poids": "200 g",
-       "note": "cru"
+       "note": "cru, air fryer"
       },
       {
        "lab": "Pommes de terre",
        "poids": "300 g",
-       "note": "crues"
+       "note": "crues, air fryer 200 °C 20 min"
       },
       {
        "lab": "Haricots verts",
-       "poids": "200 g",
+       "poids": "150 g",
        "note": ""
       },
       {
        "lab": "Huile d'olive",
-       "poids": "15 g",
-       "note": ""
+       "poids": "10 g",
+       "note": "5 poisson, 5 pommes de terre"
+      },
+      {
+       "lab": "Citron, persil",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
@@ -1502,20 +1598,20 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Pendant que le poisson cuit, fais aussi cuire 150 g de poulet et 90 g de riz cru : ils refroidissent pour la salade de dimanche midi."
+   "batch": "Air fryer : après le poisson et les pommes de terre, passe 150 g de poulet. Casserole : 70 g de riz cru. Les deux refroidissent pour la salade de dimanche midi."
   },
   {
    "nom": "Dimanche",
    "idx": 6,
    "train": false,
-   "kcal": 2487,
-   "prot": 183,
+   "kcal": 2569,
+   "prot": 187,
    "repas": [
     {
      "nom": "Petit-déjeuner",
      "plat": "",
-     "kcal": 483,
-     "prot": 27,
+     "kcal": 435,
+     "prot": 26,
      "items": [
       {
        "lab": "Œufs entiers",
@@ -1524,7 +1620,7 @@ const DATA = {
       },
       {
        "lab": "Pain complet",
-       "poids": "80 g",
+       "poids": "60 g",
        "note": ""
       },
       {
@@ -1536,9 +1632,9 @@ const DATA = {
     },
     {
      "nom": "Collation 10 h",
-     "plat": "whey + avoine, au shaker",
-     "kcal": 380,
-     "prot": 35,
+     "plat": "whey + lait entier au shaker (avec la créatine), dattes à croquer",
+     "kcal": 395,
+     "prot": 31,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1546,42 +1642,52 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Flocons d'avoine",
+       "lab": "Dattes",
        "poids": "40 g",
-       "note": ""
+       "note": "à côté"
       }
      ]
     },
     {
      "nom": "Déjeuner",
-     "plat": "Salade de riz au poulet",
-     "kcal": 633,
-     "prot": 44,
+     "plat": "Salade de riz au poulet et maïs",
+     "kcal": 705,
+     "prot": 50,
      "items": [
       {
        "lab": "Blanc de poulet",
        "poids": "150 g",
-       "note": "cru"
+       "note": "cru, cuit la veille"
       },
       {
        "lab": "Riz basmati",
-       "poids": "90 g",
-       "note": "cru"
+       "poids": "70 g",
+       "note": "cru, cuit la veille"
+      },
+      {
+       "lab": "Maïs doux égoutté",
+       "poids": "80 g",
+       "note": ""
       },
       {
        "lab": "Tomates",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
       },
       {
        "lab": "Concombre",
-       "poids": "150 g",
+       "poids": "100 g",
        "note": ""
+      },
+      {
+       "lab": "Œuf dur",
+       "poids": "1",
+       "note": "50 g"
       },
       {
        "lab": "Huile d'olive",
@@ -1598,8 +1704,8 @@ const DATA = {
     {
      "nom": "Collation",
      "plat": "milieu d'après-midi",
-     "kcal": 320,
-     "prot": 31,
+     "kcal": 365,
+     "prot": 30,
      "items": [
       {
        "lab": "Whey Isostar",
@@ -1607,42 +1713,47 @@ const DATA = {
        "note": ""
       },
       {
-       "lab": "Lait demi-écrémé",
+       "lab": "Lait entier",
        "poids": "250 ml",
        "note": ""
       },
       {
-       "lab": "Fruit au choix",
-       "poids": "150 g",
+       "lab": "Dattes",
+       "poids": "30 g",
        "note": ""
       }
      ]
     },
     {
      "nom": "Dîner",
-     "plat": "Omelette aux tomates",
-     "kcal": 601,
-     "prot": 34,
+     "plat": "Pavé de saumon et pommes de terre à l'air fryer, poivrons",
+     "kcal": 605,
+     "prot": 38,
      "items": [
       {
-       "lab": "Œufs entiers",
-       "poids": "4",
-       "note": "200 g"
+       "lab": "Pavé de saumon",
+       "poids": "150 g",
+       "note": "cru, air fryer 200 °C 10 min"
       },
       {
-       "lab": "Tomates",
+       "lab": "Pommes de terre",
+       "poids": "300 g",
+       "note": "crues, air fryer 200 °C 20 min"
+      },
+      {
+       "lab": "Poivrons",
        "poids": "150 g",
        "note": ""
       },
       {
-       "lab": "Pain complet",
-       "poids": "80 g",
-       "note": ""
+       "lab": "Huile d'olive",
+       "poids": "5 g",
+       "note": "sur les pommes de terre"
       },
       {
-       "lab": "Huile d'olive",
-       "poids": "10 g",
-       "note": ""
+       "lab": "Citron, aneth",
+       "poids": "",
+       "note": "libre"
       }
      ]
     },
@@ -1660,7 +1771,7 @@ const DATA = {
      ]
     }
    ],
-   "batch": "Fais juste cuire 90 g de riz cru pour la salade au thon de lundi midi. C'est aussi le moment des courses."
+   "batch": "Le saumon n'a pas besoin d'huile : les 5 g vont sur les pommes de terre. Casserole : 70 g de riz cru pour la salade au thon de lundi midi, et les 7 œufs durs de la semaine (une semaine au frigo dans leur coquille). C'est aussi le moment des courses."
   }
  ],
  "courses": [
@@ -1676,7 +1787,7 @@ const DATA = {
      "qte": "420 g"
     },
     {
-     "nom": "Lait demi-écrémé",
+     "nom": "Lait entier",
      "qte": "3,5 L"
     },
     {
@@ -1702,6 +1813,10 @@ const DATA = {
     {
      "nom": "Cabillaud ou colin",
      "qte": "200 g"
+    },
+    {
+     "nom": "Pavé de saumon",
+     "qte": "150 g"
     }
    ]
   },
@@ -1710,19 +1825,19 @@ const DATA = {
    "items": [
     {
      "nom": "Pain complet",
-     "qte": "680 g"
+     "qte": "420 g"
     },
     {
-     "nom": "Flocons d'avoine",
-     "qte": "280 g"
+     "nom": "Dattes",
+     "qte": "430 g"
     },
     {
      "nom": "Riz basmati",
-     "qte": "660 g"
+     "qte": "630 g"
     },
     {
      "nom": "Huile d'olive",
-     "qte": "183 ml"
+     "qte": "133 g"
     },
     {
      "nom": "Amandes",
@@ -1734,7 +1849,7 @@ const DATA = {
     },
     {
      "nom": "Pâtes complètes",
-     "qte": "190 g"
+     "qte": "170 g"
     },
     {
      "nom": "Olives",
@@ -1750,16 +1865,20 @@ const DATA = {
      "qte": "10"
     },
     {
+     "nom": "Maïs doux égoutté",
+     "qte": "2 boîtes (560 g)"
+    },
+    {
      "nom": "Tomates",
-     "qte": "1,3 kg"
+     "qte": "800 g"
     },
     {
      "nom": "Concombre",
-     "qte": "750 g"
+     "qte": "700 g"
     },
     {
      "nom": "Poivrons",
-     "qte": "500 g"
+     "qte": "400 g"
     },
     {
      "nom": "Pomme",
@@ -1767,7 +1886,7 @@ const DATA = {
     },
     {
      "nom": "Haricots verts",
-     "qte": "1,1 kg"
+     "qte": "600 g"
     },
     {
      "nom": "Kiwis",
@@ -1776,10 +1895,6 @@ const DATA = {
     {
      "nom": "Orange",
      "qte": "2"
-    },
-    {
-     "nom": "Fruit au choix",
-     "qte": "1"
     },
     {
      "nom": "Ail, citron, épices",
@@ -1796,7 +1911,7 @@ const DATA = {
   },
   {
    "cond": "Moins de +150 g pendant 3 semaines",
-   "texte": "Le surplus est trop petit pour ton métabolisme. Ajoute 150 kcal : 40 g de riz cru au dîner, ou 20 g d'avoine dans le shaker.",
+   "texte": "Le surplus est trop petit pour ton métabolisme. Ajoute 150 kcal : 40 g de riz cru au dîner, ou 50 g de dattes avec le shake de 10 h.",
    "alerte": false
   },
   {
@@ -1886,43 +2001,55 @@ const DATA = {
  ],
  "conversion": [
   {
-   "aliment": "Riz basmati",
-   "cru": "90 g",
-   "cuit": "≈ 260 g",
+   "aliment": "Riz basmati (salade)",
+   "cru": "70 g",
+   "cuit": "≈ 200 g",
    "facteur": "× 2,9"
   },
   {
-   "aliment": "Pâtes complètes",
+   "aliment": "Riz basmati (dîner)",
+   "cru": "100 g",
+   "cuit": "≈ 290 g",
+   "facteur": "× 2,9"
+  },
+  {
+   "aliment": "Pâtes complètes (salade)",
+   "cru": "70 g",
+   "cuit": "≈ 160 g",
+   "facteur": "× 2,3"
+  },
+  {
+   "aliment": "Pâtes complètes (dîner)",
    "cru": "100 g",
    "cuit": "≈ 230 g",
    "facteur": "× 2,3"
   },
   {
-   "aliment": "Pommes de terre (eau/vapeur)",
-   "cru": "400 g",
-   "cuit": "≈ 380 g",
-   "facteur": "× 0,95"
+   "aliment": "Pommes de terre (air fryer)",
+   "cru": "350 g",
+   "cuit": "≈ 260 g",
+   "facteur": "× 0,75"
   },
   {
    "aliment": "Blanc de poulet",
-   "cru": "180 g",
-   "cuit": "≈ 135 g",
+   "cru": "150 g",
+   "cuit": "≈ 115 g",
    "facteur": "× 0,75"
   },
   {
    "aliment": "Steak haché 5 %",
-   "cru": "180 g",
-   "cuit": "≈ 135 g",
+   "cru": "160 g",
+   "cuit": "≈ 120 g",
    "facteur": "× 0,75"
   },
   {
-   "aliment": "Poisson blanc",
+   "aliment": "Cabillaud ou colin",
    "cru": "200 g",
    "cuit": "≈ 160 g",
    "facteur": "× 0,80"
   },
   {
-   "aliment": "Maquereau",
+   "aliment": "Pavé de saumon",
    "cru": "150 g",
    "cuit": "≈ 120 g",
    "facteur": "× 0,80"
@@ -2132,7 +2259,7 @@ function renderRepas() {
     <div class="${j.train ? "" : "rest-day"}"><div class="card">${j.repas.map((m, i) => `<div class="meal ${done[i] ? "ok" : ""}" data-m="${i}">
       <button class="cb ${done[i] ? "on" : ""}" aria-label="Repas pris">${CHECK}</button>
       <div><div class="name">${esc(m.nom)}</div>${m.plat ? `<div class="plat">${esc(m.plat)}</div>` : ""}
-        <ul>${m.items.map(it => `<li><span>${esc(it.lab)}</span><span class="g">${esc(it.poids)}${it.note ? `<em>${esc(it.note)}</em>` : ""}</span></li>`).join("")}</ul></div>
+        <ul>${m.items.map(it => `<li><span>${esc(it.lab)}</span><span class="g">${esc(it.poids)}${it.note && it.note.length <= 8 ? `<em>${esc(it.note)}</em>` : ""}</span>${it.note && it.note.length > 8 ? `<em class="n">${esc(it.note)}</em>` : ""}</li>`).join("")}</ul></div>
       <div class="k">${m.kcal} kcal<br><span style="color:var(--muted)">${m.prot} g P</span></div>
     </div>`).join("")}</div>
     <div class="batch"><div class="eyebrow">À préparer ce soir</div>${esc(j.batch)}</div></div>`;
@@ -2172,7 +2299,7 @@ function verdict(ms) {
   if (d > 500) return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Trop vite : au-delà de +500 g, c'est du gras. Retire 150 kcal — 40 g de riz cru en moins au dîner." };
   if (d >= 200) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Dans la cible. Ne touche à rien : c'est du muscle avec un peu de gras, la proportion normale." };
   if (d >= 150) return { cls: "ok", t: `${sign}${d} g cette semaine`, m: "Un peu en dessous de la cible, mais encore dans le bruit. Attends une semaine de plus avant d'ajuster." };
-  return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Sous +150 g. Si c'est la troisième semaine de suite, ajoute 150 kcal : 40 g de riz cru au dîner, ou 20 g d'avoine dans le shaker." };
+  return { cls: "warn", t: `${sign}${d} g cette semaine`, m: "Sous +150 g. Si c'est la troisième semaine de suite, ajoute 150 kcal : 40 g de riz cru au dîner, ou 50 g de dattes avec le shake de 10 h." };
 }
 function spark(pts) {
   if (pts.length < 2) return "";
