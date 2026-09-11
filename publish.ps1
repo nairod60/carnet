@@ -8,23 +8,33 @@ param([string]$Message = "")
 $ErrorActionPreference = "Continue"  # git/gh écrivent des infos sur stderr : on contrôle les codes de retour nous-mêmes
 $root = $PSScriptRoot
 $tc = Join-Path $env:LOCALAPPDATA "android-toolchain"
+# Python : celui de la toolchain Android si elle est là, sinon celui du système
 $python = Join-Path $tc "python\python.exe"
+if (-not (Test-Path $python)) { $python = (Get-Command python -ErrorAction SilentlyContinue).Source }
+if (-not $python) { throw "Python introuvable (ni $tc\python, ni dans le PATH)" }
+# gh : nécessaire seulement la première fois (connexion, création du dépôt, activation de Pages)
 $gh = Join-Path $tc "gh\bin\gh.exe"
-foreach ($t in $python, $gh) { if (-not (Test-Path $t)) { throw "Outil introuvable : $t" } }
+if (-not (Test-Path $gh)) { $gh = (Get-Command gh -ErrorAction SilentlyContinue).Source }
+$hasRemote = ((git remote) -contains "origin")
+if (-not $gh -and -not $hasRemote) { throw "gh introuvable : nécessaire pour la première publication (connexion GitHub et création du dépôt)" }
 
 Push-Location $root
 try {
     # 1. dépôt git + compte GitHub
     if (-not (Test-Path ".git")) { git init -b main | Out-Null }
-    & $gh auth status *> $null
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "Connexion à GitHub nécessaire (une seule fois) : suis les instructions, un code s'affichera à copier dans le navigateur." -ForegroundColor Yellow
-        & $gh auth login --hostname github.com --git-protocol https --web
-        if ($LASTEXITCODE -ne 0) { throw "Connexion GitHub échouée" }
+    if ($gh) {
+        & $gh auth status *> $null
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "Connexion à GitHub nécessaire (une seule fois) : suis les instructions, un code s'affichera à copier dans le navigateur." -ForegroundColor Yellow
+            & $gh auth login --hostname github.com --git-protocol https --web
+            if ($LASTEXITCODE -ne 0) { throw "Connexion GitHub échouée" }
+        }
+        & $gh auth setup-git *> $null
+        $owner = (& $gh api user --jq .login)
+    } else {
+        # Sans gh : le propriétaire se lit dans l'adresse du remote, git pousse avec ses identifiants habituels
+        $owner = ((git remote get-url origin) -replace '^.*github\.com[:/]([^/]+)/.*$', '$1')
     }
-    & $gh auth setup-git *> $null
-    $owner = (& $gh api user --jq .login)
-    $hasRemote = ((git remote) -contains "origin")
     if (-not $hasRemote) {
         Write-Host "Création du dépôt GitHub $owner/carnet (public : GitHub Pages est gratuit uniquement pour les dépôts publics)."
         & $gh repo create carnet --public --source=. --remote=origin
@@ -62,7 +72,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "push gh-pages a échoué" }
 
     # 6. GitHub Pages sur la branche gh-pages : activé la première fois
-    & $gh api "repos/$owner/carnet/pages" *> $null
+    if ($gh) { & $gh api "repos/$owner/carnet/pages" *> $null } else { $LASTEXITCODE = 0 }
     if ($LASTEXITCODE -ne 0) {
         & $gh api -X POST "repos/$owner/carnet/pages" -f "source[branch]=gh-pages" -f "source[path]=/" | Out-Null
         & $gh api -X POST "repos/$owner/carnet/pages/builds" *> $null  # première construction du site

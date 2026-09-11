@@ -79,7 +79,7 @@ PROGRESSION = [
  ("Poids du corps", "Tractions et pompes suivent la même règle, en trois temps : les répétitions, puis le lestage (sac à dos, 5 puis 10 kg), puis le ralentissement de la descente à 3 secondes. Sans lestage au-delà de 15-20 reps, un exercice au poids du corps cesse de faire grossir."),
  ("Comment", "Reste sur le même poids jusqu'à atteindre le haut de la fourchette sur les 3 séries. Là seulement, tu ajoutes 2 kg par haltère et tu redescends en bas de la fourchette."),
  ("L'intensité", "Arrête chaque série avec 1 ou 2 répétitions encore en réserve. Jamais à l'échec sur les poussées : c'est là que la technique se dégrade et que l'épaule paie."),
- ("En déficit", "Tu manges 250 kcal sous ta dépense : la progression sera plus lente qu'en prise de masse. Une répétition de plus toutes les deux semaines, c'est déjà une victoire."),
+ ("En prise de masse", "Tu manges 200 à 300 kcal au-dessus de ta dépense : c'est le moment où la progression est la plus rapide. Une répétition ou un kilo de plus tous les huit à quinze jours sur chaque exercice, c'est le rythme attendu."),
  ("Si ça bloque", "Deux séances de suite sans progresser sur un exercice : baisse de 10 % et remonte. Ne force pas."),
  ("Toutes les 6 à 8 semaines", "Une semaine allégée : mêmes exercices, 2 séries au lieu de 3, charges à 70 %. L'épaule apprécie."),
 ]

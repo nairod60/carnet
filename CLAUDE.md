@@ -2,11 +2,15 @@
 
 Appli web mobile (PWA) en un seul fichier, sans framework ni dépendance. Français partout.
 
+Qui est l'utilisateur, ce qui a été décidé (prise de masse, épaule, créatine…), les repas et les séances en clair :
+@CONTEXTE.md
+Après toute modification de `plan/gen.py` ou `plan/prog.py`, relancer `gen_contexte.py` (il régénère les tableaux de CONTEXTE.md).
+
 ## Où est quoi
 - `app.template.html` : tout le code de l'appli. CSS en tête, JS en bas. Le marqueur `__DATA__` est remplacé par `data.json` au build.
 - `build_data.py` : extrait les données depuis `plan/prog.py` (séances) et `plan/gen.py` (repas, courses, règles). **Ne pas dupliquer ces données dans le template** : on change le plan à la source, puis on rebuild.
 - `build.py` : produit `dist/` (index.html, sw.js avec nom de cache horodaté, `version.json` = numéro de build + adresse de publication).
-  Pas de Python système sur cette machine : utiliser `%LOCALAPPDATA%\android-toolchain\python\python.exe build.py`, ou plus simplement `.\publish.ps1`.
+  `publish.ps1` prend le Python de `%LOCALAPPDATA%\android-toolchain` s'il existe, sinon le `python` du PATH ; `gh` n'est requis que pour la toute première publication.
 - **Flux normal après toute modification du plan ou du template : `.\publish.ps1`** (build + commit + push GitHub Pages).
   L'appli Android sur le téléphone se met à jour toute seule au lancement suivant. Pas besoin de recompiler l'APK.
 

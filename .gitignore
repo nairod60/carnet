@@ -10,3 +10,5 @@ android/.idea/
 __pycache__/
 plan/fiches/
 /carnet.apk
+# Contexte personnel (profil, santé) : reste sur ce PC, le dépôt GitHub est public
+CONTEXTE.md
