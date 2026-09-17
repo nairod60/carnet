@@ -231,7 +231,7 @@ const JOURS = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"
 const JC = ["L","M","M","J","V","S","D"];
 let S = load();
 function load() {
-  const base = { seances: {}, courant: {}, repas: {}, courses: {}, poids: {}, taille: {}, moyennes: {}, tab: "seance", jourRepas: null, seanceOuverte: null };
+  const base = { seances: {}, courant: {}, repas: {}, courses: {}, poids: {}, taille: {}, moyennes: {}, compo: {}, avis: null, tab: "seance", jourRepas: null, seanceOuverte: null };
   try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(base, JSON.parse(raw)); } catch (e) {}
   return base;
 }
@@ -472,6 +472,9 @@ function fusionner(d) {
   S.moyennes = S.moyennes || {};
   Object.entries(d.moyennes || {}).forEach(([w, kg]) => { if (iso.test(w) && +kg > 30 && +kg < 250) { S.moyennes[semaine(w)] = +kg; n++; } });
   ["poids", "taille"].forEach(k => Object.entries(d[k] || {}).forEach(([j, v]) => { if (iso.test(j) && S[k][j] == null && +v > 0) { S[k][j] = +v; n++; } }));
+  S.compo = S.compo || {};
+  Object.entries(d.compo || {}).forEach(([w, c]) => { if (iso.test(w) && c && +c.g > 2 && +c.g < 60 && +c.m > 10 && +c.m < 150) { S.compo[semaine(w)] = { g: +c.g, m: +c.m }; n++; } });
+  if (d.avis && iso.test(d.avis.date || "") && d.avis.texte) { S.avis = { date: d.avis.date, texte: [].concat(d.avis.texte).map(String) }; n++; }
   save();
   return n ? n + " mesure" + (n > 1 ? "s" : "") + " ajoutée" + (n > 1 ? "s" : "") : "Rien de nouveau dans ce fichier";
 }
@@ -497,6 +500,28 @@ function spark(pts) {
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><path d="${area}" fill="var(--blue-tint)"/><path d="${path}" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round"/>${pts.map((p, i) => `<circle cx="${xs[i].toFixed(1)}" cy="${y(p.v).toFixed(1)}" r="${i === pts.length - 1 ? 4 : 2.5}" fill="var(--blue)"/>`).join("")}
     <text x="${P}" y="${H - 1}" font-size="10" fill="var(--muted)" font-family="JetBrains Mono,monospace">${lo.toFixed(1)}</text><text x="${P}" y="11" font-size="10" fill="var(--muted)" font-family="JetBrains Mono,monospace">${hi.toFixed(1)}</text></svg>`;
 }
+function signe(v, dec) { return (v > 0 ? "+" : "") + v.toFixed(dec).replace(".", ","); }
+function avisCard() {
+  if (!S.avis || !S.avis.texte) return "";
+  return `<div class="verdict"><span class="eyebrow">Avis du ${fmtDate(S.avis.date)}</span>${[].concat(S.avis.texte).map(p => `<p style="margin:6px 0 0">${esc(p)}</p>`).join("")}</div>`;
+}
+// Composition corporelle de la balance à impédance : indicative, lue sur la durée.
+function compoCard(ms) {
+  const list = Object.entries(S.compo || {}).sort().map(([w, c]) => ({ w, g: +c.g, m: +c.m }));
+  if (!list.length) return "";
+  const a = list[0], b = list[list.length - 1], sem = Math.round((new Date(b.w) - new Date(a.w)) / 6048e5);
+  let txt;
+  if (list.length < 2) txt = "Premier repère. La tendance se lit sur 6 à 8 semaines, pas d'une semaine à l'autre.";
+  else {
+    txt = `Depuis le ${fmtDate(a.w)} : masse grasse ${signe(b.g - a.g, 1)} pt, masse musculaire ${signe(b.m - a.m, 1)} kg. `;
+    if (sem < 6) txt += "Moins de 6 semaines de recul : l'impédance varie de 2 à 3 points selon l'hydratation, et la créatine retient de l'eau dans le muscle. Le miroir et le tour de taille sont plus fiables.";
+    else if (b.g - a.g > 1.5) txt += "La masse grasse monte nettement : vérifie le tour de taille avant de toucher aux calories.";
+    else txt += "Tendance cohérente avec une prise de masse propre.";
+  }
+  return `<div class="card"><div class="card-h"><h3>Composition</h3><span class="hist">balance · indicatif</span></div><div class="card-b">
+    ${list.slice(-6).reverse().map(c => { const m = ms.find(x => x.w === c.w); return `<div class="rowline"><span class="d">sem. du ${fmtDate(c.w)}</span><span class="v">${String(c.g).replace(".", ",")} % <span class="hist">gras${m ? " · " + (m.avg * c.g / 100).toFixed(1).replace(".", ",") + " kg" : ""}</span> · ${String(c.m).replace(".", ",")} kg <span class="hist">muscle</span></span></div>`; }).join("")}
+    <p class="hist" style="margin:10px 0 0">${esc(txt)}</p></div></div>`;
+}
 function renderSuivi() {
   const iso = today(), ms = moyennes(), v = verdict(ms);
   const pts = Object.entries(S.poids).map(([d, kg]) => ({ d, v: +kg }))
@@ -510,8 +535,10 @@ function renderSuivi() {
     <button class="btn primary" id="save-poids">Enregistrer</button>
   </div></div>
   <div class="verdict ${v.cls}"><span class="eyebrow">Verdict de la semaine</span><span class="big">${esc(v.t)}</span>${esc(v.m)}</div>
+  ${avisCard()}
   ${pts.length > 1 ? `<div class="card"><div class="card-h"><h3>6 dernières semaines</h3><span class="hist">${pts.length} mesures</span></div><div class="card-b">${spark(pts)}
     ${ms.slice(-6).reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.ext ? "moyenne balance" : m.n + " pesée" + (m.n > 1 ? "s" : "")}</span></span></div>`).join("")}</div></div>` : ""}
+  ${compoCard(ms)}
   <div class="card"><div class="card-b">
     <div class="field"><label for="taille">Tour de taille au nombril, le dimanche (cm)</label>
       <div class="stepper" style="min-height:52px"><button data-t="-0.5">−</button><span class="u" data-u="cm"><input id="taille" inputmode="decimal" placeholder="${Object.keys(S.taille).sort().pop() ? S.taille[Object.keys(S.taille).sort().pop()] : "cm"}" value="${S.taille[iso] || ""}"></span><button data-t="0.5">+</button></div></div>

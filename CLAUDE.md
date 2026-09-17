@@ -17,7 +17,7 @@ Après toute modification de `plan/gen.py` ou `plan/prog.py`, relancer `gen_cont
 ## Conventions
 - État global `S`, persisté dans `localStorage` sous la clé `carnet.v1`. Toute mutation passe par `save()`. Lectures/écritures dans `try/catch`.
 - Quatre vues, une fonction `render*()` par onglet, qui reconstruit `#app` en innerHTML puis attache les handlers. Pas de framework.
-- Pesées de la balance connectée : `S.moyennes` = { lundi ISO : kg }, une moyenne hebdomadaire qui vaut une semaine complète pour le verdict (sauf si la semaine a déjà 3 pesées saisies). Elles arrivent par « Importer » avec un fichier d'ajout `{ "carnetAjout": 1, "moyennes": {...}, "poids": {...}, "taille": {...} }` que `fusionner()` ajoute sans rien écraser. Ces fichiers contiennent des données de santé : ils restent hors du dépôt (public), dans `Documents/Carnet/`.
+- Pesées de la balance connectée : `S.moyennes` = { lundi ISO : kg }, une moyenne hebdomadaire qui vaut une semaine complète pour le verdict (sauf si la semaine a déjà 3 pesées saisies). Elles arrivent par « Importer » avec un fichier d'ajout `{ "carnetAjout": 1, "moyennes": {...}, "poids": {...}, "taille": {...}, "compo": { lundi: { "g": % gras, "m": kg muscle } }, "avis": { "date", "texte": [paragraphes] } }` que `fusionner()` ajoute sans rien écraser. Ces fichiers contiennent des données de santé : ils restent hors du dépôt (public), dans `Documents/Carnet/`.
 - Dates au format ISO `AAAA-MM-JJ`, `dow()` renvoie 0 pour lundi.
 - Cibles tactiles ≥ 44 px, pas de dépendance réseau (Google Fonts a des fallbacks système).
 - Mode sombre via `prefers-color-scheme`, jamais de couleur définie dans un seul thème.
