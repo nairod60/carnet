@@ -1,0 +1,29 @@
+{
+ "carnetAjout": 1,
+ "id": "2026-09-17",
+ "source": "Fitdays, moyennes hebdomadaires, rapport du 30/08 au 19/09/2026",
+ "moyennes": {
+  "2026-08-31": 70.41,
+  "2026-09-07": 70.6,
+  "2026-09-14": 71.0
+ },
+ "compo": {
+  "2026-08-31": {
+   "g": 15.3,
+   "m": 55.9
+  },
+  "2026-09-14": {
+   "g": 15.7,
+   "m": 56.1
+  }
+ },
+ "avis": {
+  "date": "2026-09-17",
+  "texte": [
+   "Rythme : +295 g par semaine en moyenne sur trois semaines, en plein dans la cible. Ne change rien aux quantités.",
+   "Créatine commencée entre le 7 et le 12 septembre : la saturation dure 3 à 4 semaines à 5 g par jour et ajoute 1 à 2 kg d'eau dans le muscle. Les +400 g de la semaine du 14 en font partie. Jusqu'au 10 octobre environ, ignore un verdict « trop vite » : ne retire pas de calories, sauf si le tour de taille monte aussi.",
+   "Masse grasse 15,3 → 15,7 % : c'est dans la marge d'erreur de la balance. Tu es sec, donc ton miroir est plus fiable qu'elle : s'il montre plus de muscle et pas plus de gras, c'est lui qui a raison. Mesure ton tour de taille chaque dimanche, c'est le juge de paix.",
+   "Pouls à 91-98 sur la balance : prends-le allongé au réveil, trois matins. S'il reste au-dessus de 85-90 au repos, parles-en à ton médecin."
+  ]
+ }
+}
