@@ -19,29 +19,29 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght
 # ---------------------------------------------------------------- donnees
 # (libelle, poids, mention)  -- mention = "cru" / "crues" / "" / note libre
 DAYS = [
- dict(file="Main.dc.html", nom="Lundi", num=1, train=True, kcal="2889", p="186", g="333", l="84",
+ dict(file="Main.dc.html", nom="Lundi", num=1, train=True, kcal="2815", p="188", g="314", l="82",
       meals=[
         ("Petit-déjeuner","","470", [("Œufs entiers","3","150 g"),("Pain complet","60 g",""),("Banane","120 g","")]),
         ("Collation 10 h","whey + lait entier au shaker (avec la créatine), dattes à croquer","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","40 g","à côté")]),
         ("Déjeuner","Salade de riz au thon et maïs","690", [("Thon au naturel égoutté","130 g",""),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Vinaigre, moutarde","","libre")]),
         ("Avant la séance","≈ 90 min avant","105", [("Banane","120 g","")]),
         ("Après la séance","dans l'heure, dattes à croquer","470", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Banane","120 g",""),("Dattes","30 g","à côté")]),
-        ("Dîner","Poulet et poivrons à l'air fryer, riz","645", [("Blanc de poulet","150 g","cru, air fryer"),("Poivrons","150 g",""),("Riz basmati","100 g","cru"),("Huile d'olive","10 g","5 poulet, 5 poivrons"),("Ail, paprika, cumin","","libre")]),
+        ("Dîner","Cabillaud et pommes de terre à l'air fryer, haricots","570", [("Cabillaud ou colin","200 g","cru, air fryer"),("Pommes de terre","350 g","crues, air fryer 200 °C 20 min"),("Haricots verts","150 g",""),("Huile d'olive","10 g","5 poisson, 5 pommes de terre"),("Citron, persil","","libre")]),
         ("Avant de dormir","","115", [("Amandes","20 g","")]),
       ],
-      batch="Air fryer : 300 g de poulet d'un coup (150 chauds ce soir, 150 refroidissent pour la salade de mardi midi). Casserole : 170 g de riz cru (100 ce soir, 70 pour la salade de mardi)."),
+      batch="Deuxième soir de poisson frais. Air fryer : 650 g de pommes de terre (350 ce soir, 300 refroidissent pour la salade piémontaise de mardi midi), puis 150 g de poulet après le poisson, pour la même salade."),
 
- dict(file="Mardi.dc.html", nom="Mardi", num=2, train=True, kcal="2811", p="186", g="308", l="85",
+ dict(file="Mardi.dc.html", nom="Mardi", num=2, train=True, kcal="2803", p="203", g="289", l="86",
       meals=[
         ("Petit-déjeuner","","440", [("Œufs entiers","3","150 g"),("Pain complet","60 g",""),("Pomme","150 g","")]),
         ("Collation 10 h","whey + lait entier au shaker (avec la créatine), dattes à croquer","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","40 g","à côté")]),
-        ("Déjeuner","Salade de riz au poulet et maïs","705", [("Blanc de poulet","150 g","cru, cuit la veille"),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Vinaigre, herbes","","libre")]),
+        ("Déjeuner","Salade piémontaise au poulet, maïs","690", [("Blanc de poulet","150 g","cru, cuit la veille"),("Pommes de terre","300 g","crues, cuites la veille à l'air fryer"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Moutarde, cornichons","","libre")]),
         ("Avant la séance","≈ 90 min avant","105", [("Banane","120 g","")]),
         ("Après la séance","dans l'heure, dattes à croquer","470", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Banane","120 g",""),("Dattes","30 g","à côté")]),
-        ("Dîner","Steak, pommes de terre à l'air fryer, haricots","580", [("Steak haché 5 %","160 g","cru"),("Pommes de terre","350 g","crues, air fryer 200 °C 20 min"),("Haricots verts","150 g",""),("Huile d'olive","5 g","sur les pommes de terre"),("Sel, poivre, paprika","","libre")]),
+        ("Dîner","Steak haché et lentilles à la tomate","585", [("Steak haché 5 %","160 g","cru, émietté dans les lentilles"),("Lentilles vertes","100 g","sèches, 20-25 min à la casserole"),("Tomates","150 g","en dés, avec les lentilles"),("Huile d'olive","5 g",""),("Ail, paprika, cumin","","libre")]),
         ("Avant de dormir","","115", [("Amandes","20 g","")]),
       ],
-      batch="Le steak reste une portion unique : il ne passe jamais au déjeuner, à la poêle sans matière grasse. Casserole : 70 g de riz cru pour la salade au thon de mercredi midi."),
+      batch="Le steak reste une portion unique : il ne passe jamais au déjeuner, à la poêle sans matière grasse. Lentilles : 100 g sèches, 20-25 min à la casserole avec les tomates, l'ail et le cumin, le steak émietté à la fin. Casserole : 70 g de riz cru pour la salade au thon de mercredi midi."),
 
  dict(file="Mercredi.dc.html", nom="Mercredi", num=3, train=False, kcal="2534", p="197", g="253", l="75",
       meals=[
@@ -64,41 +64,41 @@ DAYS = [
         ("Dîner","Steak, riz, haricots","695", [("Steak haché 5 %","160 g","cru"),("Riz basmati","110 g","cru"),("Haricots verts","150 g",""),("Huile d'olive","5 g","sur les haricots"),("Sel, poivre, paprika","","libre")]),
         ("Avant de dormir","","115", [("Amandes","20 g","")]),
       ],
-      batch="Steak en portion unique. Casserole : 180 g de riz cru (110 ce soir, 70 refroidissent pour la salade au saumon de vendredi midi)."),
+      batch="Steak en portion unique, à la poêle. Air fryer : 150 g de poulet pour la salade de vendredi midi. Casserole : 180 g de riz cru (110 ce soir, 70 refroidissent pour vendredi midi)."),
 
- dict(file="Vendredi.dc.html", nom="Vendredi", num=5, train=True, kcal="2839", p="184", g="314", l="87",
+ dict(file="Vendredi.dc.html", nom="Vendredi", num=5, train=True, kcal="2830", p="187", g="314", l="85",
       meals=[
         ("Petit-déjeuner","","470", [("Œufs entiers","3","150 g"),("Pain complet","60 g",""),("Banane","120 g","")]),
         ("Collation 10 h","whey + lait entier au shaker (avec la créatine), dattes à croquer","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","40 g","à côté")]),
-        ("Déjeuner","Salade de riz au saumon et maïs","710", [("Saumon en boîte égoutté","150 g",""),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","8 g",""),("Citron, aneth","","libre")]),
+        ("Déjeuner","Salade de riz au poulet et maïs","705", [("Blanc de poulet","150 g","cru, cuit la veille"),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Vinaigre, herbes","","libre")]),
         ("Avant la séance","≈ 90 min avant","105", [("Banane","120 g","")]),
         ("Après la séance","dans l'heure, dattes à croquer","470", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Banane","120 g",""),("Dattes","30 g","à côté")]),
         ("Dîner","Poulet et pommes de terre à l'air fryer, haricots","570", [("Blanc de poulet","150 g","cru, air fryer"),("Pommes de terre","350 g","crues, air fryer 200 °C 20 min"),("Haricots verts","150 g",""),("Huile d'olive","10 g","5 poulet, 5 pommes de terre"),("Sel, poivre, paprika","","libre")]),
         ("Avant de dormir","","115", [("Amandes","20 g","")]),
       ],
-      batch="Poulet en portion unique ce soir. Casserole : 70 g de riz cru pour la salade au thon de samedi midi. Le saumon en boîte du midi et le pavé de dimanche apportent tes oméga-3."),
+      batch="Poulet en portion unique ce soir. Casserole : 70 g de riz cru pour la salade au thon de samedi midi. Demain matin, les courses de la semaine : le poisson frais acheté samedi se mange dimanche et lundi soir."),
 
- dict(file="Samedi.dc.html", nom="Samedi", num=6, train=False, kcal="2519", p="195", g="238", l="81",
+ dict(file="Samedi.dc.html", nom="Samedi", num=6, train=False, kcal="2551", p="193", g="247", l="83",
       meals=[
         ("Petit-déjeuner","","440", [("Œufs entiers","3","150 g"),("Pain complet","60 g",""),("Pomme","150 g","")]),
         ("Collation 10 h","whey + lait entier au shaker (avec la créatine), dattes à croquer","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","40 g","à côté")]),
         ("Déjeuner","Salade de riz au thon et maïs","690", [("Thon au naturel égoutté","130 g",""),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Vinaigre, moutarde","","libre")]),
         ("Collation","milieu d'après-midi","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Amandes","20 g","")]),
-        ("Dîner","Cabillaud et pommes de terre à l'air fryer, haricots","530", [("Cabillaud ou colin","200 g","cru, air fryer"),("Pommes de terre","300 g","crues, air fryer 200 °C 20 min"),("Haricots verts","150 g",""),("Huile d'olive","10 g","5 poisson, 5 pommes de terre"),("Citron, persil","","libre")]),
+        ("Dîner","Poulet, pommes de terre et poivrons à l'air fryer","565", [("Blanc de poulet","150 g","cru, air fryer"),("Pommes de terre","350 g","crues, air fryer 200 °C 20 min"),("Poivrons","150 g",""),("Huile d'olive","10 g","5 poulet, 5 pommes de terre"),("Ail, paprika, cumin","","libre")]),
         ("Avant de dormir","","70", [("Fromage blanc 0 %","150 g","")]),
       ],
-      batch="Air fryer : après le poisson et les pommes de terre, passe 150 g de poulet. Casserole : 70 g de riz cru. Les deux refroidissent pour la salade de dimanche midi."),
+      batch="Jour des courses : la semaine de repas commence ici. Air fryer : 300 g de poulet d'un coup (150 chauds ce soir, 150 refroidissent pour la salade de dimanche midi). Casserole : 70 g de riz cru, et les 7 œufs durs de la semaine (une semaine au frigo dans leur coquille). Le poisson attend au frigo pour dimanche et lundi soir."),
 
- dict(file="Dimanche.dc.html", nom="Dimanche", num=7, train=False, kcal="2569", p="187", g="252", l="85",
+ dict(file="Dimanche.dc.html", nom="Dimanche", num=7, train=False, kcal="2527", p="193", g="260", l="73",
       meals=[
         ("Petit-déjeuner","","435", [("Œufs entiers","3","150 g"),("Pain complet","60 g",""),("Orange","150 g","")]),
         ("Collation 10 h","whey + lait entier au shaker (avec la créatine), dattes à croquer","395", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","40 g","à côté")]),
         ("Déjeuner","Salade de riz au poulet et maïs","705", [("Blanc de poulet","150 g","cru, cuit la veille"),("Riz basmati","70 g","cru, cuit la veille"),("Maïs doux égoutté","80 g",""),("Tomates","100 g",""),("Concombre","100 g",""),("Œuf dur","1","50 g"),("Huile d'olive","12 g",""),("Vinaigre, herbes","","libre")]),
         ("Collation","milieu d'après-midi","365", [("Whey Isostar","30 g",""),("Lait entier","250 ml",""),("Dattes","30 g","")]),
-        ("Dîner","Pavé de saumon et pommes de terre à l'air fryer, poivrons","605", [("Pavé de saumon","150 g","cru, air fryer 200 °C 10 min"),("Pommes de terre","300 g","crues, air fryer 200 °C 20 min"),("Poivrons","150 g",""),("Huile d'olive","5 g","sur les pommes de terre"),("Citron, aneth","","libre")]),
+        ("Dîner","Cabillaud et pommes de terre à l'air fryer, poivrons","560", [("Cabillaud ou colin","200 g","cru, air fryer"),("Pommes de terre","350 g","crues, air fryer 200 °C 20 min"),("Poivrons","150 g",""),("Huile d'olive","10 g","5 poisson, 5 pommes de terre"),("Citron, persil","","libre")]),
         ("Avant de dormir","","70", [("Fromage blanc 0 %","150 g","")]),
       ],
-      batch="Le saumon n'a pas besoin d'huile : les 5 g vont sur les pommes de terre. Casserole : 70 g de riz cru pour la salade au thon de lundi midi, et les 7 œufs durs de la semaine (une semaine au frigo dans leur coquille). C'est aussi le moment des courses."),
+      batch="Premier soir de poisson frais. Casserole : 70 g de riz cru pour la salade au thon de lundi midi."),
 ]
 
 E = html.escape
@@ -245,7 +245,7 @@ RAYON = {
  "Maïs doux égoutté":("Légumes et fruits","boîte"),"Lait entier":("Protéines","ml"),
  "Dattes":("Féculents et gras","g"),"Raisins secs":("Féculents et gras","g"),
  "Beurre de cacahuète":("Féculents et gras","g"),"Noix":("Féculents et gras","g"),
- "Pavé de saumon":("Protéines","g"),"Cuisse de poulet sans peau":("Protéines","g"),
+ "Pavé de saumon":("Protéines","g"),"Cuisse de poulet sans peau":("Protéines","g"),"Lentilles vertes":("Féculents et gras","g"),
 }
 def _g(poids, note):
     import re as _re
@@ -293,7 +293,7 @@ CONVERT = [("Riz basmati (salade)","70 g","≈ 200 g","× 2,9"),("Riz basmati (d
  ("Pâtes complètes (salade)","70 g","≈ 160 g","× 2,3"),("Pâtes complètes (dîner)","100 g","≈ 230 g","× 2,3"),
  ("Pommes de terre (air fryer)","350 g","≈ 260 g","× 0,75"),("Blanc de poulet","150 g","≈ 115 g","× 0,75"),
  ("Steak haché 5 %","160 g","≈ 120 g","× 0,75"),("Cabillaud ou colin","200 g","≈ 160 g","× 0,80"),
- ("Pavé de saumon","150 g","≈ 120 g","× 0,80")]
+ ("Lentilles vertes (sèches)","100 g","≈ 250 g","× 2,5")]
 PILOTAGE = [("+200 à +350 g / semaine","Tu es dans la cible. Ne touche à rien : c'est du muscle avec un peu de gras, la proportion normale.", False),
  ("Moins de +150 g pendant 3 semaines","Le surplus est trop petit pour ton métabolisme. Ajoute 150 kcal : 40 g de riz cru au dîner, ou 50 g de dattes avec le shake de 10 h.", False),
  ("Plus de +500 g / semaine","Trop vite, c'est du gras. Retire 150 kcal : 40 g de riz cru en moins au dîner.", True),

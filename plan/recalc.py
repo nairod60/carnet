@@ -21,7 +21,9 @@ F = {"oeuf":(143,12.6,0.7,9.5),"pain_complet":(247,9.0,41.0,3.4),"banane":(89,1.
  "beurre_cacahuete":(644,26.9,14.4,51.9),  # 100 % cacahuètes : Cacahuète, grillée, sans sel (15053)
  "noix":(709,15.7,6.9,67.3),           # Noix, cerneau, séchée (15005)
  "raisins_secs":(322,3.0,73.2,0.9),    # Raisin sec (13046)
- "cuisse_poulet":(114,19.3,0.0,4.05)}  # Poulet, cuisse, viande crue, sans peau (36024)
+ "cuisse_poulet":(114,19.3,0.0,4.05),  # Poulet, cuisse, viande crue, sans peau (36024)
+ # Ajout du 19/09/2026 : CIQUAL 2017, relevé sur alimentation-et-nutrition.fr (consulté le 19/09/2026)
+ "lentilles_seches":(295,25.1,44.5,1.8)}  # Lentille verte, sèche (fibres 16,4 g)
 
 MAP = {"Œufs entiers":"oeuf","Pain complet":"pain_complet","Banane":"banane","Pomme":"pomme",
  "Kiwis":"kiwi","Orange":"orange","Fruit au choix":"fruit","Café ou thé sans sucre":"zero",
@@ -36,7 +38,8 @@ MAP = {"Œufs entiers":"oeuf","Pain complet":"pain_complet","Banane":"banane","P
  "Lait demi-écrémé":"lait_demi","Flocons d'avoine":"avoine",
  "Maïs doux égoutté":"mais","Lait entier":"lait_entier","Dattes":"dattes","Pavé de saumon":"saumon_cru",
  "Beurre de cacahuète":"beurre_cacahuete","Noix":"noix","Raisins secs":"raisins_secs",
- "Cuisse de poulet sans peau":"cuisse_poulet","Épices, herbes":"zero","Sel, poivre, paprika":"zero"}
+ "Cuisse de poulet sans peau":"cuisse_poulet","Épices, herbes":"zero","Sel, poivre, paprika":"zero",
+ "Lentilles vertes":"lentilles_seches","Moutarde, cornichons":"zero"}
 SPLIT = {"Tomates et courgettes": [("tomate",0.5),("courgette",0.5)]}
 
 def grams(poids, note):
