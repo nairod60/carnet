@@ -231,7 +231,7 @@ const JOURS = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"
 const JC = ["L","M","M","J","V","S","D"];
 let S = load();
 function load() {
-  const base = { seances: {}, courant: {}, repas: {}, courses: {}, poids: {}, taille: {}, moyennes: {}, compo: {}, avis: null, ajoutVu: null, tab: "seance", jourRepas: null, seanceOuverte: null };
+  const base = { seances: {}, courant: {}, repas: {}, courses: {}, poids: {}, taille: {}, mensurations: {}, moyennes: {}, compo: {}, avis: null, ajoutVu: null, tab: "seance", jourRepas: null, seanceOuverte: null };
   try { const raw = localStorage.getItem(KEY); if (raw) return Object.assign(base, JSON.parse(raw)); } catch (e) {}
   return base;
 }
@@ -465,7 +465,7 @@ function moyennes() {
   });
   return out.sort((a, b) => a.w < b.w ? -1 : 1);
 }
-// Fichier d'ajout { carnetAjout: 1, moyennes: {lundi: kg}, poids: {jour: kg}, taille: {jour: cm} } :
+// Fichier d'ajout { carnetAjout: 1, moyennes: {lundi: kg}, poids: {jour: kg}, taille: {jour: cm}, mensurations: {jour: {cou, poitrine, bicepsG…}} } :
 // fusionne dans les données existantes. Séances, repas et courses ne sont jamais touchés.
 function fusionner(d) {
   const iso = /^\d{4}-\d{2}-\d{2}$/; let n = 0;
@@ -474,6 +474,15 @@ function fusionner(d) {
   ["poids", "taille"].forEach(k => Object.entries(d[k] || {}).forEach(([j, v]) => { if (iso.test(j) && S[k][j] == null && +v > 0) { S[k][j] = +v; n++; } }));
   S.compo = S.compo || {};
   Object.entries(d.compo || {}).forEach(([w, c]) => { if (iso.test(w) && c && +c.g > 2 && +c.g < 60 && +c.m > 10 && +c.m < 150) { S.compo[semaine(w)] = { g: +c.g, m: +c.m }; n++; } });
+  // Mensurations (cm) : une entrée par date, les valeurs d'une même date se complètent ou se corrigent
+  S.mensurations = S.mensurations || {};
+  Object.entries(d.mensurations || {}).forEach(([j, m]) => {
+    if (!iso.test(j) || !m || typeof m !== "object") return;
+    const cur = S.mensurations[j] || {};
+    Object.entries(m).forEach(([k, v]) => { if (+v > 5 && +v < 250) { cur[k] = +v; n++; } });
+    if (Object.keys(cur).length) S.mensurations[j] = cur;
+    if (cur.taille && S.taille[j] == null) S.taille[j] = cur.taille;
+  });
   if (d.avis && iso.test(d.avis.date || "") && d.avis.texte) { S.avis = { date: d.avis.date, texte: [].concat(d.avis.texte).map(String) }; n++; }
   save();
   return n ? n + " mesure" + (n > 1 ? "s" : "") + " ajoutée" + (n > 1 ? "s" : "") : "Rien de nouveau dans ce fichier";
@@ -536,6 +545,24 @@ function compoCard(ms) {
     ${list.slice(-6).reverse().map(c => { const m = ms.find(x => x.w === c.w); return `<div class="rowline"><span class="d">sem. du ${fmtDate(c.w)}</span><span class="v">${String(c.g).replace(".", ",")} % <span class="hist">gras${m ? " · " + (m.avg * c.g / 100).toFixed(1).replace(".", ",") + " kg" : ""}</span> · ${String(c.m).replace(".", ",")} kg <span class="hist">muscle</span></span></div>`; }).join("")}
     <p class="hist" style="margin:10px 0 0">${esc(txt)}</p></div></div>`;
 }
+// Mensurations du lundi (mètre ruban, Fitdays -> mesures.json) : dernière mesure et écart avec la précédente.
+const MENS = [["cou","Cou"],["epaule","Épaules"],["poitrine","Poitrine"],["bicepsG","Biceps gauche"],["bicepsD","Biceps droit"],["taille","Taille"],["abdomen","Abdomen"],["hanche","Hanches"],["cuisseG","Cuisse gauche"],["cuisseD","Cuisse droite"],["molletG","Mollet gauche"],["molletD","Mollet droit"]];
+function mensurationsCard() {
+  const dates = Object.keys(S.mensurations || {}).sort();
+  if (!dates.length) return "";
+  const d = dates[dates.length - 1], m = S.mensurations[d], dp = dates.length > 1 ? dates[dates.length - 2] : null, p = dp ? S.mensurations[dp] : null;
+  const cm = v => String(Math.round(v * 10) / 10).replace(".", ",");
+  const rows = MENS.filter(([k]) => m[k] != null).map(([k, lab]) => {
+    let delta = "";
+    if (p && p[k] != null) {
+      const dv = Math.round((m[k] - p[k]) * 10) / 10, bad = (k === "taille" || k === "abdomen" || k === "hanche") ? dv > 0 : dv < 0;
+      delta = dv ? ` <span class="hist" style="color:${bad ? "var(--clay)" : "var(--green)"}">${signe(dv, 1)}</span>` : ` <span class="hist">=</span>`;
+    }
+    return `<div class="rowline"><span class="d">${lab}</span><span class="v">${cm(m[k])} cm${delta}</span></div>`;
+  }).join("");
+  return `<div class="card"><div class="card-h"><h3>Mensurations</h3><span class="hist">${fmtDate(d)}${dp ? " · écart depuis le " + fmtDate(dp) : ""}</span></div><div class="card-b">${rows}
+    <p class="hist" style="margin:10px 0 0">Le lundi, bras et jambes relâchés, toujours au même endroit. Taille et abdomen doivent rester stables pendant que poitrine, bras et cuisses montent.</p></div></div>`;
+}
 function renderSuivi() {
   const iso = today(), ms = moyennes(), v = verdict(ms);
   const pts = Object.entries(S.poids).map(([d, kg]) => ({ d, v: +kg }))
@@ -554,11 +581,12 @@ function renderSuivi() {
     ${ms.slice(-6).reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.ext ? "moyenne balance" : m.n + " pesée" + (m.n > 1 ? "s" : "")}</span></span></div>`).join("")}</div></div>` : ""}
   ${compoCard(ms)}
   <div class="card"><div class="card-b">
-    <div class="field"><label for="taille">Tour de taille au nombril, le dimanche (cm)</label>
+    <div class="field"><label for="taille">Tour de taille au nombril, le lundi (cm)</label>
       <div class="stepper" style="min-height:52px"><button data-t="-0.5">−</button><span class="u" data-u="cm"><input id="taille" inputmode="decimal" placeholder="${Object.keys(S.taille).sort().pop() ? S.taille[Object.keys(S.taille).sort().pop()] : "cm"}" value="${S.taille[iso] || ""}"></span><button data-t="0.5">+</button></div></div>
     <button class="btn ghost" id="save-taille">Enregistrer le tour de taille</button>
     ${Object.keys(S.taille).length ? `<div style="margin-top:10px">${Object.entries(S.taille).sort().slice(-6).reverse().map(([d, c]) => `<div class="rowline"><span class="d">${fmtDate(d)}</span><span class="v">${c} cm</span></div>`).join("")}</div>` : ""}
-  </div></div>`;
+  </div></div>
+  ${mensurationsCard()}`;
   // progression des charges
   const prog = [];
   DATA.seances.forEach(s => (S.seances[s.id] || []).forEach(x => s.exos.forEach((e, i) => {

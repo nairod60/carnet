@@ -1,7 +1,7 @@
 {
  "carnetAjout": 1,
- "id": "2026-09-17",
- "source": "Fitdays, moyennes hebdomadaires, rapport du 30/08 au 19/09/2026",
+ "id": "2026-09-21",
+ "source": "Fitdays : moyennes hebdomadaires (rapport du 30/08 au 19/09/2026) et mensurations du lundi (mètre ruban)",
  "moyennes": {
   "2026-08-31": 70.41,
   "2026-09-07": 70.6,
@@ -17,13 +17,31 @@
    "m": 56.1
   }
  },
+ "taille": {
+  "2026-09-21": 80.2
+ },
+ "mensurations": {
+  "2026-09-21": {
+   "cou": 36.6,
+   "poitrine": 95.2,
+   "bicepsG": 36.7,
+   "bicepsD": 36.7,
+   "taille": 80.2,
+   "abdomen": 84.9,
+   "cuisseG": 52.9,
+   "cuisseD": 53.6,
+   "molletG": 37.5,
+   "molletD": 39.4
+  }
+ },
  "avis": {
-  "date": "2026-09-17",
+  "date": "2026-09-21",
   "texte": [
    "Rythme : +295 g par semaine en moyenne sur trois semaines, en plein dans la cible. Ne change rien aux quantités.",
    "Créatine commencée entre le 7 et le 12 septembre : la saturation dure 3 à 4 semaines à 5 g par jour et ajoute 1 à 2 kg d'eau dans le muscle. Les +400 g de la semaine du 14 en font partie. Jusqu'au 10 octobre environ, ignore un verdict « trop vite » : ne retire pas de calories, sauf si le tour de taille monte aussi.",
-   "Masse grasse 15,3 → 15,7 % : c'est dans la marge d'erreur de la balance. Tu es sec, donc ton miroir est plus fiable qu'elle : s'il montre plus de muscle et pas plus de gras, c'est lui qui a raison. Mesure ton tour de taille chaque dimanche, c'est le juge de paix.",
-   "Pouls à 91-98 sur la balance : prends-le allongé au réveil, trois matins. S'il reste au-dessus de 85-90 au repos, parles-en à ton médecin."
+   "Masse grasse 15,3 → 15,7 % : c'est dans la marge d'erreur de la balance. Tu es sec, donc ton miroir est plus fiable qu'elle : s'il montre plus de muscle et pas plus de gras, c'est lui qui a raison. Mesure ton tour de taille chaque lundi, c'est le juge de paix.",
+   "Pouls à 91-98 sur la balance : prends-le allongé au réveil, trois matins. S'il reste au-dessus de 85-90 au repos, parles-en à ton médecin.",
+   "21/09 : mensurations de référence enregistrées (taille 80,2 cm, abdomen 84,9, poitrine 95,2, biceps 36,7). On les reprend chaque lundi : taille et abdomen doivent rester stables pendant que poitrine, bras et cuisses montent. Balance du 30/08 au 21/09 : +1,6 kg dont 1 à 1,5 kg d'eau de créatine, le % de gras qui monte de 1,3 point est du bruit d'impédance, pas du gras."
   ]
  }
 }

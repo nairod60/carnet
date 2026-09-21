@@ -367,7 +367,7 @@ def build_annexe():
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 4px;">
-      <div style="font-family: {MONO}; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: {A}; margin-bottom: 5px;">Pilotage · une pesée par jour à jeun, moyenne de la semaine, et le tour de taille le dimanche</div>
+      <div style="font-family: {MONO}; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: {A}; margin-bottom: 5px;">Pilotage · une pesée par jour à jeun, moyenne de la semaine, et le tour de taille le lundi</div>
       {regles}
     </div>
 
