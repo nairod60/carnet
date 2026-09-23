@@ -23,7 +23,8 @@
      "consigne": "LARGEUR D'ÉPAULES, jamais large : la prise large bloque l'omoplate. Si tu ne fais pas 5 reps, fais des négatives de 5 s.",
      "charge": "lest",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     },
     {
      "groupe": "Dos",
@@ -34,7 +35,8 @@
      "consigne": "Buste à 45°, tire vers le nombril, coudes près du corps.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Dos",
@@ -45,7 +47,8 @@
      "consigne": "Genou et main sur le banc, amplitude complète.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Deltoïde postérieur",
@@ -56,7 +59,8 @@
      "consigne": "Poitrine sur le banc à 30°. Léger : 3 à 5 kg.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Trapèzes / stabilisateurs",
@@ -67,7 +71,8 @@
      "consigne": "Bras tendus en Y, pouces vers le haut, 2 à 4 kg. C'est ce qui fait tourner l'omoplate et libère l'épaule.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Biceps",
@@ -78,7 +83,8 @@
      "consigne": "Prise neutre. Les tractions en supination ont déjà chargé lourdement le biceps.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     }
    ]
   },
@@ -98,7 +104,8 @@
      "consigne": "Haltère vertical contre la poitrine. Descends bas, dos droit.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Quadriceps",
@@ -109,7 +116,8 @@
      "consigne": "Le meilleur exercice de jambes disponible sans barre. Un haltère dans chaque main.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Quadriceps",
@@ -120,7 +128,8 @@
      "consigne": "Buste droit, genou arrière proche du sol.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Mollets",
@@ -131,7 +140,8 @@
      "consigne": "Amplitude complète, une seconde de pause en haut.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Abdos",
@@ -142,7 +152,8 @@
      "consigne": "Mouvement court, on enroule le buste.",
      "charge": "lest",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     },
     {
      "groupe": "Abdos",
@@ -153,7 +164,8 @@
      "consigne": "Bassin en rétroversion, fessiers serrés.",
      "charge": "lest",
      "unite": "s",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     }
    ]
   },
@@ -173,7 +185,8 @@
      "consigne": "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules. Progression : 5 s de tenue → 10 s, puis une légère résistance de la main sur le front.",
      "charge": null,
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-menton\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><circle cx=\"128\" cy=\"42\" r=\"15\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M122 56 L112 80\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><circle cx=\"108\" cy=\"42\" r=\"15\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M105 57 L104 80\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M70 82 L145 82\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M104 82 L104 125\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M165 42 L128 42\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-menton)\"/></svg>"
     },
     {
      "groupe": "Haut du dos",
@@ -184,7 +197,8 @@
      "consigne": "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté. Pas de progression : c'est de l'entretien.",
      "charge": null,
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-thoracique\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 138 L194 138\" stroke=\"var(--line)\" stroke-width=\"2\"/><rect x=\"58\" y=\"100\" width=\"60\" height=\"9\" rx=\"2\" fill=\"var(--muted)\"/><path d=\"M66 109 L66 130 M110 109 L110 130\" stroke=\"var(--muted)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M170 138 L160 112 L140 108\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M140 108 L100 98\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 98 L72 112\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"56\" cy=\"122\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M72 108 L60 104 L52 112\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 70 Q88 66 78 92\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-thoracique)\"/></svg>"
     },
     {
      "groupe": "Cou",
@@ -195,7 +209,8 @@
      "consigne": "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer. Pas de progression : entretien.",
      "charge": null,
      "unite": "s",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-trapeze\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><circle cx=\"96\" cy=\"40\" r=\"13\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M104 52 L108 70\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M72 72 L140 72\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M108 72 L108 128\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M140 72 L146 48 L118 28 L100 30\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M72 72 L66 100\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M86 22 Q76 28 74 40\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-trapeze)\"/><path d=\"M66 104 L66 120\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-trapeze)\"/><text x=\"118\" y=\"118\" font-family=\"JetBrains Mono, Consolas, monospace\" font-size=\"11\" font-weight=\"600\" fill=\"var(--clay)\">30 s</text></svg>"
     },
     {
      "groupe": "Coiffe des rotateurs",
@@ -206,7 +221,8 @@
      "consigne": "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre. Progression : +1 kg quand tu tiens 3 × 15 propres (1 → 2 → 3 kg), l'appli te le propose.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-rot_ext\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 126 L194 126\" stroke=\"var(--line)\" stroke-width=\"2\"/><circle cx=\"38\" cy=\"108\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M50 104 L150 100\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M150 100 L178 112 L176 126\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M46 122 L40 130\" stroke=\"var(--muted)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M78 104 L104 100\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M104 100 L108 122\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><g transform=\"translate(110 126) rotate(90)\"><path d=\"M-9 0 L9 0\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"-13\" y=\"-6\" width=\"6\" height=\"12\" rx=\"1.5\" fill=\"var(--ink)\"/><rect x=\"7\" y=\"-6\" width=\"6\" height=\"12\" rx=\"1.5\" fill=\"var(--ink)\"/></g><path d=\"M104 100 L106 62\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><g transform=\"translate(106 54) rotate(90)\"><path d=\"M-9 0 L9 0\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><rect x=\"-13\" y=\"-6\" width=\"6\" height=\"12\" rx=\"1.5\" fill=\"var(--ink)\"/><rect x=\"7\" y=\"-6\" width=\"6\" height=\"12\" rx=\"1.5\" fill=\"var(--ink)\"/></g><path d=\"M126 118 Q142 92 128 64\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-rot_ext)\"/></svg>"
     },
     {
      "groupe": "Coiffe des rotateurs",
@@ -217,7 +233,8 @@
      "consigne": "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe. Progression : éloigne-toi du point d'accroche, puis élastique plus épais. Note le niveau de l'élastique dans la case « élast. » (1, 2, 3…).",
      "charge": "élastique",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-rot_int\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><circle cx=\"100\" cy=\"26\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 38 L100 60\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M68 60 L132 60\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 60 L100 118\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 118 L88 140\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 118 L112 140\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M68 60 L62 100\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M132 60 L136 88\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M136 88 L178 88\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M178 88 L196 86\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><rect x=\"192\" y=\"70\" width=\"6\" height=\"34\" fill=\"var(--muted)\"/><path d=\"M136 88 L98 92\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M98 92 L196 86\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M172 100 Q140 118 110 104\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-rot_int)\"/></svg>"
     },
     {
      "groupe": "Coiffe des rotateurs",
@@ -228,7 +245,8 @@
      "consigne": "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. ».",
      "charge": "élastique",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-abaissement\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 138 L194 138\" stroke=\"var(--line)\" stroke-width=\"2\"/><path d=\"M90 12 L196 12\" stroke=\"var(--muted)\" stroke-width=\"7\" stroke-linecap=\"round\"/><circle cx=\"100\" cy=\"46\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 58 L100 108\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 108 L90 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 108 L112 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 66 L150 50\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M150 50 L150 12\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M100 66 L104 118\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M104 118 L150 12\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M158 66 Q160 108 118 122\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-abaissement)\"/><text x=\"150\" y=\"134\" font-family=\"JetBrains Mono, Consolas, monospace\" font-size=\"11\" font-weight=\"600\" fill=\"var(--clay)\">5 s</text></svg>"
     },
     {
      "groupe": "Coiffe des rotateurs",
@@ -239,7 +257,8 @@
      "consigne": "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours. Progression : pousse plus fort (30-40 % → 50-60 % de ta force), puis 15 s. Note les secondes dans la case « s ».",
      "charge": null,
      "unite": "s",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-iso\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 138 L194 138\" stroke=\"var(--line)\" stroke-width=\"2\"/><path d=\"M166 20 L166 138\" stroke=\"var(--muted)\" stroke-width=\"7\" stroke-linecap=\"butt\"/><path d=\"M166 20 L166 138\" stroke=\"var(--line)\" stroke-width=\"3\" stroke-dasharray=\"4 8\"/><circle cx=\"96\" cy=\"26\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 38 L96 60\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M64 60 L128 60\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 60 L96 112\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 112 L86 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 112 L108 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M64 60 L58 100\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M128 60 L132 90 L163 90\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M140 104 L160 104\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-iso)\"/><text x=\"126\" y=\"124\" font-family=\"JetBrains Mono, Consolas, monospace\" font-size=\"11\" font-weight=\"600\" fill=\"var(--clay)\">10 s</text></svg>"
     },
     {
      "groupe": "Omoplate",
@@ -250,7 +269,8 @@
      "consigne": "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne. Progression : l'amplitude — les bras montent plus haut en gardant le contact, jusqu'au Y complet.",
      "charge": null,
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-anges\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><rect x=\"30\" y=\"8\" width=\"140\" height=\"130\" rx=\"4\" fill=\"var(--green-tint)\"/><circle cx=\"100\" cy=\"30\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 42 L100 62\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M70 62 L130 62\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 62 L100 116\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 116 L90 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M100 116 L110 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M70 62 L54 78 L54 50\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M130 62 L146 78 L146 50\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M70 62 L52 40 L52 12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M130 62 L148 40 L148 12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M40 62 L40 22\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-anges)\"/><path d=\"M160 62 L160 22\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-anges)\"/></svg>"
     },
     {
      "groupe": "Omoplate",
@@ -261,7 +281,8 @@
      "consigne": "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. ».",
      "charge": "élastique",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-facepull\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><rect x=\"4\" y=\"30\" width=\"6\" height=\"40\" fill=\"var(--muted)\"/><circle cx=\"112\" cy=\"46\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 58 L112 110\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 110 L102 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 110 L124 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 66 L60 52\" stroke=\"var(--muted)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" stroke-dasharray=\"5 6\"/><path d=\"M60 52 L10 50\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M112 66 L124 44 L96 44\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 44 L10 50\" stroke=\"var(--green)\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M56 68 Q74 84 92 62\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-facepull)\"/></svg>"
     },
     {
      "groupe": "Omoplate",
@@ -272,7 +293,8 @@
      "consigne": "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate. Progression : mains de plus en plus bas — mur, puis bord du banc, puis sol.",
      "charge": null,
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-dentele\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 138 L194 138\" stroke=\"var(--line)\" stroke-width=\"2\"/><path d=\"M28 20 L28 138\" stroke=\"var(--muted)\" stroke-width=\"7\" stroke-linecap=\"butt\"/><path d=\"M28 20 L28 138\" stroke=\"var(--line)\" stroke-width=\"3\" stroke-dasharray=\"4 8\"/><circle cx=\"104\" cy=\"40\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M102 52 L96 74\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 74 L110 96\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M110 96 L128 112\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M128 112 L150 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M128 112 L144 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 74 L60 74\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M60 74 L32 78\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 56 L116 56\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-dentele)\"/><text x=\"120\" y=\"60\" font-family=\"JetBrains Mono, Consolas, monospace\" font-size=\"11\" font-weight=\"600\" fill=\"var(--clay)\">+</text></svg>"
     },
     {
      "groupe": "Pectoraux",
@@ -283,7 +305,8 @@
      "consigne": "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande. Pas de progression : entretien.",
      "charge": null,
      "unite": "s",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": "<svg viewBox=\"0 0 200 145\" xmlns=\"http://www.w3.org/2000/svg\"><defs><marker id=\"ar-pectoral\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"var(--clay)\"/></marker></defs><path d=\"M6 138 L194 138\" stroke=\"var(--line)\" stroke-width=\"2\"/><rect x=\"150\" y=\"10\" width=\"8\" height=\"128\" rx=\"2\" fill=\"var(--muted)\"/><circle cx=\"96\" cy=\"40\" r=\"12\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 52 L98 108\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M98 108 L88 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M98 108 L112 138\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M96 60 L150 56\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M150 56 L150 26\" stroke=\"var(--ink)\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M112 84 L134 84\" stroke=\"var(--clay)\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\" marker-end=\"url(#ar-pectoral)\"/><text x=\"8\" y=\"24\" font-family=\"JetBrains Mono, Consolas, monospace\" font-size=\"11\" font-weight=\"600\" fill=\"var(--clay)\">30 s</text></svg>"
     }
    ]
   },
@@ -303,7 +326,8 @@
      "consigne": "Banc à 30°, paumes face à face. Descends jusqu'à ce que le bras arrive au niveau du torse, PAS plus bas.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Pectoraux",
@@ -314,7 +338,8 @@
      "consigne": "Allongé par terre : les coudes touchent le sol et bloquent la descente. L'amplitude dangereuse devient impossible.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Pectoraux",
@@ -325,7 +350,8 @@
      "consigne": "Mains un peu plus larges que les épaules, coudes à 45°. Au-delà de 15 reps propres : sac à dos chargé de 5 puis 10 kg. Va à 1 rep de l'échec, c'est le seul exercice où tu peux.",
      "charge": "lest",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     },
     {
      "groupe": "Dos",
@@ -336,7 +362,8 @@
      "consigne": "Poitrine posée sur le banc à 30°. Équilibre la poussée du jour et ouvre l'espace sous l'acromion.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Deltoïde latéral",
@@ -347,7 +374,8 @@
      "consigne": "Monte à 30° vers l'avant, pas sur le côté, pouces au plafond. STOP à hauteur d'épaule. 3 à 5 kg.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Triceps",
@@ -358,7 +386,8 @@
      "consigne": "Allongé, coudes vers le plafond. Remplace l'extension debout au-dessus de la tête.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     }
    ]
   },
@@ -378,7 +407,8 @@
      "consigne": "Jambes quasi tendues, bassin qui recule, dos plat. Tu dois sentir l'arrière des cuisses.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Ischios / fessiers",
@@ -389,7 +419,8 @@
      "consigne": "Omoplates sur le banc, haltère sur le bassin, monte jusqu'à l'alignement.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Ischios / fessiers",
@@ -400,7 +431,8 @@
      "consigne": "Travail d'équilibre en prime. Charge modérée.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Mollets",
@@ -411,7 +443,8 @@
      "consigne": "Cible le soléaire, complémentaire du travail debout.",
      "charge": "kg",
      "unite": "reps",
-     "poidsCorps": false
+     "poidsCorps": false,
+     "picto": null
     },
     {
      "groupe": "Abdos",
@@ -422,7 +455,8 @@
      "consigne": "Corps aligné, bassin haut.",
      "charge": "lest",
      "unite": "s",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     },
     {
      "groupe": "Abdos",
@@ -433,7 +467,8 @@
      "consigne": "Genoux ou jambes tendues selon le niveau. Ne te balance pas.",
      "charge": "lest",
      "unite": "reps",
-     "poidsCorps": true
+     "poidsCorps": true,
+     "picto": null
     }
    ]
   }
