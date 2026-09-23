@@ -99,6 +99,7 @@
   .exo .last b { color: var(--ink); font-weight: 600; }
   .set { display: grid; grid-template-columns: 22px 1fr 1fr 46px; gap: 8px; align-items: center; padding: 6px 0; }
   .set + .set { border-top: 1px solid var(--line-soft); }
+  .set.solo { grid-template-columns: 22px 1fr 46px; }  /* exercice sans charge : une seule case */
   .set .n { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); text-align: center; }
   .stepper { display: grid; grid-template-columns: 34px 1fr 34px; align-items: stretch; border-radius: var(--rb); overflow: hidden; background: var(--surface-alt); min-height: 46px; }
   .stepper button { font-family: "JetBrains Mono", monospace; font-size: 19px; color: var(--ink-2); }
@@ -359,19 +360,20 @@ function renderSeance() {
   h = h.replace('<span class="chip blue" id="chip-series"></span>', `<span class="chip blue">${nDone} / ${nTot} séries</span>`);
   const haut = s.id === "J1" || s.id === "J3";
   if (haut) h += `<details class="card"><summary class="card-h"><h3>Échauffement épaule · 5 min</h3></summary><div class="card-b">${DATA.echauffement.map(e => `<div class="rowline"><span>${esc(e.nom)}<br><span class="hist">${esc(e.note)}</span></span><span class="v mono" style="color:var(--blue)">${esc(e.dose)}</span></div>`).join("")}</div></details>`;
+  if (s.id === "R" && (DATA.reeduc || []).length) h += `<details class="card" open><summary class="card-h"><h3>Comment progresser · rééducation</h3></summary><div class="card-b">${DATA.reeduc.map(r => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:var(--blue);font-size:13px">${esc(r.titre)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(r.texte)}</span></div>`).join("")}</div></details>`;
   s.exos.forEach((e, i) => {
     const last = derniere(s.id), ls = last && last.sets[i] ? last.sets[i].filter(x => x.done && x.r) : [];
     const o = objectif(e, last, i);
-    const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
+    const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${e.charge ? (x.w || 0) + "×" : ""}${x.r}${e.unite === "s" ? " s" : ""}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
       + (o ? ` · <b style="color:var(--green)">objectif : +${o.plus} kg, ${o.reps} reps</b>` : "");
     h += `<div class="card exo" data-exo="${i}">
       <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible"><b>${e.series} × ${esc(e.reps)}</b><br>repos ${esc(e.repos)}</div></div>
       <div class="card-b">
         <details><summary style="min-height:32px;font-size:13px;color:var(--muted)">Consigne</summary><div class="cue">${esc(e.consigne)}</div></details>
-        ${c.sets[i].map((st, k) => `<div class="set" data-set="${k}">
+        ${c.sets[i].map((st, k) => `<div class="set ${e.charge ? "" : "solo"}" data-set="${k}">
           <span class="n">${k + 1}</span>
-          <div class="stepper"><button data-d="w" data-v="-1">−</button><span class="u" data-u="${e.poidsCorps ? "lest" : "kg"}"><input inputmode="decimal" placeholder="${e.poidsCorps ? "0" : "·"}" data-f="w" value="${st.w}"></span><button data-d="w" data-v="1">+</button></div>
-          <div class="stepper"><button data-d="r" data-v="-1">−</button><span class="u" data-u="reps"><input inputmode="numeric" placeholder="·" data-f="r" value="${st.r}"></span><button data-d="r" data-v="1">+</button></div>
+          ${e.charge ? `<div class="stepper"><button data-d="w" data-v="-1">−</button><span class="u" data-u="${e.charge === "élastique" ? "élast." : e.charge}"><input inputmode="decimal" placeholder="${e.charge === "kg" ? "·" : e.charge === "lest" ? "0" : "1"}" data-f="w" value="${st.w}"></span><button data-d="w" data-v="1">+</button></div>` : ""}
+          <div class="stepper"><button data-d="r" data-v="-1">−</button><span class="u" data-u="${e.unite || "reps"}"><input inputmode="numeric" placeholder="·" data-f="r" value="${st.r}"></span><button data-d="r" data-v="1">+</button></div>
           <button class="done ${st.done ? "on" : ""}" data-done aria-label="Série faite">${CHECK}</button>
         </div>`).join("")}
       </div></div>`;
@@ -392,7 +394,7 @@ function bindSeance(s) {
       const k = +row.dataset.set, st = c.sets[i][k];
       row.querySelectorAll("input").forEach(inp => inp.oninput = () => { st[inp.dataset.f] = inp.value.replace(",", "."); save(); });
       row.querySelectorAll("button[data-d]").forEach(b => b.onclick = () => {
-        const f = b.dataset.d, step = f === "w" ? (e.poidsCorps ? 2.5 : 1) : 1;
+        const f = b.dataset.d, step = f === "w" ? (e.charge === "lest" ? 2.5 : 1) : (e.unite === "s" ? 5 : 1);
         const cur = parseFloat(st[f]) || 0, nv = Math.max(0, Math.round((cur + step * +b.dataset.v) * 10) / 10);
         st[f] = String(nv); row.querySelector(`input[data-f="${f}"]`).value = nv; save();
       });
@@ -590,6 +592,7 @@ function renderSuivi() {
   // progression des charges
   const prog = [];
   DATA.seances.forEach(s => (S.seances[s.id] || []).forEach(x => s.exos.forEach((e, i) => {
+    if (e.charge === "élastique") return;  // un niveau d'élastique n'est pas une charge
     const best = (x.sets[i] || []).filter(q => q.done && +q.r).reduce((m, q) => Math.max(m, (+q.w || 0) * (+q.r || 0)), 0);
     if (best) prog.push({ exo: e.nom, date: x.date, best, w: Math.max(...x.sets[i].filter(q => q.done).map(q => +q.w || 0)) });
   })));

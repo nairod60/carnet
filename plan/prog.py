@@ -31,27 +31,27 @@ SEANCES = [
       focus="Cou, haut du dos, coiffe des rotateurs, omoplate — 15 à 20 min, un tour, douleur 3/10 maximum",
       exos=[
    ("Cou","Rentrés de menton","2","10","30 s",
-    "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules."),
+    "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules. Progression : 5 s de tenue → 10 s, puis une légère résistance de la main sur le front."),
    ("Haut du dos","Extension du haut du dos sur le banc","2","10","45 s",
-    "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté."),
+    "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté. Pas de progression : c'est de l'entretien."),
    ("Cou","Étirement du trapèze supérieur","2","30 s / côté","15 s",
-    "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer."),
+    "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer. Pas de progression : entretien."),
    ("Coiffe des rotateurs","Rotation externe couchée sur le côté","3","15","45 s",
-    "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre."),
+    "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre. Progression : +1 kg quand tu tiens 3 × 15 propres (1 → 2 → 3 kg), l'appli te le propose."),
    ("Coiffe des rotateurs","Rotation interne à l'élastique","3","15","45 s",
-    "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe."),
+    "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe. Progression : éloigne-toi du point d'accroche, puis élastique plus épais. Note le niveau de l'élastique dans la case « élast. » (1, 2, 3…)."),
    ("Coiffe des rotateurs","Abaissement à l'élastique","3","10","45 s",
-    "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus."),
+    "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. »."),
    ("Coiffe des rotateurs","Isométriques contre le mur","5","10 s / sens","20 s",
-    "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours."),
+    "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours. Progression : pousse plus fort (30-40 % → 50-60 % de ta force), puis 15 s. Note les secondes dans la case « s »."),
    ("Omoplate","Anges au mur","2","10","30 s",
-    "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne."),
+    "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne. Progression : l'amplitude — les bras montent plus haut en gardant le contact, jusqu'au Y complet."),
    ("Omoplate","Face pull à l'élastique","3","15","45 s",
-    "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin."),
+    "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. »."),
    ("Omoplate","Pompes au mur avec poussée finale","2","12","30 s",
-    "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate."),
+    "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate. Progression : mains de plus en plus bas — mur, puis bord du banc, puis sol."),
    ("Pectoraux","Étirement du pectoral à la porte","2","30 s / côté","15 s",
-    "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande."),
+    "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande. Pas de progression : entretien."),
    ]),
  dict(id="J3", jour="Jeudi", titre="Haut B — Poussée",
       focus="Pectoraux (la seule fois de la semaine), triceps, deltoïde latéral",
@@ -100,6 +100,13 @@ DOULEUR = [
  ("Perte de force inexpliquée", True, "Consulte. Ce n'est pas de la fatigue."),
  ("Douleur qui descend dans le bras", True, "Consulte."),
  ("Rien n'a changé après 2-3 semaines", True, "Consulte un kiné du sport : ce plan ménage l'épaule, il ne la soigne pas."),
+]
+
+# Séance R (rééducation) : comment progresser sans kilos. Affiché en tête de la séance dans l'appli.
+REEDUC = [
+ ("La règle", "Tu passes au cran suivant quand la version actuelle est facile, sans douleur pendant, et rien de pire le lendemain. Jamais parce que « ça fait deux semaines »."),
+ ("Le rythme", "Un cran toutes les 2 à 3 semaines, c'est déjà bien : le tendon se remodèle sur des mois. La vraie progression, c'est l'épaule qui te laisse tranquille sur les développés du jeudi."),
+ ("Les cases", "kg : la rotation externe seulement (+1 kg à 3 × 15). « élast. » : le niveau de l'élastique (1, 2, 3…). « s » : les secondes de tenue. Étirements et extension sur le banc ne progressent pas : entretien."),
 ]
 
 PROGRESSION = [

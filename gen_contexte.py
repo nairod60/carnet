@@ -134,6 +134,11 @@ w("")
 for titre, texte in p.PROGRESSION:
     w(f"- **{titre}** — {texte}")
 w("")
+w("### Progression en rééducation (séance R, sans kilos)")
+w("")
+for titre, texte in getattr(p, "REEDUC", []):
+    w(f"- **{titre}** — {texte}")
+w("")
 w("### Échelle de douleur (épaule)")
 w("")
 for situation, consulter, texte in p.DOULEUR:

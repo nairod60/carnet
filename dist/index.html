@@ -99,6 +99,7 @@
   .exo .last b { color: var(--ink); font-weight: 600; }
   .set { display: grid; grid-template-columns: 22px 1fr 1fr 46px; gap: 8px; align-items: center; padding: 6px 0; }
   .set + .set { border-top: 1px solid var(--line-soft); }
+  .set.solo { grid-template-columns: 22px 1fr 46px; }  /* exercice sans charge : une seule case */
   .set .n { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); text-align: center; }
   .stepper { display: grid; grid-template-columns: 34px 1fr 34px; align-items: stretch; border-radius: var(--rb); overflow: hidden; background: var(--surface-alt); min-height: 46px; }
   .stepper button { font-family: "JetBrains Mono", monospace; font-size: 19px; color: var(--ink-2); }
@@ -245,6 +246,8 @@ const DATA = {
      "reps": "max",
      "repos": "3 min",
      "consigne": "LARGEUR D'ÉPAULES, jamais large : la prise large bloque l'omoplate. Si tu ne fais pas 5 reps, fais des négatives de 5 s.",
+     "charge": "lest",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -254,6 +257,8 @@ const DATA = {
      "reps": "8-10",
      "repos": "3 min",
      "consigne": "Buste à 45°, tire vers le nombril, coudes près du corps.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -263,6 +268,8 @@ const DATA = {
      "reps": "10-12 / bras",
      "repos": "3 min",
      "consigne": "Genou et main sur le banc, amplitude complète.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -272,6 +279,8 @@ const DATA = {
      "reps": "15",
      "repos": "1 min 30",
      "consigne": "Poitrine sur le banc à 30°. Léger : 3 à 5 kg.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -281,6 +290,8 @@ const DATA = {
      "reps": "12",
      "repos": "1 min 30",
      "consigne": "Bras tendus en Y, pouces vers le haut, 2 à 4 kg. C'est ce qui fait tourner l'omoplate et libère l'épaule.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -290,6 +301,8 @@ const DATA = {
      "reps": "10-12",
      "repos": "1 min 30",
      "consigne": "Prise neutre. Les tractions en supination ont déjà chargé lourdement le biceps.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     }
    ]
@@ -308,6 +321,8 @@ const DATA = {
      "reps": "10-12",
      "repos": "3 min",
      "consigne": "Haltère vertical contre la poitrine. Descends bas, dos droit.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -317,6 +332,8 @@ const DATA = {
      "reps": "8-10 / jambe",
      "repos": "3 min",
      "consigne": "Le meilleur exercice de jambes disponible sans barre. Un haltère dans chaque main.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -326,6 +343,8 @@ const DATA = {
      "reps": "10 / jambe",
      "repos": "3 min",
      "consigne": "Buste droit, genou arrière proche du sol.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -335,6 +354,8 @@ const DATA = {
      "reps": "15-20",
      "repos": "1 min 30",
      "consigne": "Amplitude complète, une seconde de pause en haut.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -344,6 +365,8 @@ const DATA = {
      "reps": "15",
      "repos": "1 min 30",
      "consigne": "Mouvement court, on enroule le buste.",
+     "charge": "lest",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -353,6 +376,8 @@ const DATA = {
      "reps": "30-45 s",
      "repos": "1 min 30",
      "consigne": "Bassin en rétroversion, fessiers serrés.",
+     "charge": "lest",
+     "unite": "s",
      "poidsCorps": true
     }
    ]
@@ -370,7 +395,9 @@ const DATA = {
      "series": 2,
      "reps": "10",
      "repos": "30 s",
-     "consigne": "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules.",
+     "consigne": "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules. Progression : 5 s de tenue → 10 s, puis une légère résistance de la main sur le front.",
+     "charge": null,
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -379,7 +406,9 @@ const DATA = {
      "series": 2,
      "reps": "10",
      "repos": "45 s",
-     "consigne": "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté.",
+     "consigne": "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté. Pas de progression : c'est de l'entretien.",
+     "charge": null,
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -388,7 +417,9 @@ const DATA = {
      "series": 2,
      "reps": "30 s / côté",
      "repos": "15 s",
-     "consigne": "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer.",
+     "consigne": "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer. Pas de progression : entretien.",
+     "charge": null,
+     "unite": "s",
      "poidsCorps": true
     },
     {
@@ -397,7 +428,9 @@ const DATA = {
      "series": 3,
      "reps": "15",
      "repos": "45 s",
-     "consigne": "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre.",
+     "consigne": "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre. Progression : +1 kg quand tu tiens 3 × 15 propres (1 → 2 → 3 kg), l'appli te le propose.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -406,7 +439,9 @@ const DATA = {
      "series": 3,
      "reps": "15",
      "repos": "45 s",
-     "consigne": "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe.",
+     "consigne": "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe. Progression : éloigne-toi du point d'accroche, puis élastique plus épais. Note le niveau de l'élastique dans la case « élast. » (1, 2, 3…).",
+     "charge": "élastique",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -415,7 +450,9 @@ const DATA = {
      "series": 3,
      "reps": "10",
      "repos": "45 s",
-     "consigne": "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus.",
+     "consigne": "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. ».",
+     "charge": "élastique",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -424,7 +461,9 @@ const DATA = {
      "series": 5,
      "reps": "10 s / sens",
      "repos": "20 s",
-     "consigne": "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours.",
+     "consigne": "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours. Progression : pousse plus fort (30-40 % → 50-60 % de ta force), puis 15 s. Note les secondes dans la case « s ».",
+     "charge": null,
+     "unite": "s",
      "poidsCorps": true
     },
     {
@@ -433,7 +472,9 @@ const DATA = {
      "series": 2,
      "reps": "10",
      "repos": "30 s",
-     "consigne": "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne.",
+     "consigne": "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne. Progression : l'amplitude — les bras montent plus haut en gardant le contact, jusqu'au Y complet.",
+     "charge": null,
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -442,7 +483,9 @@ const DATA = {
      "series": 3,
      "reps": "15",
      "repos": "45 s",
-     "consigne": "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin.",
+     "consigne": "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin. Progression : plus loin de l'accroche, puis élastique plus épais ; note le niveau dans « élast. ».",
+     "charge": "élastique",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -451,7 +494,9 @@ const DATA = {
      "series": 2,
      "reps": "12",
      "repos": "30 s",
-     "consigne": "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate.",
+     "consigne": "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate. Progression : mains de plus en plus bas — mur, puis bord du banc, puis sol.",
+     "charge": null,
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -460,7 +505,9 @@ const DATA = {
      "series": 2,
      "reps": "30 s / côté",
      "repos": "15 s",
-     "consigne": "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande.",
+     "consigne": "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande. Pas de progression : entretien.",
+     "charge": null,
+     "unite": "s",
      "poidsCorps": true
     }
    ]
@@ -479,6 +526,8 @@ const DATA = {
      "reps": "8-10",
      "repos": "3 min",
      "consigne": "Banc à 30°, paumes face à face. Descends jusqu'à ce que le bras arrive au niveau du torse, PAS plus bas.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -488,6 +537,8 @@ const DATA = {
      "reps": "10-12",
      "repos": "3 min",
      "consigne": "Allongé par terre : les coudes touchent le sol et bloquent la descente. L'amplitude dangereuse devient impossible.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -497,6 +548,8 @@ const DATA = {
      "reps": "10-15",
      "repos": "3 min",
      "consigne": "Mains un peu plus larges que les épaules, coudes à 45°. Au-delà de 15 reps propres : sac à dos chargé de 5 puis 10 kg. Va à 1 rep de l'échec, c'est le seul exercice où tu peux.",
+     "charge": "lest",
+     "unite": "reps",
      "poidsCorps": true
     },
     {
@@ -506,6 +559,8 @@ const DATA = {
      "reps": "12",
      "repos": "3 min",
      "consigne": "Poitrine posée sur le banc à 30°. Équilibre la poussée du jour et ouvre l'espace sous l'acromion.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -515,6 +570,8 @@ const DATA = {
      "reps": "12-15",
      "repos": "1 min 30",
      "consigne": "Monte à 30° vers l'avant, pas sur le côté, pouces au plafond. STOP à hauteur d'épaule. 3 à 5 kg.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -524,6 +581,8 @@ const DATA = {
      "reps": "10-12",
      "repos": "1 min 30",
      "consigne": "Allongé, coudes vers le plafond. Remplace l'extension debout au-dessus de la tête.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     }
    ]
@@ -542,6 +601,8 @@ const DATA = {
      "reps": "10-12",
      "repos": "3 min",
      "consigne": "Jambes quasi tendues, bassin qui recule, dos plat. Tu dois sentir l'arrière des cuisses.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -551,6 +612,8 @@ const DATA = {
      "reps": "12-15",
      "repos": "3 min",
      "consigne": "Omoplates sur le banc, haltère sur le bassin, monte jusqu'à l'alignement.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -560,6 +623,8 @@ const DATA = {
      "reps": "10 / jambe",
      "repos": "3 min",
      "consigne": "Travail d'équilibre en prime. Charge modérée.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -569,6 +634,8 @@ const DATA = {
      "reps": "15-20",
      "repos": "1 min 30",
      "consigne": "Cible le soléaire, complémentaire du travail debout.",
+     "charge": "kg",
+     "unite": "reps",
      "poidsCorps": false
     },
     {
@@ -578,6 +645,8 @@ const DATA = {
      "reps": "20-30 s / côté",
      "repos": "1 min 30",
      "consigne": "Corps aligné, bassin haut.",
+     "charge": "lest",
+     "unite": "s",
      "poidsCorps": true
     },
     {
@@ -587,6 +656,8 @@ const DATA = {
      "reps": "10-15",
      "repos": "1 min 30",
      "consigne": "Genoux ou jambes tendues selon le niveau. Ne te balance pas.",
+     "charge": "lest",
+     "unite": "reps",
      "poidsCorps": true
     }
    ]
@@ -2158,6 +2229,20 @@ const DATA = {
    "cuit": "≈ 250 g",
    "facteur": "× 2,5"
   }
+ ],
+ "reeduc": [
+  {
+   "titre": "La règle",
+   "texte": "Tu passes au cran suivant quand la version actuelle est facile, sans douleur pendant, et rien de pire le lendemain. Jamais parce que « ça fait deux semaines »."
+  },
+  {
+   "titre": "Le rythme",
+   "texte": "Un cran toutes les 2 à 3 semaines, c'est déjà bien : le tendon se remodèle sur des mois. La vraie progression, c'est l'épaule qui te laisse tranquille sur les développés du jeudi."
+  },
+  {
+   "titre": "Les cases",
+   "texte": "kg : la rotation externe seulement (+1 kg à 3 × 15). « élast. » : le niveau de l'élastique (1, 2, 3…). « s » : les secondes de tenue. Étirements et extension sur le banc ne progressent pas : entretien."
+  }
  ]
 };
 </script>
@@ -2296,19 +2381,20 @@ function renderSeance() {
   h = h.replace('<span class="chip blue" id="chip-series"></span>', `<span class="chip blue">${nDone} / ${nTot} séries</span>`);
   const haut = s.id === "J1" || s.id === "J3";
   if (haut) h += `<details class="card"><summary class="card-h"><h3>Échauffement épaule · 5 min</h3></summary><div class="card-b">${DATA.echauffement.map(e => `<div class="rowline"><span>${esc(e.nom)}<br><span class="hist">${esc(e.note)}</span></span><span class="v mono" style="color:var(--blue)">${esc(e.dose)}</span></div>`).join("")}</div></details>`;
+  if (s.id === "R" && (DATA.reeduc || []).length) h += `<details class="card" open><summary class="card-h"><h3>Comment progresser · rééducation</h3></summary><div class="card-b">${DATA.reeduc.map(r => `<div class="rowline" style="flex-direction:column;align-items:flex-start;gap:2px"><span class="v" style="color:var(--blue);font-size:13px">${esc(r.titre)}</span><span style="font-size:13.5px;color:var(--ink-2)">${esc(r.texte)}</span></div>`).join("")}</div></details>`;
   s.exos.forEach((e, i) => {
     const last = derniere(s.id), ls = last && last.sets[i] ? last.sets[i].filter(x => x.done && x.r) : [];
     const o = objectif(e, last, i);
-    const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${x.w || 0}×${x.r}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
+    const lastTxt = (ls.length ? `dernière fois : ${ls.map(x => `<b>${e.charge ? (x.w || 0) + "×" : ""}${x.r}${e.unite === "s" ? " s" : ""}</b>`).join(" · ")}` : "première fois — note ce que tu fais")
       + (o ? ` · <b style="color:var(--green)">objectif : +${o.plus} kg, ${o.reps} reps</b>` : "");
     h += `<div class="card exo" data-exo="${i}">
       <div class="card-h"><div><div class="grp">${esc(e.groupe)}</div><h3>${esc(e.nom)}</h3><div class="last">${lastTxt}</div></div><div class="cible"><b>${e.series} × ${esc(e.reps)}</b><br>repos ${esc(e.repos)}</div></div>
       <div class="card-b">
         <details><summary style="min-height:32px;font-size:13px;color:var(--muted)">Consigne</summary><div class="cue">${esc(e.consigne)}</div></details>
-        ${c.sets[i].map((st, k) => `<div class="set" data-set="${k}">
+        ${c.sets[i].map((st, k) => `<div class="set ${e.charge ? "" : "solo"}" data-set="${k}">
           <span class="n">${k + 1}</span>
-          <div class="stepper"><button data-d="w" data-v="-1">−</button><span class="u" data-u="${e.poidsCorps ? "lest" : "kg"}"><input inputmode="decimal" placeholder="${e.poidsCorps ? "0" : "·"}" data-f="w" value="${st.w}"></span><button data-d="w" data-v="1">+</button></div>
-          <div class="stepper"><button data-d="r" data-v="-1">−</button><span class="u" data-u="reps"><input inputmode="numeric" placeholder="·" data-f="r" value="${st.r}"></span><button data-d="r" data-v="1">+</button></div>
+          ${e.charge ? `<div class="stepper"><button data-d="w" data-v="-1">−</button><span class="u" data-u="${e.charge === "élastique" ? "élast." : e.charge}"><input inputmode="decimal" placeholder="${e.charge === "kg" ? "·" : e.charge === "lest" ? "0" : "1"}" data-f="w" value="${st.w}"></span><button data-d="w" data-v="1">+</button></div>` : ""}
+          <div class="stepper"><button data-d="r" data-v="-1">−</button><span class="u" data-u="${e.unite || "reps"}"><input inputmode="numeric" placeholder="·" data-f="r" value="${st.r}"></span><button data-d="r" data-v="1">+</button></div>
           <button class="done ${st.done ? "on" : ""}" data-done aria-label="Série faite">${CHECK}</button>
         </div>`).join("")}
       </div></div>`;
@@ -2329,7 +2415,7 @@ function bindSeance(s) {
       const k = +row.dataset.set, st = c.sets[i][k];
       row.querySelectorAll("input").forEach(inp => inp.oninput = () => { st[inp.dataset.f] = inp.value.replace(",", "."); save(); });
       row.querySelectorAll("button[data-d]").forEach(b => b.onclick = () => {
-        const f = b.dataset.d, step = f === "w" ? (e.poidsCorps ? 2.5 : 1) : 1;
+        const f = b.dataset.d, step = f === "w" ? (e.charge === "lest" ? 2.5 : 1) : (e.unite === "s" ? 5 : 1);
         const cur = parseFloat(st[f]) || 0, nv = Math.max(0, Math.round((cur + step * +b.dataset.v) * 10) / 10);
         st[f] = String(nv); row.querySelector(`input[data-f="${f}"]`).value = nv; save();
       });
@@ -2527,6 +2613,7 @@ function renderSuivi() {
   // progression des charges
   const prog = [];
   DATA.seances.forEach(s => (S.seances[s.id] || []).forEach(x => s.exos.forEach((e, i) => {
+    if (e.charge === "élastique") return;  // un niveau d'élastique n'est pas une charge
     const best = (x.sets[i] || []).filter(q => q.done && +q.r).reduce((m, q) => Math.max(m, (+q.w || 0) * (+q.r || 0)), 0);
     if (best) prog.push({ exo: e.nom, date: x.date, best, w: Math.max(...x.sets[i].filter(q => q.done).map(q => +q.w || 0)) });
   })));

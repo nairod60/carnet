@@ -19,14 +19,23 @@ rec = _R(); rec.macros = _ns["macros"]
 JOURS = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
 
 # --- séances : jour de la semaine -> séance ---
+def charge(n):
+    """Ce qu'on note dans la case de gauche : kg (haltères), lest (poids du corps), niveau d'élastique, ou rien."""
+    l = n.lower()
+    if "pompes au mur" in l: return None
+    if "élastique" in l: return "élastique"
+    if any(k in l for k in ("pompes", "tractions", "gainage", "relevé", "crunch")): return "lest"
+    if any(k in l for k in ("menton", "extension du haut", "étirement", "isométrique", "anges")): return None
+    return "kg"
 seances = []
 for s in prog.SEANCES:
     seances.append({
         "id": s["id"], "jour": s["jour"], "jourIdx": JOURS.index(s["jour"]),
         "titre": s["titre"], "focus": s["focus"],
         "exos": [{"groupe": g, "nom": n, "series": int(ser), "reps": reps, "repos": repos, "consigne": cue,
-                  "poidsCorps": any(k in n.lower() for k in ("pompes", "tractions", "gainage", "relevé", "crunch",
-                                                          "menton", "extension du haut", "étirement", "élastique", "isométrique", "anges"))}
+                  "charge": charge(n),                      # "kg" | "lest" | "élastique" | None (pas de case de charge)
+                  "unite": "s" if re.search(r"\d\s*s\b", reps) else "reps",   # tenues en secondes
+                  "poidsCorps": charge(n) != "kg"}           # pas de progression automatique en kg
                  for g, n, ser, reps, repos, cue in s["exos"]],
     })
 
@@ -55,6 +64,7 @@ data = {
     "echauffement": [{"nom": n, "dose": d, "note": c} for n, d, c in prog.ECHAUFFEMENT],
     "douleur": [{"situation": s_, "consulter": w, "texte": t} for s_, w, t in prog.DOULEUR],
     "conversion": [{"aliment": a, "cru": b, "cuit": c, "facteur": d} for a, b, c, d in gen.CONVERT],
+    "reeduc": [{"titre": t, "texte": x} for t, x in getattr(prog, "REEDUC", [])],
 }
 json.dump(data, open("data.json", "w", encoding="utf-8", newline="\n"), ensure_ascii=False, indent=1)
 print(f"data.json : {len(seances)} séances, {len(jours)} jours, {sum(len(c['items']) for c in courses)} articles, "
