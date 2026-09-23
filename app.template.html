@@ -561,7 +561,7 @@ function mensurationsCard() {
     return `<div class="rowline"><span class="d">${lab}</span><span class="v">${cm(m[k])} cm${delta}</span></div>`;
   }).join("");
   return `<div class="card"><div class="card-h"><h3>Mensurations</h3><span class="hist">${fmtDate(d)}${dp ? " · écart depuis le " + fmtDate(dp) : ""}</span></div><div class="card-b">${rows}
-    <p class="hist" style="margin:10px 0 0">Le lundi, bras et jambes relâchés, toujours au même endroit. Taille et abdomen doivent rester stables pendant que poitrine, bras et cuisses montent.</p></div></div>`;
+    <p class="hist" style="margin:10px 0 0">Une fois par mois, bras et jambes relâchés, toujours au même endroit. Taille et abdomen doivent rester stables pendant que poitrine, bras et cuisses montent.</p></div></div>`;
 }
 function renderSuivi() {
   const iso = today(), ms = moyennes(), v = verdict(ms);

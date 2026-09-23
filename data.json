@@ -134,6 +134,114 @@
    ]
   },
   {
+   "id": "R",
+   "jour": "Mercredi",
+   "jourIdx": 2,
+   "titre": "Rééducation — Posture et épaule",
+   "focus": "Cou, haut du dos, coiffe des rotateurs, omoplate — 15 à 20 min, un tour, douleur 3/10 maximum",
+   "exos": [
+    {
+     "groupe": "Cou",
+     "nom": "Rentrés de menton",
+     "series": 2,
+     "reps": "10",
+     "repos": "30 s",
+     "consigne": "Debout contre un mur ou allongé. Rentre le menton comme pour faire un double menton, 5 s de tenue, sans lever ni baisser la tête. C'est ce qui remet la tête sur les épaules.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Haut du dos",
+     "nom": "Extension du haut du dos sur le banc",
+     "series": 2,
+     "reps": "10",
+     "repos": "45 s",
+     "consigne": "En travers du banc, le bord sous les omoplates, mains derrière la tête : tu te laisses aller en arrière 3 s, tu reviens. Le cou part en avant parce que le haut du dos est voûté.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Cou",
+     "nom": "Étirement du trapèze supérieur",
+     "series": 2,
+     "reps": "30 s / côté",
+     "repos": "15 s",
+     "consigne": "Main sur la tête, oreille vers l'épaule, l'autre bras tiré vers le sol. Sans forcer.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Coiffe des rotateurs",
+     "nom": "Rotation externe couchée sur le côté",
+     "series": 3,
+     "reps": "15",
+     "repos": "45 s",
+     "consigne": "1 à 2 kg. Coude collé au flanc, l'avant-bras monte du sol vers le plafond, lentement. Le cœur du recentrage : le muscle qui retient la tête de l'humérus au centre.",
+     "poidsCorps": false
+    },
+    {
+     "groupe": "Coiffe des rotateurs",
+     "nom": "Rotation interne à l'élastique",
+     "series": 3,
+     "reps": "15",
+     "repos": "45 s",
+     "consigne": "Élastique fixé à côté de toi, coude collé au corps, l'avant-bras vient devant le ventre. L'autre moitié de la coiffe.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Coiffe des rotateurs",
+     "nom": "Abaissement à l'élastique",
+     "series": 3,
+     "reps": "10",
+     "repos": "45 s",
+     "consigne": "Élastique accroché à la barre de traction. Bras tendu, pousse la main vers le bas et l'arrière sans plier le coude, 5 s de tenue en bas. C'est ce qui fait descendre la tête de l'humérus.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Coiffe des rotateurs",
+     "nom": "Isométriques contre le mur",
+     "series": 5,
+     "reps": "10 s / sens",
+     "repos": "20 s",
+     "consigne": "Coude à 90° collé au corps. Dos de la main contre le mur, pousse 10 s ; puis paume contre le mur, pousse 10 s. À 30-40 % de ta force, rien ne bouge. Calme la douleur, faisable tous les jours.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Omoplate",
+     "nom": "Anges au mur",
+     "series": 2,
+     "reps": "10",
+     "repos": "30 s",
+     "consigne": "Dos, fesses, coudes et poignets contre le mur. Monte en Y, redescends en W, tout reste collé au mur. Arrête-toi avant la gêne.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Omoplate",
+     "nom": "Face pull à l'élastique",
+     "series": 3,
+     "reps": "15",
+     "repos": "45 s",
+     "consigne": "Élastique à hauteur du visage sur la barre de traction. Tire vers le front, coudes hauts et écartés, omoplates serrées à la fin.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Omoplate",
+     "nom": "Pompes au mur avec poussée finale",
+     "series": 2,
+     "reps": "12",
+     "repos": "30 s",
+     "consigne": "Mains sur le mur, bras tendus. À la fin de chaque pompe, pousse encore : les omoplates s'écartent. Réveille le dentelé, le muscle qui plaque l'omoplate.",
+     "poidsCorps": true
+    },
+    {
+     "groupe": "Pectoraux",
+     "nom": "Étirement du pectoral à la porte",
+     "series": 2,
+     "reps": "30 s / côté",
+     "repos": "15 s",
+     "consigne": "Avant-bras sur le montant, coude à hauteur d'épaule, avance doucement le buste. Doux : l'épaule commande.",
+     "poidsCorps": true
+    }
+   ]
+  },
+  {
    "id": "J3",
    "jour": "Jeudi",
    "jourIdx": 3,

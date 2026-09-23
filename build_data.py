@@ -25,7 +25,8 @@ for s in prog.SEANCES:
         "id": s["id"], "jour": s["jour"], "jourIdx": JOURS.index(s["jour"]),
         "titre": s["titre"], "focus": s["focus"],
         "exos": [{"groupe": g, "nom": n, "series": int(ser), "reps": reps, "repos": repos, "consigne": cue,
-                  "poidsCorps": any(k in n.lower() for k in ("pompes", "tractions", "gainage", "relevé", "crunch"))}
+                  "poidsCorps": any(k in n.lower() for k in ("pompes", "tractions", "gainage", "relevé", "crunch",
+                                                          "menton", "extension du haut", "étirement", "élastique", "isométrique", "anges"))}
                  for g, n, ser, reps, repos, cue in s["exos"]],
     })
 
