@@ -8,7 +8,7 @@ Après toute modification de `plan/gen.py` ou `plan/prog.py`, relancer `gen_cont
 
 ## Où est quoi
 - `app.template.html` : tout le code de l'appli. CSS en tête, JS en bas. Le marqueur `__DATA__` est remplacé par `data.json` au build.
-- `build_data.py` : extrait les données depuis `plan/prog.py` (séances), `plan/gen.py` (repas, courses, règles) et `plan/pictos.py` (dessins SVG des exercices de rééducation, clé = nom exact de l'exercice ; couleurs en variables CSS). **Ne pas dupliquer ces données dans le template** : on change le plan à la source, puis on rebuild.
+- `build_data.py` : extrait les données depuis `plan/prog.py` (séances), `plan/gen.py` (repas, courses, règles) et `plan/pictos.py` (dessins SVG des exercices de rééducation, clé = nom exact de l'exercice ; couleurs en variables CSS ; `PHOTOS` associe un nom d'exercice à une photo dans `plan/photos/`, embarquée en data URI à la place du dessin). **Ne pas dupliquer ces données dans le template** : on change le plan à la source, puis on rebuild.
 - `build.py` : produit `dist/` (index.html, sw.js avec nom de cache horodaté, `version.json` = numéro de build + adresse de publication).
   `publish.ps1` prend le Python de `%LOCALAPPDATA%\android-toolchain` s'il existe, sinon le `python` du PATH ; `gh` n'est requis que pour la toute première publication.
 - **Flux normal après toute modification du plan ou du template : `.\publish.ps1`** (build + commit + push GitHub Pages).

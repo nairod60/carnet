@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Extrait les données du plan (prog.py + gen.py) en un seul JSON pour l'appli.
 Une seule source de vérité : modifier le plan = relancer ce script."""
-import sys, os, json, importlib.util, re
+import sys, os, json, importlib.util, re, base64
 sys.path.insert(0, "plan")
 
 def load(path, name):
@@ -10,7 +10,15 @@ def load(path, name):
 
 prog = load("plan/prog.py", "prog")
 gen  = load("plan/gen.py", "gen")
-pictos = load("plan/pictos.py", "pictos").PICTOS if os.path.exists("plan/pictos.py") else {}  # dessins des exercices (séance R)
+_pic = load("plan/pictos.py", "pictos") if os.path.exists("plan/pictos.py") else None
+pictos = _pic.PICTOS if _pic else {}                       # dessins SVG des exercices (séance R)
+photos = getattr(_pic, "PHOTOS", {}) if _pic else {}       # photos (prioritaires sur le dessin)
+def picto(n):
+    f = os.path.join("plan", photos.get(n, "")) if n in photos else ""
+    if f and os.path.exists(f):
+        b = base64.b64encode(open(f, "rb").read()).decode("ascii")
+        return f'<img src="data:image/jpeg;base64,{b}" alt="">'
+    return pictos.get(n)
 # recalc.py réécrit gen.py quand on l'importe : on n'exécute que ses tables et sa fonction macros()
 _src = open("plan/recalc.py", encoding="utf-8").read()
 _ns = {}; exec(_src.split("spec = importlib")[0], _ns)
@@ -37,7 +45,7 @@ for s in prog.SEANCES:
                   "charge": charge(n),                      # "kg" | "lest" | "élastique" | None (pas de case de charge)
                   "unite": "s" if re.search(r"\d\s*s\b", reps) else "reps",   # tenues en secondes
                   "poidsCorps": charge(n) != "kg",           # pas de progression automatique en kg
-                  "picto": pictos.get(n)}                    # SVG du geste, ou None
+                  "picto": picto(n)}                         # photo ou SVG du geste, ou None
                  for g, n, ser, reps, repos, cue in s["exos"]],
     })
 

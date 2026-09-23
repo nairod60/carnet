@@ -156,3 +156,6 @@ NOMS = {"menton": "Rentrés de menton", "thoracique": "Extension du haut du dos 
         "iso": "Isométriques contre le mur", "anges": "Anges au mur", "facepull": "Face pull à l'élastique",
         "dentele": "Pompes au mur avec poussée finale", "pectoral": "Étirement du pectoral à la porte"}
 PICTOS = {NOMS[k]: v.replace('id="ar"', f'id="ar-{k}"').replace('url(#ar)', f'url(#ar-{k})') for k, v in P.items()}
+
+# Photos (plan/photos/, JPEG ≤ 1000 px de large, ~40 Ko) : quand une photo existe, elle remplace le dessin dans l'appli.
+PHOTOS = {"Rotation externe couchée sur le côté": "photos/rotation-externe.jpg"}
