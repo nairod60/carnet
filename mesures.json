@@ -1,11 +1,12 @@
 {
  "carnetAjout": 1,
- "id": "2026-09-21",
- "source": "Fitdays : moyennes hebdomadaires (rapport du 30/08 au 19/09/2026) et mensurations du lundi (mètre ruban)",
+ "id": "2026-09-28",
+ "source": "Fitdays : moyennes hebdomadaires (rapport du 30/08 au 03/10/2026) et mensurations (mètre ruban)",
  "moyennes": {
   "2026-08-31": 70.41,
   "2026-09-07": 70.6,
-  "2026-09-14": 71.0
+  "2026-09-14": 71.0,
+  "2026-09-21": 72.2
  },
  "compo": {
   "2026-08-31": {
@@ -15,6 +16,10 @@
   "2026-09-14": {
    "g": 15.7,
    "m": 56.1
+  },
+  "2026-09-21": {
+   "g": 16.5,
+   "m": 56.6
   }
  },
  "taille": {
@@ -35,13 +40,13 @@
   }
  },
  "avis": {
-  "date": "2026-09-21",
+  "date": "2026-09-28",
   "texte": [
-   "Rythme : +295 g par semaine en moyenne sur trois semaines, en plein dans la cible. Ne change rien aux quantités.",
-   "Créatine commencée entre le 7 et le 12 septembre : la saturation dure 3 à 4 semaines à 5 g par jour et ajoute 1 à 2 kg d'eau dans le muscle. Les +400 g de la semaine du 14 en font partie. Jusqu'au 10 octobre environ, ignore un verdict « trop vite » : ne retire pas de calories, sauf si le tour de taille monte aussi.",
-   "Masse grasse 15,3 → 15,7 % : c'est dans la marge d'erreur de la balance. Tu es sec, donc ton miroir est plus fiable qu'elle : s'il montre plus de muscle et pas plus de gras, c'est lui qui a raison. Mesure ton tour de taille chaque lundi, c'est le juge de paix.",
-   "Pouls à 91-98 sur la balance : prends-le allongé au réveil, trois matins. S'il reste au-dessus de 85-90 au repos, parles-en à ton médecin.",
-   "21/09 : mensurations de référence enregistrées (taille 80,2 cm, abdomen 84,9, poitrine 95,2, biceps 36,7). On les reprend chaque lundi : taille et abdomen doivent rester stables pendant que poitrine, bras et cuisses montent. Balance du 30/08 au 21/09 : +1,6 kg dont 1 à 1,5 kg d'eau de créatine, le % de gras qui monte de 1,3 point est du bruit d'impédance, pas du gras."
+   "Rythme : 70,4 → 72,2 kg en trois semaines, soit +600 g par semaine brut. Là-dedans, 1 à 1,5 kg d'eau de créatine (commencée entre le 7 et le 12 septembre) : le tissu réel, c'est +100 à +250 g par semaine, dans le bas de la cible. On ne change rien avant le 10 octobre.",
+   "La semaine du 21 fait +1,2 kg d'un coup : c'est le pic de saturation de la créatine, pas du gras. Le verdict « trop vite » est à ignorer jusqu'au 10 octobre.",
+   "Pouls au repos 98 → 76 en un mois : le meilleur chiffre du rapport. Arrêt du sucre liquide, entraînement, sommeil — continue.",
+   "Masse grasse 15,3 → 16,5 % : la balance à impédance confond l'eau qui rentre dans le muscle avec du gras. Le juge de paix reste le tour de taille du lundi (référence : 80,2 cm le 21/09).",
+   "Après le 10 octobre, créatine stabilisée : si la moyenne monte encore de plus de +500 g par semaine ET que le tour de taille monte, on retire 150 kcal. Sinon, on continue tel quel."
   ]
  }
 }
