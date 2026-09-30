@@ -13,6 +13,8 @@ gen  = load("plan/gen.py", "gen")
 _pic = load("plan/pictos.py", "pictos") if os.path.exists("plan/pictos.py") else None
 pictos = _pic.PICTOS if _pic else {}                       # dessins SVG des exercices (séance R)
 photos = getattr(_pic, "PHOTOS", {}) if _pic else {}       # photos (prioritaires sur le dessin)
+_inf = load("plan/infos.py", "infos") if os.path.exists("plan/infos.py") else None
+infos = _inf.INFOS if _inf else {}                         # explications détaillées (bouton « i »)
 def picto(n):
     f = os.path.join("plan", photos.get(n, "")) if n in photos else ""
     if f and os.path.exists(f):
@@ -45,7 +47,8 @@ for s in prog.SEANCES:
                   "charge": charge(n),                      # "kg" | "lest" | "élastique" | None (pas de case de charge)
                   "unite": "s" if re.search(r"\d\s*s\b", reps) else "reps",   # tenues en secondes
                   "poidsCorps": charge(n) != "kg",           # pas de progression automatique en kg
-                  "picto": picto(n)}                         # photo ou SVG du geste, ou None
+                  "picto": picto(n),                         # photo ou SVG du geste, ou None
+                  "info": [{"titre": t, "texte": x} for t, x in infos.get(n, [])]}  # bouton « i »
                  for g, n, ser, reps, repos, cue in s["exos"]],
     })
 
@@ -67,7 +70,7 @@ courses = [{"rayon": r, "items": [{"nom": n, "qte": q} for n, q in items]} for r
 
 # --- pilotage + échauffement + douleur ---
 data = {
-    "version": "2026-09-19",
+    "version": "2026-10-01",
     "profil": {"poids": 70, "taille": 184, "objectif": "Prise de masse propre", "cible": "+200 à +350 g / semaine"},
     "seances": seances, "jours": jours, "courses": courses,
     "pilotage": [{"cond": c, "texte": t, "alerte": w} for c, t, w in gen.PILOTAGE],
