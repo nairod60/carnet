@@ -1,12 +1,13 @@
 {
  "carnetAjout": 1,
- "id": "2026-09-28",
- "source": "Fitdays : moyennes hebdomadaires (rapport du 30/08 au 03/10/2026) et mensurations (mètre ruban)",
+ "id": "2026-10-05",
+ "source": "Fitdays : moyennes hebdomadaires (rapport du 30/08 au 10/10/2026) et mensurations (mètre ruban)",
  "moyennes": {
   "2026-08-31": 70.41,
   "2026-09-07": 70.6,
   "2026-09-14": 71.0,
-  "2026-09-21": 72.2
+  "2026-09-21": 72.2,
+  "2026-09-28": 72.0
  },
  "compo": {
   "2026-08-31": {
@@ -19,6 +20,10 @@
   },
   "2026-09-21": {
    "g": 16.5,
+   "m": 56.6
+  },
+  "2026-09-28": {
+   "g": 16.1,
    "m": 56.6
   }
  },
@@ -40,13 +45,13 @@
   }
  },
  "avis": {
-  "date": "2026-09-28",
+  "date": "2026-10-05",
   "texte": [
-   "Rythme : 70,4 → 72,2 kg en trois semaines, soit +600 g par semaine brut. Là-dedans, 1 à 1,5 kg d'eau de créatine (commencée entre le 7 et le 12 septembre) : le tissu réel, c'est +100 à +250 g par semaine, dans le bas de la cible. On ne change rien avant le 10 octobre.",
-   "La semaine du 21 fait +1,2 kg d'un coup : c'est le pic de saturation de la créatine, pas du gras. Le verdict « trop vite » est à ignorer jusqu'au 10 octobre.",
-   "Pouls au repos 98 → 76 en un mois : le meilleur chiffre du rapport. Arrêt du sucre liquide, entraînement, sommeil — continue.",
-   "Masse grasse 15,3 → 16,5 % : la balance à impédance confond l'eau qui rentre dans le muscle avec du gras. Le juge de paix reste le tour de taille du lundi (référence : 80,2 cm le 21/09).",
-   "Après le 10 octobre, créatine stabilisée : si la moyenne monte encore de plus de +500 g par semaine ET que le tour de taille monte, on retire 150 kcal. Sinon, on continue tel quel."
+   "Rythme : 70,4 → 70,6 → 71,0 → 72,2 → 72,0 kg. La semaine du 28 redescend de 200 g : c'est le plateau attendu après la saturation en créatine, pas une perte. Sur cinq semaines, +1,6 kg brut dont 1 à 1,5 kg d'eau de créatine, soit 100 à 150 g de tissu par semaine : un peu sous la cible de 200 à 350 g.",
+   "Décision : on attend la semaine du 5 octobre, la première sans effet créatine. Si elle ne monte pas d'au moins 150 g, on ajoute 150 kcal le 12 octobre (40 g de riz cru au dîner, ou 50 g de dattes avec le shake de 10 h). C'est le scénario le plus probable.",
+   "Masse grasse 16,5 → 16,1 %, muscle 56,6 kg : du bruit d'impédance, l'eau de la créatine fausse les deux. Le juge de paix reste le tour de taille du lundi (référence 80,2 cm le 21/09) et les mensurations du mois, premier lundi d'octobre.",
+   "Pouls au repos : correction. Le 76 de la semaine dernière était une journée isolée. En moyennes hebdomadaires, 91 → 98 → 93 → 88 → 91 : stable autour de 90, pas encore de baisse nette. Normal à cinq semaines, ça bouge sur trois mois.",
+   "Coude : lundi allégé (tractions d'omoplates, rowing appuyé à −20 %, isométriques à la place du curl). Lecture mardi matin : pareil ou mieux, on garde cette dose une semaine de plus ; pire, on enlève aussi les rowings lourds et on voit un kiné du sport."
   ]
  }
 }
