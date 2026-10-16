@@ -175,6 +175,7 @@
   .spark { width: 100%; height: 110px; display: block; }
   .rowline { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 8px 0; font-size: 14px; }
   .rowline + .rowline { border-top: 1px solid var(--line-soft); }
+  .liste { max-height: 312px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
   .rowline .d { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 12px; }
   .rowline .v { font-family: "JetBrains Mono", monospace; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
   .bars { display: flex; flex-direction: column; gap: 7px; }
@@ -3245,7 +3246,7 @@ function compoCard(ms) {
     else txt += "Tendance cohérente avec une prise de masse propre.";
   }
   return `<div class="card"><div class="card-h"><h3>Composition</h3><span class="hist">balance · indicatif</span></div><div class="card-b">
-    ${list.slice(-6).reverse().map(c => { const m = ms.find(x => x.w === c.w); return `<div class="rowline"><span class="d">sem. du ${fmtDate(c.w)}</span><span class="v">${String(c.g).replace(".", ",")} % <span class="hist">gras${m ? " · " + (m.avg * c.g / 100).toFixed(1).replace(".", ",") + " kg" : ""}</span> · ${String(c.m).replace(".", ",")} kg <span class="hist">muscle</span></span></div>`; }).join("")}
+    <div class="liste">${list.slice().reverse().map(c => { const m = ms.find(x => x.w === c.w); return `<div class="rowline"><span class="d">sem. du ${fmtDate(c.w)}</span><span class="v">${String(c.g).replace(".", ",")} % <span class="hist">gras${m ? " · " + (m.avg * c.g / 100).toFixed(1).replace(".", ",") + " kg" : ""}</span> · ${String(c.m).replace(".", ",")} kg <span class="hist">muscle</span></span></div>`; }).join("")}</div>
     <p class="hist" style="margin:10px 0 0">${esc(txt)}</p></div></div>`;
 }
 // Mensurations du lundi (mètre ruban, Fitdays -> mesures.json) : dernière mesure et écart avec la précédente.
@@ -3270,7 +3271,7 @@ function renderSuivi() {
   const iso = today(), ms = moyennes(), v = verdict(ms);
   const pts = Object.entries(S.poids).map(([d, kg]) => ({ d, v: +kg }))
     .concat(ms.filter(m => m.ext && !Object.keys(S.poids).some(d => semaine(d) === m.w)).map(m => ({ d: jourPlus(m.w, 3), v: m.avg })))
-    .sort((a, b) => a.d < b.d ? -1 : 1).slice(-42);
+    .sort((a, b) => a.d < b.d ? -1 : 1).slice(-90);
   const last = pts.length ? pts[pts.length - 1].v : null, kg = v => (Math.round(v * 100) / 100).toFixed(2).replace(/0$/, "");
   let h = `<div class="top"><div class="row"><div><div class="eyebrow">${esc(DATA.profil.objectif)} · cible ${esc(DATA.profil.cible)}</div><h1>Suivi</h1></div>${last != null ? `<span class="pill-kg">${kg(last).replace(".", ",")} <small>kg</small></span>` : ""}</div></div>
   <div class="card"><div class="card-b">
@@ -3280,14 +3281,14 @@ function renderSuivi() {
   </div></div>
   <div class="verdict ${v.cls}"><span class="eyebrow">Verdict de la semaine</span><span class="big">${esc(v.t)}</span>${esc(v.m)}</div>
   ${avisCard()}
-  ${pts.length > 1 ? `<div class="card"><div class="card-h"><h3>6 dernières semaines</h3><span class="hist">${pts.length} mesures</span></div><div class="card-b">${spark(pts)}
-    ${ms.slice(-6).reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.ext ? "moyenne balance" : m.n + " pesée" + (m.n > 1 ? "s" : "")}</span></span></div>`).join("")}</div></div>` : ""}
+  ${pts.length > 1 ? `<div class="card"><div class="card-h"><h3>Semaine par semaine</h3><span class="hist">${ms.length} semaine${ms.length > 1 ? "s" : ""} · ${pts.length} mesures</span></div><div class="card-b">${spark(pts)}
+    <div class="liste">${ms.slice().reverse().map(m => `<div class="rowline"><span class="d">sem. du ${fmtDate(m.w)}</span><span class="v">${m.avg.toFixed(2)} kg <span class="hist">· ${m.ext ? "moyenne balance" : m.n + " pesée" + (m.n > 1 ? "s" : "")}</span></span></div>`).join("")}</div></div></div>` : ""}
   ${compoCard(ms)}
   <div class="card"><div class="card-b">
     <div class="field"><label for="taille">Tour de taille au nombril, le lundi (cm)</label>
       <div class="stepper" style="min-height:52px"><button data-t="-0.5">−</button><span class="u" data-u="cm"><input id="taille" inputmode="decimal" placeholder="${Object.keys(S.taille).sort().pop() ? S.taille[Object.keys(S.taille).sort().pop()] : "cm"}" value="${S.taille[iso] || ""}"></span><button data-t="0.5">+</button></div></div>
     <button class="btn ghost" id="save-taille">Enregistrer le tour de taille</button>
-    ${Object.keys(S.taille).length ? `<div style="margin-top:10px">${Object.entries(S.taille).sort().slice(-6).reverse().map(([d, c]) => `<div class="rowline"><span class="d">${fmtDate(d)}</span><span class="v">${c} cm</span></div>`).join("")}</div>` : ""}
+    ${Object.keys(S.taille).length ? `<div class="liste" style="margin-top:10px">${Object.entries(S.taille).sort().reverse().map(([d, c]) => `<div class="rowline"><span class="d">${fmtDate(d)}</span><span class="v">${c} cm</span></div>`).join("")}</div>` : ""}
   </div></div>
   ${mensurationsCard()}`;
   // progression des charges
