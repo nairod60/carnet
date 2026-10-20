@@ -35,7 +35,7 @@ MAP = {"Œufs entiers":"oeuf","Pain complet":"pain_complet","Banane":"banane","P
  "Ail, paprika, cumin":"zero","Citron, persil":"zero","Concombre":"concombre","Olives":"olives",
  "Saumon en boîte égoutté":"saumon_boite","Œuf dur":"oeuf","Moutarde, vinaigre":"zero",
  "Vinaigre, herbes":"zero","Vinaigre, moutarde":"zero","Citron, aneth":"zero",
- "Lait demi-écrémé":"lait_demi","Flocons d'avoine":"avoine",
+ "Lait demi-écrémé":"lait_demi","Flocons d'avoine":"avoine","Farine d'avoine":"avoine",
  "Maïs doux égoutté":"mais","Lait entier":"lait_entier","Dattes":"dattes","Pavé de saumon":"saumon_cru",
  "Beurre de cacahuète":"beurre_cacahuete","Noix":"noix","Raisins secs":"raisins_secs",
  "Cuisse de poulet sans peau":"cuisse_poulet","Épices, herbes":"zero","Sel, poivre, paprika":"zero",
