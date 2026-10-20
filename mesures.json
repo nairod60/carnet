@@ -1,7 +1,7 @@
 {
  "carnetAjout": 1,
- "id": "2026-10-16",
- "source": "Fitdays : moyennes hebdomadaires (rapport du 06/09 au 17/10/2026), pesée du 16/10 et mensurations (mètre ruban)",
+ "id": "2026-10-20",
+ "source": "Fitdays : moyennes hebdomadaires (rapport du 06/09 au 17/10/2026), pesée du 16/10 et mensurations du 20/10 (mètre ruban)",
  "moyennes": {
   "2026-08-31": 70.41,
   "2026-09-07": 70.6,
@@ -33,7 +33,8 @@
   }
  },
  "taille": {
-  "2026-09-21": 80.2
+  "2026-09-21": 80.2,
+  "2026-10-20": 78.1
  },
  "mensurations": {
   "2026-09-21": {
@@ -47,16 +48,27 @@
    "cuisseD": 53.6,
    "molletG": 37.5,
    "molletD": 39.4
+  },
+  "2026-10-20": {
+   "cou": 37.0,
+   "poitrine": 96.0,
+   "bicepsG": 35.9,
+   "bicepsD": 36.9,
+   "taille": 78.1,
+   "cuisseG": 52.3,
+   "cuisseD": 53.4,
+   "molletG": 37.4,
+   "molletD": 38.9
   }
  },
  "avis": {
-  "date": "2026-10-16",
+  "date": "2026-10-20",
   "texte": [
-   "Rythme : 72,0 (sem. du 28/09) → 72,3 (sem. du 5/10, peu de pesées) → 72,85 le 16/10, une seule pesée. La créatine est stabilisée depuis le 10 octobre : ce qui monte maintenant, c'est du tissu. Sur deux semaines et demie, +850 g, soit environ 300 g par semaine : dans la cible de 200 à 350 g.",
-   "Décision : on ne touche pas aux calories. Les +150 kcal envisagés le 5 octobre ne sont pas nécessaires, le rythme est bon tel quel. On revoit ça fin octobre avec des semaines complètes de pesées.",
-   "Pèse-toi au moins trois matins par semaine, à jeun après les toilettes : une pesée isolée bouge de ±500 g selon l'eau et le repas de la veille. Sans ça, impossible de distinguer une vraie semaine d'une fluctuation.",
-   "Masse grasse 16,1 → 16,5 %, muscle 57,3 kg : toujours du bruit d'impédance. Le juge de paix reste le tour de taille (80,2 cm le 21/09) : on n'a pas de mesure depuis, c'est la plus importante à faire lundi.",
-   "Pouls au repos 105 sur la dernière mesure : une valeur isolée, probablement prise après un café ou en journée. Mesure-le le matin au réveil, allongé, avant de te lever, sinon le chiffre ne veut rien dire."
+   "Tour de taille 80,2 → 78,1 cm en un mois, pendant que le poids montait de 72,2 à 72,85 : c'est exactement la signature d'une prise de masse propre. Le gras baisse, le muscle et son eau montent. Le juge de paix a parlé, la balance à impédance qui dit 16,5 % de gras se trompe.",
+   "Les autres mesures bougent de quelques millimètres dans les deux sens (poitrine +0,8, bras droit +0,2, bras gauche −0,8, cuisses −0,2 à −0,6) : c'est la marge d'erreur du mètre ruban, pas une tendance. Seul le tour de taille, à −2,1 cm, dépasse le bruit. On lit les bras et les cuisses sur trois mois, pas sur un.",
+   "Rythme : 72,0 (sem. du 28/09) → 72,3 (sem. du 5/10) → 72,85 le 16/10. Créatine stabilisée depuis le 10 octobre, donc du tissu : environ 300 g par semaine, dans la cible. On ne touche pas aux calories.",
+   "Pèse-toi au moins trois matins par semaine, à jeun après les toilettes : une pesée isolée bouge de ±500 g. Et le tour de taille toujours au même moment, le matin, pour qu'il reste comparable.",
+   "Pouls au repos 105 sur la dernière mesure : valeur isolée, à reprendre le matin au réveil, allongé, avant de te lever."
   ]
  },
  "poids": {
